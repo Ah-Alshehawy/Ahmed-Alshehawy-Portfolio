@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed El-Shehawy | IT Leader & ERP Specialist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --text-light: #f8fafc;
+            --text-dark: #1e293b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e293b 100%);
+            color: var(--text-light);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-badge {
+            background-color: #e2e8f0;
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .experience-item {
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+        }
+
+        .cert-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            height: 100%;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 50px 0;
+            margin-top: 80px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--secondary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .stat-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">AHMED EL-SHEHAWY</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">IT Leader & ERP Specialist</h1>
+            <p class="hero-subtitle">Transforming business operations through 14+ years of technical excellence in Egypt & Saudi Arabia.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#contact" class="btn btn-primary">Hire Me</a>
+                <a href="https://github.com/Ah-Alshehawy/Ahmed-Alshehawy-Portfolio/blob/main/README.md" target="_blank" class="btn btn-outline-light">View CV</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <p class="lead text-muted">A results-driven IT Professional specializing in infrastructure, Odoo ERP, and network security.</p>
+                    <p>Dynamic and results-driven IT Leader with over 14 years of proven experience across Egypt and Saudi Arabia in IT infrastructure management, ERP systems (Odoo), network and cybersecurity, low current systems, and technical project delivery.</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="stat-box text-center bg-white shadow-sm">
+                                <h3 class="fw-bold text-primary">14+</h3>
+                                <p class="mb-0">Years Experience</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stat-box text-center bg-white shadow-sm">
+                                <h3 class="fw-bold text-success">50+</h3>
+                                <p class="mb-0">Projects Completed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="p-4 bg-white rounded shadow-sm">
+                        <h4 class="mb-4">Current Focus</h4>
+                        <ul class="list-unstyled">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Leading Odoo 18 Implementations</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Modernizing Server Infrastructure</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Advancing Cybersecurity with pfSense/Fortigate</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Developing IT Talent & Teams</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title text-center mx-auto">Technical Expertise</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-md-4">
+                    <div class="p-4 border rounded h-100">
+                        <i class="fas fa-layer-group fs-2 text-primary mb-3"></i>
+                        <h5>ERP Systems</h5>
+                        <div class="skill-badges">
+                            <span class="skill-badge">Odoo (HR, Acc, Inv)</span>
+                            <span class="skill-badge">ERPNext</span>
+                            <span class="skill-badge">POS Integration</span>
+                            <span class="skill-badge">API Customization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 border rounded h-100">
+                        <i class="fas fa-network-wired fs-2 text-success mb-3"></i>
+                        <h5>Networking & Security</h5>
+                        <div class="skill-badges">
+                            <span class="skill-badge">pfSense / Fortigate</span>
+                            <span class="skill-badge">VLAN / VPN</span>
+                            <span class="skill-badge">CCTV & Access Control</span>
+                            <span class="skill-badge">IPS/IDS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 border rounded h-100">
+                        <i class="fas fa-server fs-2 text-info mb-3"></i>
+                        <h5>Infrastructure</h5>
+                        <div class="skill-badges">
+                            <span class="skill-badge">Windows/Linux Server</span>
+                            <span class="skill-badge">Proxmox / VMware</span>
+                            <span class="skill-badge">Active Directory</span>
+                            <span class="skill-badge">Veeam Backup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Professional Journey</h2>
+            <div class="experience-timeline mt-5">
+                <div class="experience-item">
+                    <h5 class="fw-bold">Senior IT Manager</h5>
+                    <p class="text-primary mb-1">Excellent Franchise Management | Egypt (2024 - Present)</p>
+                    <p>Directing full IT infrastructure, leading Odoo ERP implementation, and enforcing cybersecurity policies with next-gen firewalls.</p>
+                </div>
+                <div class="experience-item">
+                    <h5 class="fw-bold">Technical Project Manager</h5>
+                    <p class="text-primary mb-1">Taif Al-Almas Trading Company | Riyadh, KSA (2023 - 2024)</p>
+                    <p>Managed large-scale low current systems projects including CCTV, Fire Alarm, and PA systems from design to commissioning.</p>
+                </div>
+                <div class="experience-item">
+                    <h5 class="fw-bold">Senior IT Engineer</h5>
+                    <p class="text-primary mb-1">NAT Egypt (NRPMC) | Alexandria (2021 - 2023)</p>
+                    <p>Deployed smart city infrastructure, configured secure networks, and managed multi-site attendance systems.</p>
+                </div>
+                <div class="experience-item">
+                    <h5 class="fw-bold">Branch Manager & Technical Supervisor</h5>
+                    <p class="text-primary mb-1">Taif Al-Almas Est. | Jeddah, KSA (2016 - 2020)</p>
+                    <p>Managed full branch operations and supervised technical teams for safety and surveillance projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-title">Key Projects</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="text-primary mb-3"><i class="fas fa-chart-line fs-3"></i></div>
+                            <h5 class="card-title">Odoo ERP Ecosystem</h5>
+                            <p class="card-text text-muted">End-to-end implementation of Odoo ERP for multi-branch franchise, customizing HR and Accounting modules.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="text-success mb-3"><i class="fas fa-shield-halved fs-3"></i></div>
+                            <h5 class="card-title">Enterprise Security Shield</h5>
+                            <p class="card-text text-muted">Deployment of pfSense/Fortigate firewalls with site-to-site VPNs for 30+ branches ensuring secure data flow.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="text-info mb-3"><i class="fas fa-building fs-3"></i></div>
+                            <h5 class="card-title">Smart City Infrastructure</h5>
+                            <p class="card-text text-muted">Laying the technical foundation for smart city projects including fiber networking and surveillance systems.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="text-muted mb-5">Open for strategic IT consultations, ERP projects, and leadership roles.</p>
+                    <div class="mb-4">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <span>ah.alshehawy@gmail.com</span>
+                    </div>
+                    <div class="mb-4">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <span>+20 100 676 5695</span>
+                    </div>
+                    <div class="mb-4">
+                        <i class="fab fa-linkedin contact-icon"></i>
+                        <a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" target="_blank" class="text-decoration-none">linkedin.com/in/ahmed-elshehawy</a>
+                    </div>
+                    <div class="mb-4">
+                        <i class="fas fa-location-dot contact-icon"></i>
+                        <span>Giza, Egypt</span>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="p-4 bg-white rounded shadow-sm">
+                        <h4 class="mb-4">Professional Integrity</h4>
+                        <p class="fst-italic text-muted">"Innovation, precision, and professional integrity drive my approach to IT leadership and technical excellence."</p>
+                        <hr>
+                        <p>Currently managing multiple complex projects including ERP systems, firewall configuration, and organizational technology strategy while actively building technical content and exploring entrepreneurial opportunities in IT services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-center">
+        <div class="container">
+            <p class="mb-0">© 2026 Ahmed Mahmoud El-Shehawy. All rights reserved.</p>
+            <p class="small text-muted mt-2">Built with passion & professional expertise.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
