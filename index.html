@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Mahmoud El-Shehawy | IT Director & ERP Expert</title>
+    <title>Ahmed Mahmoud El-Shehawy | IT Director & ERP Systems Expert</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -14,356 +14,248 @@
             --text-light: #f8fafc;
             --text-dark: #1e293b;
         }
-
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: #f1f5f9;
             color: var(--text-dark);
             scroll-behavior: smooth;
         }
-
-        .navbar {
-            background-color: var(--primary-color);
-            padding: 1rem 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero-section {
+        .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, #1e293b 100%);
             color: var(--text-light);
-            padding: 120px 0;
+            padding: 100px 0;
             text-align: center;
         }
-
         .profile-img {
             width: 180px;
             height: 180px;
             border-radius: 50%;
             border: 5px solid var(--secondary-color);
-            margin-bottom: 2rem;
-            object-fit: cover;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            background: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
-
-        .hero-title {
-            font-size: 3rem;
+        .main-title {
             font-weight: 800;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
-
-        .hero-subtitle {
+        .sub-title {
             font-size: 1.25rem;
-            color: #94a3b8;
-            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
             font-weight: 500;
         }
-
-        .hero-description {
-            max-width: 800px;
-            margin: 0 auto 2rem;
+        .tagline {
+            font-style: italic;
             font-size: 1.1rem;
-            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
         }
-
         .section-title {
+            text-align: center;
+            margin-bottom: 50px;
             font-weight: 700;
             position: relative;
-            padding-bottom: 15px;
-            margin-bottom: 40px;
-            text-align: center;
         }
-
         .section-title::after {
             content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 0;
             width: 60px;
             height: 4px;
-            background-color: var(--secondary-color);
+            background: var(--secondary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
-
-        .logo-container {
+        .logo-grid {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 40px;
             padding: 40px 0;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: all 0.3s ease;
         }
-
-        .logo-container:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-
         .logo-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 120px;
-        }
-
-        .logo-item i {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-
-        .logo-text {
-            font-weight: 600;
-            font-size: 0.9rem;
             text-align: center;
+            transition: transform 0.3s;
         }
-
-        .card {
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            margin-bottom: 20px;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-badge {
-            background-color: #e2e8f0;
-            color: var(--primary-color);
-            padding: 8px 15px;
-            border-radius: 20px;
-            display: inline-block;
-            margin: 5px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .experience-item {
-            border-left: 3px solid var(--secondary-color);
-            padding-left: 20px;
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -9px;
-            top: 0;
-            width: 15px;
-            height: 15px;
-            background-color: var(--secondary-color);
-            border-radius: 50%;
-        }
-
-        .footer {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 50px 0;
-            margin-top: 80px;
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            margin-right: 15px;
-            color: var(--secondary-color);
-        }
-
-        .btn-primary {
-            background-color: var(--secondary-color);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            font-weight: 600;
-        }
+        .logo-item:hover { transform: translateY(-10px); }
+        .logo-item i { font-size: 3rem; color: var(--secondary-color); margin-bottom: 10px; }
+        .card { border: none; border-radius: 15px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .footer { background: var(--primary-color); color: var(--text-light); padding: 40px 0; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">AHMED EL-SHEHAWY</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#logos">Systems</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" href="#">AHMED EL-SHEHAWY</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link text-light px-3" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link text-light px-3" href="#logos">Systems</a></li>
+                <li class="nav-item"><a class="nav-link text-light px-3" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link text-light px-3" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link text-light px-3" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="hero">
+    <div class="container">
+        <div class="profile-img">
+            <i class="fas fa-user-tie" style="font-size: 80px; color: #cbd5e1;"></i>
+        </div>
+        <h1 class="main-title">Information Systems Manager | Odoo Development Project Manager | ERP Systems Expert</h1>
+        <div class="sub-title">IT Projects Manager | Technical Expert | IT Expert</div>
+        <p class="tagline">"Transforming business operations through 14+ years of technical excellence in Egypt & Saudi Arabia."</p>
+        <div class="mt-4">
+            <a href="#contact" class="btn btn-primary btn-lg px-4 me-md-2">Connect with Me</a>
+            <a href="https://github.com/Ah-Alshehawy/Ahmed-Alshehawy-Portfolio/blob/main/README.md" class="btn btn-outline-light btn-lg px-4">View Full CV</a>
+        </div>
+    </div>
+</header>
+
+<section id="logos" class="container py-5">
+    <h2 class="section-title">Core Systems & Partners</h2>
+    <div class="logo-grid">
+        <div class="logo-item">
+            <i class="fas fa-cubes"></i>
+            <p class="fw-bold">Odoo ERP</p>
+        </div>
+        <div class="logo-item">
+            <i class="fas fa-shield-halved"></i>
+            <p class="fw-bold">pfSense</p>
+        </div>
+        <div class="logo-item">
+            <i class="fab fa-windows"></i>
+            <p class="fw-bold">Windows Server</p>
+        </div>
+        <div class="logo-item">
+            <i class="fab fa-linux"></i>
+            <p class="fw-bold">Linux Systems</p>
+        </div>
+        <div class="logo-item">
+            <i class="fas fa-network-wired"></i>
+            <p class="fw-bold">Fortigate</p>
+        </div>
+        <div class="logo-item">
+            <i class="fab fa-python"></i>
+            <p class="fw-bold">SQL / Python</p>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="bg-white py-5">
+    <div class="container">
+        <h2 class="section-title">Professional Summary</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-10 text-center">
+                <p class="lead mb-4">Strategic IT Leader with a focus on Digital Transformation and ERP Optimization.</p>
+                <p>Dynamic and results-driven IT Professional with over 14 years of proven experience across Egypt and Saudi Arabia. Currently serving as <strong>Information Systems Manager</strong> and <strong>Odoo Development Project Manager</strong>, leading complex infrastructure transformations and enterprise-level ERP implementations. Expertise spans from high-level project management to hands-on network security and business automation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="container py-5">
+    <h2 class="section-title">Technical Expertise</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 p-4">
+                <h4 class="text-primary mb-3"><i class="fas fa-briefcase me-2"></i> ERP & Management</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Odoo 18 Implementation</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Project Management</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Business Automation</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Customization & Workflows</li>
                 </ul>
             </div>
         </div>
-    </nav>
-
-    <header class="hero-section">
-        <div class="container">
-            <!-- Profile Picture Placeholder - You can replace the src with your actual photo URL -->
-            <img src="https://via.placeholder.com/180" alt="Ahmed Mahmoud El-Shehawy" class="profile-img">
-            
-            <h1 class="hero-title">Information Systems Manager</h1>
-            <div class="hero-subtitle">
-                Odoo Development Project Manager | Technical Expert | ERP Specialist
-            </div>
-            <p class="hero-description">
-                Transforming business operations through 14+ years of technical excellence in Egypt & Saudi Arabia.
-            </p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="#contact" class="btn btn-primary">Connect with Me</a>
-                <a href="https://github.com/Ah-Alshehawy/Ahmed-Alshehawy-Portfolio/blob/main/README.md" target="_blank" class="btn btn-outline-light">View Full CV</a>
+        <div class="col-md-4">
+            <div class="card h-100 p-4">
+                <h4 class="text-primary mb-3"><i class="fas fa-user-shield me-2"></i> Security & Networks</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> pfSense / Fortigate</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> VPN / VLAN Config</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Cybersecurity Policies</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> CCTV Systems</li>
+                </ul>
             </div>
         </div>
-    </header>
-
-    <section id="logos" class="py-5 bg-white">
-        <div class="container">
-            <h2 class="section-title">Core Systems & Partners</h2>
-            <div class="logo-container">
-                <div class="logo-item">
-                    <i class="fas fa-boxes-stacked"></i>
-                    <span class="logo-text">Odoo ERP</span>
-                </div>
-                <div class="logo-item">
-                    <i class="fas fa-shield-halved"></i>
-                    <span class="logo-text">pfSense</span>
-                </div>
-                <div class="logo-item">
-                    <i class="fas fa-server"></i>
-                    <span class="logo-text">Windows Server</span>
-                </div>
-                <div class="logo-item">
-                    <i class="fab fa-linux"></i>
-                    <span class="logo-text">Linux Systems</span>
-                </div>
-                <div class="logo-item">
-                    <i class="fas fa-network-wired"></i>
-                    <span class="logo-text">Fortigate</span>
-                </div>
-                <div class="logo-item">
-                    <i class="fas fa-database"></i>
-                    <span class="logo-text">SQL / Python</span>
-                </div>
+        <div class="col-md-4">
+            <div class="card h-100 p-4">
+                <h4 class="text-primary mb-3"><i class="fas fa-server me-2"></i> Infrastructure</h4>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Proxmox Virtualization</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Active Directory</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Veeam Backup</li>
+                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> System Imaging (Clonezilla)</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="about" class="py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <h2 class="section-title">Professional Summary</h2>
-                    <p class="lead text-center text-muted mb-5">Strategic IT Leader with a focus on Digital Transformation and ERP Optimization.</p>
-                    <div class="card p-4">
-                        <p>Dynamic and results-driven IT Professional with over 14 years of proven experience across Egypt and Saudi Arabia. Currently serving as <strong>Information Systems Manager</strong> and <strong>Odoo Development Project Manager</strong>, leading complex infrastructure transformations and enterprise-level ERP implementations. Expertise spans across network security frameworks, low current systems, and high-impact technical project delivery.</p>
-                    </div>
+<section id="experience" class="bg-light py-5">
+    <div class="container">
+        <h2 class="section-title">Professional Journey</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4 p-4 border-start border-primary border-4">
+                    <h3>Information Systems Manager & Odoo PM</h3>
+                    <p class="text-muted">Excellent Franchise Management | 2024 - Present</p>
+                    <p>Leading the digital transformation journey through full-scale Odoo implementation and infrastructure overhaul across the organization.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-5 bg-white">
-        <div class="container">
-            <h2 class="section-title">Technical Expertise</h2>
-            <div class="row g-4 mt-2">
-                <div class="col-md-4">
-                    <div class="p-4 border rounded h-100 text-center">
-                        <i class="fas fa-layer-group fs-2 text-primary mb-3"></i>
-                        <h5>ERP & Management</h5>
-                        <div class="skill-badges">
-                            <span class="skill-badge">Odoo 18</span>
-                            <span class="skill-badge">Project Management</span>
-                            <span class="skill-badge">Business Automation</span>
-                            <span class="skill-badge">Customization</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 border rounded h-100 text-center">
-                        <i class="fas fa-network-wired fs-2 text-success mb-3"></i>
-                        <h5>Security & Networks</h5>
-                        <div class="skill-badges">
-                            <span class="skill-badge">pfSense / Fortigate</span>
-                            <span class="skill-badge">VPN / VLAN</span>
-                            <span class="skill-badge">Cybersecurity</span>
-                            <span class="skill-badge">CCTV Systems</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="p-4 border rounded h-100 text-center">
-                        <i class="fas fa-server fs-2 text-info mb-3"></i>
-                        <h5>Infrastructure</h5>
-                        <div class="skill-badges">
-                            <span class="skill-badge">Virtualization</span>
-                            <span class="skill-badge">Active Directory</span>
-                            <span class="skill-badge">Veeam Backup</span>
-                            <span class="skill-badge">System Imaging</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="py-5">
-        <div class="container">
-            <h2 class="section-title">Professional Journey</h2>
-            <div class="experience-timeline mt-5">
-                <div class="experience-item">
-                    <h5 class="fw-bold">Information Systems Manager & Odoo PM</h5>
-                    <p class="text-primary mb-1">Excellent Franchise Management | 2024 - Present</p>
-                    <p>Leading the digital transformation journey through full-scale Odoo implementation and infrastructure modernization.</p>
-                </div>
-                <div class="experience-item">
-                    <h5 class="fw-bold">Technical Project Manager</h5>
-                    <p class="text-primary mb-1">Taif Al-Almas Trading Company | Riyadh (2023 - 2024)</p>
+                <div class="card mb-4 p-4 border-start border-secondary border-4">
+                    <h3>Technical Project Manager</h3>
+                    <p class="text-muted">Taif Al-Almas Trading Company | Riyadh (2023 - 2024)</p>
                     <p>Directed high-value low current systems projects from design to successful client handover.</p>
                 </div>
-                <div class="experience-item">
-                    <h5 class="fw-bold">Senior IT Engineer</h5>
-                    <p class="text-primary mb-1">NAT Egypt |NRPMC (2021 - 2023)</p>
+                <div class="card p-4 border-start border-info border-4">
+                    <h3>Senior IT Engineer</h3>
+                    <p class="text-muted">NAT Egypt |NRPMC (2021 - 2023)</p>
                     <p>Managed smart city infrastructure and secured complex network environments for large-scale projects.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section id="contact" class="py-5 bg-white">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="row justify-content-center mt-5">
-                <div class="col-md-8">
-                    <div class="card p-5 text-center">
-                        <div class="mb-4">
-                            <i class="fas fa-envelope contact-icon"></i>
-                            <span class="h5">ah.alshehawy@gmail.com</span>
-                        </div>
-                        <div class="mb-4">
-                            <i class="fab fa-linkedin contact-icon"></i>
-                            <a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" target="_blank" class="text-decoration-none h5">linkedin.com/in/ahmed-elshehawy</a>
-                        </div>
-                        <div class="mb-4">
-                            <i class="fas fa-location-dot contact-icon"></i>
-                            <span class="h5">Giza, Egypt | Available for Global Projects</span>
-                        </div>
-                    </div>
-                </div>
+<section id="contact" class="container py-5 text-center">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="mb-4">
+                <i class="fas fa-envelope fa-2x text-primary mb-2"></i>
+                <p class="h5">ah.alshehawy@gmail.com</p>
+            </div>
+            <div class="mb-4">
+                <i class="fab fa-linkedin fa-2x text-primary mb-2"></i>
+                <p class="h5"><a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" class="text-decoration-none">linkedin.com/in/ahmed-elshehawy</a></p>
+            </div>
+            <div>
+                <i class="fas fa-map-marker-alt fa-2x text-primary mb-2"></i>
+                <p class="h5">Giza, Egypt | Available for Global Projects</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <footer class="footer text-center">
-        <div class="container">
-            <p class="mb-0">© 2026 Ahmed Mahmoud El-Shehawy. IT Leadership Portfolio.</p>
-        </div>
-    </footer>
+<footer class="footer text-center">
+    <div class="container">
+        <p class="mb-0">© 2026 Ahmed Mahmoud El-Shehawy. IT Leadership Portfolio.</p>
+    </div>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
