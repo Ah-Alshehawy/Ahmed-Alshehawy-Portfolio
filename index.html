@@ -66,27 +66,37 @@
             width: 60px;
             height: 4px;
             background: var(--secondary-color);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+            position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
         }
         .logo-grid {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            padding: 40px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+        .logo-category {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .logo-category h4 {
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-weight: 700;
         }
         .logo-item {
             text-align: center;
             transition: transform 0.3s;
         }
         .logo-item:hover { transform: translateY(-10px); }
-        .logo-item i { font-size: 3rem; color: var(--secondary-color); margin-bottom: 10px; }
+        .logo-item i { font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 10px; }
         .card { border: none; border-radius: 15px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); transition: 0.3s; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
         .footer { background: var(--primary-color); color: var(--text-light); padding: 40px 0; }
+        .contact-icon { font-size: 1.5rem; color: var(--secondary-color); width: 40px; }
     </style>
 </head>
 <body>
@@ -125,126 +135,96 @@
 </header>
 
 <section id="logos" class="container py-5">
-    <h2 class="section-title">Core Systems & Partners</h2>
-    <div class="logo-grid">
-        <div class="logo-item">
-            <i class="fas fa-cubes"></i>
-            <p class="fw-bold">Odoo ERP</p>
+    <h2 class="section-title">Ecosystem & Expertise</h2>
+    
+    <div class="logo-category">
+        <h4><i class="fas fa-server me-2"></i> Infrastructure & Virtualization</h4>
+        <div class="logo-grid">
+            <div class="logo-item"><i class="fas fa-box"></i><p class="fw-bold">Proxmox</p></div>
+            <div class="logo-item"><i class="fab fa-windows"></i><p class="fw-bold">Windows Server</p></div>
+            <div class="logo-item"><i class="fab fa-linux"></i><p class="fw-bold">Linux Systems</p></div>
+            <div class="logo-item"><i class="fab fa-android"></i><p class="fw-bold">Android</p></div>
         </div>
-        <div class="logo-item">
-            <i class="fas fa-shield-halved"></i>
-            <p class="fw-bold">pfSense</p>
+    </div>
+
+    <div class="logo-category">
+        <h4><i class="fas fa-shield-alt me-2"></i> Security & Networking</h4>
+        <div class="logo-grid">
+            <div class="logo-item"><i class="fas fa-user-shield"></i><p class="fw-bold">OPNsense</p></div>
+            <div class="logo-item"><i class="fas fa-shield-halved"></i><p class="fw-bold">pfSense</p></div>
+            <div class="logo-item"><i class="fas fa-network-wired"></i><p class="fw-bold">Fortigate</p></div>
+            <div class="logo-item"><i class="fas fa-user-lock"></i><p class="fw-bold">Sophos</p></div>
+            <div class="logo-item"><i class="fas fa-lock"></i><p class="fw-bold">Untangle NG</p></div>
+            <div class="logo-item"><i class="fas fa-wifi"></i><p class="fw-bold">TP-Link Omada</p></div>
         </div>
-        <div class="logo-item">
-            <i class="fab fa-windows"></i>
-            <p class="fw-bold">Windows Server</p>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-linux"></i>
-            <p class="fw-bold">Linux Systems</p>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-network-wired"></i>
-            <p class="fw-bold">Fortigate</p>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-python"></i>
-            <p class="fw-bold">SQL / Python</p>
+    </div>
+
+    <div class="logo-category">
+        <h4><i class="fas fa-video me-2"></i> Low Current & Communication</h4>
+        <div class="logo-grid">
+            <div class="logo-item"><i class="fas fa-eye"></i><p class="fw-bold">Hikvision</p></div>
+            <div class="logo-item"><i class="fas fa-fingerprint"></i><p class="fw-bold">ZKTECO</p></div>
+            <div class="logo-item"><i class="fas fa-phone-alt"></i><p class="fw-bold">VoIP Systems</p></div>
+            <div class="logo-item"><i class="fas fa-cubes"></i><p class="fw-bold">Odoo ERP</p></div>
         </div>
     </div>
 </section>
 
 <section id="about" class="bg-white py-5">
-    <div class="container">
+    <div class="container text-center">
         <h2 class="section-title">Professional Summary</h2>
         <div class="row justify-content-center">
-            <div class="col-md-10 text-center">
+            <div class="col-md-10">
                 <p class="lead mb-4">Strategic IT Leader with a focus on Digital Transformation and ERP Optimization.</p>
-                <p>Dynamic and results-driven IT Professional with over 14 years of proven experience across Egypt and Saudi Arabia. Currently serving as <strong>Information Systems Manager</strong> and <strong>Odoo Development Project Manager</strong>, leading complex infrastructure transformations and enterprise-level ERP implementations. Expertise spans from high-level project management to hands-on network security and business automation.</p>
+                <p>Dynamic and results-driven IT Professional with over 14 years of experience. Expert in leading complex infrastructure transformations and enterprise-level ERP implementations. Expertise spans from high-level project management to hands-on network security and business automation.</p>
             </div>
         </div>
     </div>
 </section>
 
-<section id="skills" class="container py-5">
-    <h2 class="section-title">Technical Expertise</h2>
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="card h-100 p-4">
-                <h4 class="text-primary mb-3"><i class="fas fa-briefcase me-2"></i> ERP & Management</h4>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Odoo 18 Implementation</li>
-                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Project Management</li>
-                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Business Automation</li>
-                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Customization & Workflows</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 p-4">
-                <h4 class="text-primary mb-3"><i class="fas fa-user-shield me-2"></i> Security & Networks</h4>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> pfSense / Fortigate</li>
-                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> VPN / VLAN Config</li>
-                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Cybersecurity Policies</li>
-                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> CCTV Systems</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100 p-4">
-                <h4 class="text-primary mb-3"><i class="fas fa-server me-2"></i> Infrastructure</h4>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Proxmox Virtualization</li>
-                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Active Directory</li>
-                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Veeam Backup</li>
-                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> System Imaging (Clonezilla)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="experience" class="bg-light py-5">
-    <div class="container">
-        <h2 class="section-title">Professional Journey</h2>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card mb-4 p-4 border-start border-primary border-4">
-                    <h3>Information Systems Manager & Odoo PM</h3>
-                    <p class="text-muted">Excellent Franchise Management | 2024 - Present</p>
-                    <p>Leading the digital transformation journey through full-scale Odoo implementation and infrastructure overhaul across the organization.</p>
-                </div>
-                <div class="card mb-4 p-4 border-start border-secondary border-4">
-                    <h3>Technical Project Manager</h3>
-                    <p class="text-muted">Taif Al-Almas Trading Company | Riyadh (2023 - 2024)</p>
-                    <p>Directed high-value low current systems projects from design to successful client handover.</p>
-                </div>
-                <div class="card p-4 border-start border-info border-4">
-                    <h3>Senior IT Engineer</h3>
-                    <p class="text-muted">NAT Egypt |NRPMC (2021 - 2023)</p>
-                    <p>Managed smart city infrastructure and secured complex network environments for large-scale projects.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="contact" class="container py-5 text-center">
+<section id="contact" class="container py-5">
     <h2 class="section-title">Get In Touch</h2>
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="mb-4">
-                <i class="fas fa-envelope fa-2x text-primary mb-2"></i>
-                <p class="h5">ah.alshehawy@gmail.com</p>
-            </div>
-            <div class="mb-4">
-                <i class="fab fa-linkedin fa-2x text-primary mb-2"></i>
-                <p class="h5"><a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" class="text-decoration-none">linkedin.com/in/ahmed-elshehawy</a></p>
-            </div>
-            <div>
-                <i class="fas fa-map-marker-alt fa-2x text-primary mb-2"></i>
-                <p class="h5">Giza, Egypt | Available for Global Projects</p>
+        <div class="col-md-8">
+            <div class="card p-4">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div>
+                                <p class="mb-0 fw-bold">Primary Email</p>
+                                <a href="mailto:ah.alshehawy@gmail.com" class="text-decoration-none">ah.alshehawy@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-envelope-open-text contact-icon"></i>
+                            <div>
+                                <p class="mb-0 fw-bold">Secondary Email</p>
+                                <a href="mailto:ah.alshehawy@hotmail.com" class="text-decoration-none">ah.alshehawy@hotmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div>
+                                <p class="mb-0 fw-bold">Mobile</p>
+                                <a href="tel:+201006765695" class="text-decoration-none">+20 100 676 5695</a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fab fa-linkedin contact-icon"></i>
+                            <div>
+                                <p class="mb-0 fw-bold">LinkedIn</p>
+                                <a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" class="text-decoration-none">/in/ahmed-elshehawy</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="text-center mt-2">
+                    <p class="mb-0"><i class="fas fa-map-marker-alt me-2 text-primary"></i>Giza, Egypt | Available for Global Projects</p>
+                </div>
             </div>
         </div>
     </div>
