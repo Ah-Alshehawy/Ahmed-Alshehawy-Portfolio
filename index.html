@@ -1,96 +1,697 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ahmed El-Shehawy - IT Director & ERP Specialist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#0f172a 0%,#1a2942 50%,#0d1626 100%);color:#e2e8f0;line-height:1.6;overflow-x:hidden;min-height:100vh}
-    ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:rgba(15,23,42,0.8)}::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#3b82f6 0%,#1e40af 100%);border-radius:5px}
-    .navbar{background:rgba(15,23,42,0.95)!important;backdrop-filter:blur(10px);border-bottom:1px solid rgba(59,130,246,0.2);padding:1rem 0;animation:slideDown 0.6s ease-out;box-shadow:0 4px 30px rgba(0,0,0,0.3)}
-    .navbar-brand{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#3b82f6 0%,#60a5fa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:0.5rem;text-decoration:none}
-    .nav-link{font-weight:600;margin:0 0.5rem;position:relative;color:#cbd5e1!important;transition:all 0.3s ease;font-size:0.95rem}
-    .nav-link::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:linear-gradient(90deg,#3b82f6,#60a5fa);transition:width 0.3s ease}
-    .nav-link:hover::after{width:100%}.nav-link:hover{color:#60a5fa!important}
-    .lang-toggle{position:fixed;right:18px;top:20px;z-index:10001;display:flex;flex-direction:column;gap:0.35rem;padding:0.35rem;border-radius:10px;background:rgba(2,6,23,0.45);backdrop-filter:blur(6px);border:1px solid rgba(96,165,250,0.08)}
-    .lang-toggle .lang-btn{padding:0.35rem 0.5rem;font-size:0.85rem}
-    .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);color:#cbd5e1;padding:0.4rem 0.6rem;border-radius:6px;cursor:pointer;font-weight:700}
-    .lang-btn.active{background:linear-gradient(90deg,#3b82f6,#60a5fa);color:#fff;border-color:transparent}
-    .container{max-width:1200px;margin:0 auto;padding:2rem}
-    /* Reveal on scroll */
-    .revealable{opacity:0;transform:translateY(30px);transition:all 0.7s cubic-bezier(.2,.9,.2,1)}
-    .revealable.reveal{opacity:1;transform:none}
-    /* Project cards */
-    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2rem}
-    .project-card{background:linear-gradient(180deg,rgba(15,23,42,0.6),rgba(10,20,35,0.6));border-radius:12px;overflow:hidden;border:1px solid rgba(59,130,246,0.12);box-shadow:0 8px 30px rgba(2,6,23,0.6);transition:transform 0.35s ease,box-shadow 0.35s ease}
-    .project-card:hover{transform:translateY(-10px);box-shadow:0 18px 60px rgba(2,6,23,0.75)}
-    .project-card img{width:100%;height:160px;object-fit:cover;display:block}
-    .project-card .proj-body{padding:1rem}
-    .project-card h3{font-size:1.1rem;margin-bottom:0.5rem;color:#e6f0ff}
-    .project-card p{color:#aab8cf;font-size:0.95rem;line-height:1.4}
-    /* subtle brand animation */
-    .navbar-brand{transition:transform 0.45s cubic-bezier(.2,.9,.2,1)}
-    .navbar-brand:hover{transform:translateY(-3px) rotate(-1deg)}
-    .hero-content{text-align:center}
-    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;position:relative;overflow:hidden}
-    .profile-image{width:180px;height:180px;border-radius:50%;margin:0 auto 2rem;border:5px solid rgba(59,130,246,0.3);box-shadow:0 0 40px rgba(59,130,246,0.4),0 0 80px rgba(59,130,246,0.2);object-fit:cover;background:linear-gradient(135deg,#1e3a8a,#3b82f6)}
-    .profile-wrap{width:240px;height:240px;margin240px0 auto 2rem;position:relative;border-radius:50%;overflow:visible;perspective:900px}
-    .profile-wrap .profile-image,.profile-wrap .cup-image{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:240px;height:240px;border-radius:50%;object-fit:cover;transition:opacity .20s linear;transform-style:preserve-3d;backface-visibility:hidden}
-    .profile-wrap .cup-image{opacity:0;pointer-events:none;box-shadow:0 0 40px rgba(255,215,0,0.12);transform-origin:center center}
-    /* Triggered animation: add class .animate to run once, then JS will remove it */
-    .profile-wrap.animate .profile-image{opacity:0}
-    .profile-wrap.animate .cup-image{opacity:1;animation:globe 1.2s ease-in-out 1;animation-fill-mode:forwards}
-    @keyframes globe{
-      0%{transform:translate(-50%,-50%) rotateX(14deg) rotateY(0deg)}
-      100%{transform:translate(-50%,-50%) rotateX(14deg) rotateY(360deg)}
+    /* --- Core Design System --- */
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --secondary: #64748b;
+      --accent: #f59e0b;
+      /* Gold/Amber for distinction */
+      --bg-dark: #0f172a;
+      --glass: rgba(30, 41, 59, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
     }
-    .main-name{font-size:3.5rem;font-weight:800;margin-bottom:1rem;background:linear-gradient(135deg,#60a5fa 0%,#3b82f6 50%,#2563eb 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .job-title{font-size:1.1rem;font-weight:600;color:#94a3b8;margin-bottom:1.5rem;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.8;text-align:center}
-    .tagline{font-size:1.2rem;color:#cbd5e1;margin-bottom:2rem;text-align:center;font-style:italic;opacity:0.9}
-    .cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-    .btn{padding:0.9rem 1.6rem;border-radius:10px;font-weight:600;text-decoration:none;transition:all 0.3s ease;display:inline-flex;align-items:center;gap:0.5rem;font-size:1rem;border:none;cursor:pointer}
-    .btn-primary{background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;box-shadow:0 4px 15px rgba(59,130,246,0.4)}
-    .btn-secondary{background:rgba(59,130,246,0.1);color:#60a5fa;border:2px solid rgba(59,130,246,0.3)}
-    .section{padding:5rem 2rem}
-    .section-title{font-size:2.5rem;font-weight:800;text-align:center;margin-bottom:3rem;background:linear-gradient(135deg,#60a5fa,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin-top:3rem}
-    .skill-card{background:rgba(15,23,42,0.6);border:1px solid rgba(59,130,246,0.2);border-radius:15px;padding:2rem}
-    .skill-icon{font-size:3rem;color:#3b82f6;margin-bottom:1rem}
-    .skill-title{font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;color:#e2e8f0}
-    .skill-desc{color:#94a3b8;font-size:0.95rem}
-    .contact-section{background:rgba(15,23,42,0.4);border-radius:20px;padding:3rem;border:1px solid rgba(59,130,246,0.2)}
-    .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:2rem}
-    .contact-item{display:flex;align-items:center;gap:1rem;padding:1.5rem;background:rgba(59,130,246,0.05);border:1px solid rgba(59,130,246,0.1);border-radius:10px}
-    .contact-icon{font-size:1.5rem;color:#3b82f6;width:40px}
-    .contact-label{font-size:0.8rem;color:#94a3b8;margin-bottom:0.3rem}
-    .contact-value{color:#e2e8f0;font-weight:600;word-break:break-word}
-    .contact-value.email{font-size:1.02rem}
-    .footer{text-align:center;padding:2rem;border-top:1px solid rgba(59,130,246,0.2);margin-top:4rem;color:#94a3b8}
-    .lang{display:none}
-    .lang.active{display:block}
-    @media(max-width:768px){.main-name{font-size:2.5rem}.job-title{font-size:1rem}.section{padding:3rem 1rem}.skills-grid,.contact-grid{grid-template-columns:1fr}}
-    /* Back-to-top button */
-    #back-to-top{position:fixed;right:20px;bottom:30px;z-index:9999;background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;border:none;border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(2,6,23,0.6);cursor:pointer;opacity:0;transform:translateY(16px);transition:opacity .22s ease,transform .22s ease;backdrop-filter:blur(6px)}
-    #back-to-top i{font-size:1.05rem}
-    #back-to-top.show{opacity:1;transform:none}
-    @media(max-width:480px){#back-to-top{right:12px;bottom:20px;width:44px;height:44px}}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top right, #1e293b, #0f172a 60%, #020617);
+      color: var(--text-main);
+      line-height: 1.7;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    /* --- Navigation --- */
+    .navbar {
+      background: rgba(15, 23, 42, 0.85) !important;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar-brand {
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #60a5fa, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      margin: 0 0.8rem;
+      position: relative;
+      color: #cbd5e1 !important;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: #fff !important;
+    }
+
+    /* Language Toggle */
+    .lang-toggle {
+      position: fixed;
+      right: 20px;
+      top: 85px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (min-width: 992px) {
+      .lang-toggle {
+        position: static;
+        flex-direction: row;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+      }
+    }
+
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* --- Hero Section --- */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 1rem 4rem;
+      position: relative;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Fixed: Typo in margin */
+    .profile-wrap {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 2.5rem;
+      position: relative;
+      border-radius: 50%;
+      perspective: 1000px;
+    }
+
+    .profile-image,
+    .cup-image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      transition: opacity 0.4s ease;
+      /* Premium Effect: Glow */
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2), 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .cup-image {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .profile-wrap:hover .profile-image {
+      transform: scale(1.02);
+    }
+
+    .profile-wrap.animate .profile-image {
+      opacity: 0;
+    }
+
+    .profile-wrap.animate .cup-image {
+      opacity: 1;
+      animation: coinFlip 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes coinFlip {
+      0% {
+        transform: rotateY(0);
+      }
+
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+
+    .main-name {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, #60a5fa, #fff, #60a5fa);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 5s linear infinite;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    .job-title {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: #fff;
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.5);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px -5px rgba(37, 99, 235, 0.6);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+    }
+
+    /* --- Sections & Cards --- */
+    .section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3.5rem;
+      position: relative;
+      display: inline-block;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+      margin: 10px auto 0;
+    }
+
+    /* Glassmorphic Cards */
+    .skills-grid,
+    .projects-grid,
+    .contact-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .skill-card,
+    .project-card,
+    .contact-item {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card:hover,
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Subtle glow on hover */
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+      pointer-events: none;
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      color: #60a5fa;
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-desc {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .project-card {
+      padding: 0;
+      border: none;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-card .proj-body {
+      padding: 1.5rem;
+    }
+
+    .project-card h3 {
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    /* --- Timeline Section --- */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      width: 50%;
+      padding-right: 2rem;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      margin-left: 50%;
+      padding-right: 0;
+      padding-left: 2rem;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      right: -11px;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--bg-dark);
+      border: 2px solid var(--primary);
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      right: auto;
+      left: -11px;
+    }
+
+    .timeline-date {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .timeline-content h3 {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-content h4 {
+      font-size: 1rem;
+      color: #94a3b8;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    /* RTL specific overrides handled by dir="rtl" */
+    html[dir="rtl"] .timeline::before {
+      left: 50%;
+    }
+
+    html[dir="rtl"] .timeline-item {
+      text-align: left;
+      padding-left: 2rem;
+      padding-right: 0;
+    }
+
+    html[dir="rtl"] .timeline-item:nth-child(even) {
+      margin-right: 50%;
+      margin-left: 0;
+      text-align: right;
+      padding-right: 2rem;
+      padding-left: 0;
+    }
+
+    html[dir="rtl"] .timeline-dot {
+      left: -11px;
+      right: auto;
+    }
+
+    html[dir="rtl"] .timeline-item:nth-child(even) .timeline-dot {
+      right: -11px;
+      left: auto;
+    }
+
+    html[dir="rtl"] .nav-link::after {
+      right: 0;
+      left: auto;
+    }
+
+    /* --- Contact --- */
+    .contact-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      font-size: 1.4rem;
+      color: var(--primary);
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #64748b;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 4rem;
+    }
+
+    /* --- Utilities --- */
+    .revealable {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .revealable.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Language Switching Logic - STRICT ENFORCEMENT */
+    .lang {
+      display: none !important;
+    }
+
+    .lang.active {
+      display: block !important;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Centering Helper */
+    .text-center {
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .main-name {
+        font-size: 2rem;
+        white-space: normal;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      .job-title {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+
+      .section {
+        padding: 4rem 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.4rem;
+      }
+
+      /* Timeline Responsive Fixes */
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 3rem;
+        padding-right: 0;
+        text-align: left !important;
+        margin-left: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        margin-left: 0;
+        padding-left: 3rem;
+        text-align: left !important;
+      }
+
+      .timeline-dot {
+        left: 9px;
+        right: auto !important;
+      }
+
+      /* RTL Mobile Timeline */
+      html[dir="rtl"] .timeline::before {
+        right: 20px;
+        left: auto;
+      }
+
+      html[dir="rtl"] .timeline-item {
+        padding-right: 3rem;
+        padding-left: 0;
+        text-align: right !important;
+      }
+
+      html[dir="rtl"] .timeline-item:nth-child(even) {
+        padding-right: 3rem;
+        text-align: right !important;
+        margin-right: 0;
+      }
+
+      html[dir="rtl"] .timeline-dot {
+        right: 9px;
+        left: auto !important;
+      }
+
+      /* Center alignment on mobile for specific sections */
+      .hero-content,
+      .section-title,
+      .job-title,
+      .tagline {
+        text-align: center;
+      }
+    }
+  </style>
   </style>
 </head>
+
 <body>
   <nav class="navbar">
     <div class="container" style="display:flex;justify-content:space-between;align-items:center">
-      <a href="#" class="navbar-brand"><span class="brand-en">My Professional Portfolio</span><span class="brand-ar" style="display:none">ملفي المهني الاحترافي</span></a>
+      <a href="#" class="navbar-brand"><span class="brand-en">My Professional Portfolio</span><span class="brand-ar"
+          style="display:none">ملفي المهني الاحترافي</span></a>
       <div style="display:flex;gap:1rem;align-items:center">
         <div style="display:flex;gap:1rem">
-          <a href="#about" class="nav-link" data-target-en="#about" data-target-ar="#about-ar" data-text-en="About" data-text-ar="نبذة" data-scroll>About</a>
-          <a href="#skills" class="nav-link" data-target-en="#skills" data-target-ar="#competencies-ar" data-text-en="Skills" data-text-ar="المهارات" data-scroll>Skills</a>
-          <a href="#certs" class="nav-link" data-target-en="#certs" data-target-ar="#certs-ar" data-text-en="Certifications" data-text-ar="الشهادات">Certifications</a>
-          <a href="case-studies/index.html" class="nav-link" data-target-en="case-studies/index.html" data-target-ar="case-studies/index.html" data-text-en="Case Studies" data-text-ar="دراسات حالة">Case Studies</a>
-          <a href="#contact" class="nav-link" data-target-en="#contact" data-target-ar="#contact-ar" data-text-en="Contact" data-text-ar="تواصل">Contact</a>
+          <a href="#about" class="nav-link" data-target-en="#about" data-target-ar="#about-ar" data-text-en="About"
+            data-text-ar="نبذة" data-scroll>About</a>
+          <a href="#skills" class="nav-link" data-target-en="#skills" data-target-ar="#competencies-ar"
+            data-text-en="Skills" data-text-ar="المهارات" data-scroll>Skills</a>
+          <a href="#certs" class="nav-link" data-target-en="#certs" data-target-ar="#certs-ar"
+            data-text-en="Certifications" data-text-ar="الشهادات">Certifications</a>
+          <a href="case-studies/index.html" class="nav-link" data-target-en="case-studies/index.html"
+            data-target-ar="case-studies/index.html" data-text-en="Case Studies" data-text-ar="دراسات حالة">Case
+            Studies</a>
+          <a href="#contact" class="nav-link" data-target-en="#contact" data-target-ar="#contact-ar"
+            data-text-en="Contact" data-text-ar="تواصل">Contact</a>
         </div>
         <div class="lang-toggle" aria-hidden="false">
           <button id="btn-en" class="lang-btn">EN</button>
@@ -104,29 +705,85 @@
   <div class="lang lang-en active" data-lang="en">
     <section class="hero" id="about">
       <div class="container">
-          <div class="hero-content revealable">
+        <div class="hero-content revealable">
           <div class="profile-wrap">
-            <img src="Portfolio-pict.png" alt="Ahmed El-Shehawy" class="profile-image"/>
-            <img src="golden-cup.png" alt="gold cup" class="cup-image"/>
+            <img src="Portfolio-pict.png" alt="Ahmed El-Shehawy" class="profile-image" />
+            <img src="golden-cup.png" alt="gold cup" class="cup-image" />
           </div>
           <h1 class="main-name">Ahmed Mahmoud El-Shehawy</h1>
-          <p class="job-title">IT Projects Manager | IT Manager | ERP Consultant | Odoo Project Manager | Technical Expert</p>
-          <p class="tagline">"Transforming Business Operations Through 14+ Years of Technical Excellence in Egypt and Saudi Arabia"</p>
+          <p class="job-title">IT Projects Manager | IT Manager | ERP Consultant | Odoo Project Manager | Technical
+            Expert</p>
+          <p class="tagline">"Transforming Business Operations Through 14+ Years of Technical Excellence in Egypt and
+            Saudi Arabia"</p>
           <div class="cta-buttons">
             <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact معي</a>
-            <a href="CV With Titles.pdf" class="btn btn-secondary" download><i class="fas fa-file-pdf"></i> Download CV</a>
+            <a href="CV With Titles.pdf" class="btn btn-secondary" download><i class="fas fa-file-pdf"></i> Download
+              CV</a>
             <a href="https://github.com/Ah-Alshehawy" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
       </div>
     </section>
 
-    
+
 
     <section id="summary" class="section revealable">
       <div class="container">
         <h2 class="section-title">Professional Summary</h2>
-        <p style="max-width:900px;margin:0 auto;color:#cbdcea">Ahmed Alshehawy is an IT Director with 14+ years of experience delivering infrastructure modernization, ERP implementations and secure multi‑site systems across Egypt and the Gulf. He leads technical teams and cross‑functional stakeholders to translate business goals into reliable, auditable IT solutions — from network and security architecture to Odoo customizations and automation. His focus is measurable business impact: reduced operational cost, higher uptime, faster reporting and clearer decision data.</p>
+        <p style="max-width:900px;margin:0 auto;color:#cbdcea">Ahmed Alshehawy is an IT Director with 14+ years of
+          experience delivering infrastructure modernization, ERP implementations and secure multi‑site systems across
+          Egypt and the Gulf. He leads technical teams and cross‑functional stakeholders to translate business goals
+          into reliable, auditable IT solutions — from network and security architecture to Odoo customizations and
+          automation. His focus is measurable business impact: reduced operational cost, higher uptime, faster reporting
+          and clearer decision data.</p>
+      </div>
+    </section>
+
+    <section id="experience" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">Experience Timeline</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2024 - Present</span>
+              <h3>Senior IT Manager</h3>
+              <h4>Excellent Franchise Management, Egypt</h4>
+              <p>Leading IT infrastructure, ERP customization (Odoo), and security policies. Enhanced operational
+                reliability and managed vendor contracts.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2023 - 2024</span>
+              <h3>Technical Project Manager</h3>
+              <h4>Taif Al-Almas Trading Co, Saudi Arabia</h4>
+              <p>Directed low current systems projects (CCTV, Fire Alarm, Access Control). Managed timelines, tenders,
+                and client handovers for complex sites.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2021 - 2023</span>
+              <h3>Senior IT Engineer</h3>
+              <h4>NAT Egypt (NRPMC), Alexandria</h4>
+              <p>Deployed smart city infrastructure. Secured networks with VLAN/VPN/IPS. Managed high-volume attendance
+                systems reporting for large teams.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2016 - 2020</span>
+              <h3>Branch Manager</h3>
+              <h4>Taif Al-Almas Est., Jeddah</h4>
+              <p>Managed branch operations, sales, and technical support. Oversaw safety system deployments per Civil
+                Defense regulations.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -134,12 +791,30 @@
       <div class="container">
         <h2 class="section-title">Core Competencies</h2>
         <div class="skills-grid">
-          <div class="skill-card"><h3 class="skill-title">Strategy & Leadership</h3><p class="skill-desc">IT strategy, stakeholder alignment, vendor & budget governance</p></div>
-          <div class="skill-card"><h3 class="skill-title">Enterprise Infrastructure</h3><p class="skill-desc">Windows Server, Linux, Proxmox, virtualization, backups, HA</p></div>
-          <div class="skill-card"><h3 class="skill-title">Network & Security</h3><p class="skill-desc">Firewall architecture, VPN/SD‑WAN, VLANs, IDS/IPS</p></div>
-          <div class="skill-card"><h3 class="skill-title">ERP & Integration</h3><p class="skill-desc">Odoo implementation, custom modules, API integrations</p></div>
-          <div class="skill-card"><h3 class="skill-title">Automation</h3><p class="skill-desc">Python scripting, ETL, monitoring automation</p></div>
-          <div class="skill-card"><h3 class="skill-title">Low‑Current Systems</h3><p class="skill-desc">CCTV, access control, attendance systems</p></div>
+          <div class="skill-card"><i class="fas fa-chess-knight skill-icon"></i>
+            <h3 class="skill-title">Strategy & Leadership</h3>
+            <p class="skill-desc">IT strategy, team leadership, stakeholder alignment, vendor & budget governance.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-server skill-icon"></i>
+            <h3 class="skill-title">Enterprise Infra</h3>
+            <p class="skill-desc">Windows Server, Linux, Proxmox, Virtualization, HA & Disaster Recovery.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-shield-alt skill-icon"></i>
+            <h3 class="skill-title">Network & Security</h3>
+            <p class="skill-desc">Firewall architecture (Fortigate/Sophos), VPNs, VLANs, IDS/IPS.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-cubes skill-icon"></i>
+            <h3 class="skill-title">ERP & Integration</h3>
+            <p class="skill-desc">Odoo implementation, custom module development, API integrations.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-code skill-icon"></i>
+            <h3 class="skill-title">Automation</h3>
+            <p class="skill-desc">Python scripting, ETL pipelines, monitoring automation, task reduction.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-video skill-icon"></i>
+            <h3 class="skill-title">Low Current Systems</h3>
+            <p class="skill-desc">CCTV, Access Control, Attendance Systems, Fire Alarms.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -148,8 +823,10 @@
       <div class="container">
         <h2 class="section-title">Career Highlights</h2>
         <ul style="max-width:900px;margin:0 auto;color:#bcd3ea;line-height:1.6">
-          <li>Led Odoo ERP implementations that streamlined HR and payroll processes and improved month‑end reporting.</li>
-          <li>Architected multi‑branch VPN and automated device synchronization for 40+ sites, enabling centralized reporting.</li>
+          <li>Led Odoo ERP implementations that streamlined HR and payroll processes and improved month‑end reporting.
+          </li>
+          <li>Architected multi‑branch VPN and automated device synchronization for 40+ sites, enabling centralized
+            reporting.</li>
           <li>Redesigned network and firewall infrastructure to reduce critical incidents and lower MTTR.</li>
           <li>Delivered automation scripts and operational runbooks that reduced manual tasks and human error.</li>
         </ul>
@@ -164,15 +841,24 @@
             <h3 class="skill-title">Certifications</h3>
             <p class="skill-desc">Selected professional & technical certificates</p>
             <ul style="margin-top:.75rem;line-height:1.6;color:#c7dff3">
-              <li><strong>Google IT Support Professional Certificate</strong> (Coursera) — Completed (5 courses): Technical Support Fundamentals; The Bits & Bytes of Computer Networking; Operating Systems and You; System Administration & IT Infrastructure Services; IT Security: Defense Against the Digital Dark Arts.</li>
-              <li><strong>Google Cloud — AI & ML Series</strong> (Coursera) — Introduction to Generative AI; Introduction to AI and Machine Learning on Google Cloud; Introduction to Large Language Models.</li>
-              <li><strong>Programming for Everybody: Getting Started with Python</strong> — University of Michigan (Coursera).</li>
+              <li><strong>Google IT Support Professional Certificate</strong> (Coursera) — Completed (5 courses):
+                Technical Support Fundamentals; The Bits & Bytes of Computer Networking; Operating Systems and You;
+                System Administration & IT Infrastructure Services; IT Security: Defense Against the Digital Dark Arts.
+              </li>
+              <li><strong>Google Cloud — AI & ML Series</strong> (Coursera) — Introduction to Generative AI;
+                Introduction to AI and Machine Learning on Google Cloud; Introduction to Large Language Models.</li>
+              <li><strong>Programming for Everybody: Getting Started with Python</strong> — University of Michigan
+                (Coursera).</li>
               <li><strong>Project Management for Technical Projects</strong> — PMI (Registered Education Provider).</li>
               <li><strong>Windows 10 for IT Support: Troubleshooting Basics</strong> — LinkedIn Learning.</li>
-              <li><strong>NAT Egypt — IT Specialist Certificate</strong> — Professional experience certification (NAT Egypt).</li>
-              <li><strong>Taif Al‑Almas — Training Completion Certificate</strong> — Technical training in CCTV, access control, POS and attendance systems.</li>
+              <li><strong>NAT Egypt — IT Specialist Certificate</strong> — Professional experience certification (NAT
+                Egypt).</li>
+              <li><strong>Taif Al‑Almas — Training Completion Certificate</strong> — Technical training in CCTV, access
+                control, POS and attendance systems.</li>
             </ul>
-            <p style="margin-top:.6rem;color:#c7dff3">Full portfolio: <a href="https://raw.githubusercontent.com/Ah-Alshehawy/Ahmed-Alshehawy-Portfolio/main/CERTIFICATIONS.md" style="color:#60a5fa">CERTIFICATIONS.md</a></p>
+            <p style="margin-top:.6rem;color:#c7dff3">Full portfolio: <a
+                href="https://raw.githubusercontent.com/Ah-Alshehawy/Ahmed-Alshehawy-Portfolio/main/CERTIFICATIONS.md"
+                style="color:#60a5fa">CERTIFICATIONS.md</a></p>
           </div>
           <div class="skill-card">
             <h3 class="skill-title">Platforms & Tools</h3>
@@ -203,10 +889,22 @@
       <div class="container">
         <h2 class="section-title">Areas of Expertise</h2>
         <div class="skills-grid">
-          <div class="skill-card"><i class="fas fa-server skill-icon"></i><h3 class="skill-title">IT Infrastructure</h3><p class="skill-desc">Proxmox, Windows Server, Linux, Virtualization, Network Administration</p></div>
-          <div class="skill-card"><i class="fas fa-shield-alt skill-icon"></i><h3 class="skill-title">Security & Networking</h3><p class="skill-desc">OPNsense, IPFire, pfSense, Fortigate, Sophos, TP-Link Omada</p></div>
-          <div class="skill-card"><i class="fas fa-cubes skill-icon"></i><h3 class="skill-title">ERP Systems</h3><p class="skill-desc">Odoo ERP, Project Management, Business Process Automation</p></div>
-          <div class="skill-card"><i class="fas fa-video skill-icon"></i><h3 class="skill-title">Low Current Systems</h3><p class="skill-desc">Hikvision, ZKTECO, VoIP Systems, Access Control</p></div>
+          <div class="skill-card"><i class="fas fa-server skill-icon"></i>
+            <h3 class="skill-title">IT Infrastructure</h3>
+            <p class="skill-desc">Proxmox, Windows Server, Linux, Virtualization, Network Administration</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-shield-alt skill-icon"></i>
+            <h3 class="skill-title">Security & Networking</h3>
+            <p class="skill-desc">OPNsense, IPFire, pfSense, Fortigate, Sophos, TP-Link Omada</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-cubes skill-icon"></i>
+            <h3 class="skill-title">ERP Systems</h3>
+            <p class="skill-desc">Odoo ERP, Project Management, Business Process Automation</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-video skill-icon"></i>
+            <h3 class="skill-title">Low Current Systems</h3>
+            <p class="skill-desc">Hikvision, ZKTECO, VoIP Systems, Access Control</p>
+          </div>
         </div>
       </div>
     </section>
@@ -216,21 +914,27 @@
         <h2 class="section-title">Selected Projects</h2>
         <div class="projects-grid">
           <div class="project-card">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%233b82f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>Attendance</text></svg>" alt="Attendance Automation" />
+            <img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%233b82f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>Attendance</text></svg>"
+              alt="Attendance Automation" />
             <div class="proj-body">
               <h3>Attendance Automation</h3>
               <p>Integrated ZKTeco attendance devices with automated reporting and Odoo workflows.</p>
             </div>
           </div>
           <div class="project-card">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%231e3a8a'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>Odoo ERP</text></svg>" alt="ERP Implementation" />
+            <img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%231e3a8a'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>Odoo ERP</text></svg>"
+              alt="ERP Implementation" />
             <div class="proj-body">
               <h3>Odoo ERP Implementation</h3>
               <p>End-to-end Odoo customization for HR, Accounting and Inventory with automated dashboards.</p>
             </div>
           </div>
           <div class="project-card">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%232563eb'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>Network</text></svg>" alt="Network Modernization" />
+            <img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%232563eb'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>Network</text></svg>"
+              alt="Network Modernization" />
             <div class="proj-body">
               <h3>Network Modernization</h3>
               <p>Multi-site SD-WAN and firewall deployment with centralized monitoring and backup strategy.</p>
@@ -245,20 +949,52 @@
         <div class="contact-section">
           <h2 class="section-title">Contact Me</h2>
           <div class="contact-grid">
-            <div class="contact-item"><i class="fas fa-envelope contact-icon"></i><div class="contact-info"><div class="contact-label">Primary Email</div><div class="contact-value email"><a href="mailto:ah.alshehawy@gmail.com" style="color:inherit;text-decoration:none">ah.alshehawy@gmail.com</a></div></div></div>
-            <div class="contact-item"><i class="fas fa-envelope-open-text contact-icon"></i><div class="contact-info"><div class="contact-label">Secondary Email</div><div class="contact-value email"><a href="mailto:ah.alshehawy@hotmail.com" style="color:inherit;text-decoration:none">ah.alshehawy@hotmail.com</a></div></div></div>
-            <div class="contact-item"><i class="fas fa-phone contact-icon"></i><div class="contact-info"><div class="contact-label">Mobile</div><div class="contact-value">+20 100 676 5695</div></div></div>
-            <div class="contact-item"><i class="fab fa-linkedin contact-icon"></i><div class="contact-info"><div class="contact-label">LinkedIn</div><div class="contact-value">/in/ahmed-elshehawy</div></div></div>
-            <div class="contact-item"><i class="fas fa-link contact-icon"></i><div class="contact-info"><div class="contact-label">Linktree</div><div class="contact-value"><a href="https://linktr.ee/Ahmed.Alshehawy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">https://linktr.ee/Ahmed.Alshehawy</a></div></div></div>
+            <div class="contact-item"><i class="fas fa-envelope contact-icon"></i>
+              <div class="contact-info">
+                <div class="contact-label">Primary Email</div>
+                <div class="contact-value email"><a href="mailto:ah.alshehawy@gmail.com"
+                    style="color:inherit;text-decoration:none">ah.alshehawy@gmail.com</a></div>
+              </div>
+            </div>
+            <div class="contact-item"><i class="fas fa-envelope-open-text contact-icon"></i>
+              <div class="contact-info">
+                <div class="contact-label">Secondary Email</div>
+                <div class="contact-value email"><a href="mailto:ah.alshehawy@hotmail.com"
+                    style="color:inherit;text-decoration:none">ah.alshehawy@hotmail.com</a></div>
+              </div>
+            </div>
+            <div class="contact-item"><i class="fas fa-phone contact-icon"></i>
+              <div class="contact-info">
+                <div class="contact-label">Mobile</div>
+                <div class="contact-value">+20 100 676 5695</div>
+              </div>
+            </div>
+            <div class="contact-item"><i class="fab fa-linkedin contact-icon"></i>
+              <div class="contact-info">
+                <div class="contact-label">LinkedIn</div>
+                <div class="contact-value">/in/ahmed-elshehawy</div>
+              </div>
+            </div>
+            <div class="contact-item"><i class="fas fa-link contact-icon"></i>
+              <div class="contact-info">
+                <div class="contact-label">Linktree</div>
+                <div class="contact-value"><a href="https://linktr.ee/Ahmed.Alshehawy" target="_blank" rel="noopener"
+                    style="color:inherit;text-decoration:underline">https://linktr.ee/Ahmed.Alshehawy</a></div>
+              </div>
+            </div>
             <div class="contact-item download-item" style="grid-column:1 / -1;justify-content:center">
-              <a href="My certificates.pdf" class="btn btn-secondary" download style="display:inline-flex;align-items:center"><i class="fas fa-certificate"></i> View / Download Certifications</a>
+              <a href="My certificates.pdf" class="btn btn-secondary" download
+                style="display:inline-flex;align-items:center"><i class="fas fa-certificate"></i> View / Download
+                Certifications</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="footer"><p>© 2026 Ahmed Mahmoud El-Shehawy. IT Leadership Portfolio.</p></footer>
+    <footer class="footer">
+      <p>© 2026 Ahmed Mahmoud El-Shehawy. IT Leadership Portfolio.</p>
+    </footer>
   </div>
 
   <!-- Arabic content -->
@@ -267,15 +1003,18 @@
       <div class="container">
         <div class="hero-content">
           <div class="profile-wrap">
-            <img src="Portfolio-pict.png" alt="Ahmed El-Shehawy" class="profile-image"/>
-            <img src="golden-cup.png" alt="كأس ذهبي" class="cup-image"/>
+            <img src="Portfolio-pict.png" alt="Ahmed El-Shehawy" class="profile-image" />
+            <img src="golden-cup.png" alt="كأس ذهبي" class="cup-image" />
           </div>
           <h1 class="main-name">أحمد محمود الشهاوي</h1>
-          <p class="job-title">مدير مشاريع تكنولوجيا المعلومات | مدير تكنولوجيا المعلومات | مستشار ERP | مدير مشروعات Odoo | خبير تقني</p>
-          <p class="tagline">"تحويل العمليات التجارية من خلال أكثر من 14 سنة من التميز الفني في مصر والمملكة العربية السعودية"</p>
+          <p class="job-title">مدير مشاريع تكنولوجيا المعلومات | مدير تكنولوجيا المعلومات | مستشار ERP | مدير مشروعات
+            Odoo | خبير تقني</p>
+          <p class="tagline">"تحويل العمليات التجارية من خلال أكثر من 14 سنة من التميز الفني في مصر والمملكة العربية
+            السعودية"</p>
           <div class="cta-buttons">
             <a href="#contact-ar" class="btn btn-primary"><i class="fas fa-envelope"></i> تواصل</a>
-            <a href="السيرة الذاتية الشاملة.pdf" class="btn btn-secondary" download><i class="fas fa-file-pdf"></i> تحميل السيرة الذاتية</a>
+            <a href="السيرة الذاتية الشاملة.pdf" class="btn btn-secondary" download><i class="fas fa-file-pdf"></i>
+              تحميل السيرة الذاتية</a>
             <a href="https://github.com/Ah-Alshehawy" class="btn btn-secondary"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
@@ -285,20 +1024,87 @@
     <section id="summary-ar" class="section revealable">
       <div class="container">
         <h2 class="section-title">نبذة مهنية</h2>
-        <p style="max-width:900px;margin:0 auto;color:#cbdcea">أحمد الشهاوي مدير تكنولوجيا معلومات مع أكثر من 14 سنة خبرة في تحديث البنية التحتية، تنفيذ أنظمة ERP وبناء حلول متعددة المواقع آمنة في مصر والمملكة. يقود فرقًا تقنية ويحوّل أهداف الأعمال إلى حلول تقنية قابلة للقياس: خفض التكاليف، رفع التوافر، تسريع التقارير وتحسين اتخاذ القرار.</p>
+        <p style="max-width:900px;margin:0 auto;color:#cbdcea">أحمد الشهاوي مدير تكنولوجيا معلومات مع أكثر من 14 سنة
+          خبرة في تحديث البنية التحتية، تنفيذ أنظمة ERP وبناء حلول متعددة المواقع آمنة في مصر والمملكة. يقود فرقًا تقنية
+          ويحوّل أهداف الأعمال إلى حلول تقنية قابلة للقياس: خفض التكاليف، رفع التوافر، تسريع التقارير وتحسين اتخاذ
+          القرار.</p>
+      </div>
+    </section>
+
+    <section id="experience-ar" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">الجدول الزمني للخبرات</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2024 - الحالي</span>
+              <h3>مدير تكنولوجيا المعلومات</h3>
+              <h4>إكسيلنت لادارة الامتيازات التجاريه , مصر</h4>
+              <p>قيادة البنية التحتية، تخصيص Odoo ERP، وسياسات الأمن. تحسين الموثوقية التشغيلية وإدارة عقود الموردين.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2023 - 2024</span>
+              <h3>مدير مشاريع تقنية</h3>
+              <h4>شركة طيف الألماس التجارية، السعودية</h4>
+              <p>إدارة مشاريع الأنظمة الأمنية (كاميرات، حريق، دخول ذكي). إدارة الجداول الزمنية والعطاءات وتسليم
+                المشاريع.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2021 - 2023</span>
+              <h3>مهندس تكنولوجيا معلومات أول</h3>
+              <h4>الشركة الوطنية للمقاولات والتوريدات (NAT)، الإسكندرية</h4>
+              <p>نشر بنية المدن الذكية، تأمين الشبكات، وإدارة أنظمة الحضور لأعداد كبيرة من الموظفين.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2016 - 2020</span>
+              <h3>مدير فرع</h3>
+              <h4>مؤسسة طيف الألماس، جدة</h4>
+              <p>إدارة عمليات الفرع والمبيعات والدعم الفني. الإشراف على مشاريع السلامة وفق لوائح الدفاع المدني.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="competencies-ar" class="section revealable">
       <div class="container">
-        <h2 class="section-title">المهارات الأساسية</h2>
+        <h2 class="section-title">المهارات والقدرات</h2>
         <div class="skills-grid" style="direction:rtl">
-          <div class="skill-card"><h3 class="skill-title">القيادة والاستراتيجية</h3><p class="skill-desc">استراتيجية تكنولوجيا المعلومات، توحيد أصحاب المصلحة، إدارة الموردين والميزانيات</p></div>
-          <div class="skill-card"><h3 class="skill-title">البنية التحتية المؤسسية</h3><p class="skill-desc">Windows Server، Linux، Proxmox، الافتراضية، النسخ الاحتياطي والتوافر العالي</p></div>
-          <div class="skill-card"><h3 class="skill-title">الشبكات والأمن</h3><p class="skill-desc">تصميم جدران نارية، VPN/SD‑WAN، VLANs، IDS/IPS</p></div>
-          <div class="skill-card"><h3 class="skill-title">الـ ERP والتكامل</h3><p class="skill-desc">تنفيذ Odoo، تطوير وحدات مخصصة، تكاملات API</p></div>
-          <div class="skill-card"><h3 class="skill-title">الأتمتة</h3><p class="skill-desc">برمجة Python، ETL، أتمتة المراقبة</p></div>
-          <div class="skill-card"><h3 class="skill-title">الأنظمة المنخفضة الجهد</h3><p class="skill-desc">CCTV، التحكم في الدخول، أنظمة الحضور</p></div>
+          <div class="skill-card"><i class="fas fa-chess-knight skill-icon"></i>
+            <h3 class="skill-title">القيادة والاستراتيجية</h3>
+            <p class="skill-desc">استراتيجية تقنية المعلومات، قيادة الفرق، إدارة الموردين والميزانيات.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-server skill-icon"></i>
+            <h3 class="skill-title">البنية التحتية المؤسسية</h3>
+            <p class="skill-desc">Windows Server، Linux، Proxmox، الافتراضية، التوافر العالي والنسخ الاحتياطي.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-shield-alt skill-icon"></i>
+            <h3 class="skill-title">الشبكات والأمن</h3>
+            <p class="skill-desc">تصميم الجدران النارية (Fortigate/Sophos)، VPN، VLANs، كشف التسلل.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-cubes skill-icon"></i>
+            <h3 class="skill-title">ERP والتكامل</h3>
+            <p class="skill-desc">تنفيذ Odoo، تطوير وحدات مخصصة، ربط الأنظمة عبر API.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-code skill-icon"></i>
+            <h3 class="skill-title">الأتمتة</h3>
+            <p class="skill-desc">برمجة Python، خطوط البيانات (ETL)، أتمتة المراقبة والمهام الروتينية.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-video skill-icon"></i>
+            <h3 class="skill-title">الأنظمة التيار الخفيف</h3>
+            <p class="skill-desc">CCTV، التحكم في الدخول، أنظمة الحضور، إنذار الحريق.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -323,15 +1129,22 @@
             <h3 class="skill-title">الشهادات</h3>
             <p class="skill-desc">الشهادات المهنية والتقنية المختارة</p>
             <ul style="margin-top:.75rem;line-height:1.6;color:#c7dff3;direction:rtl">
-              <li><strong>شهادة دعم تكنولوجيا المعلومات من Google</strong> (Coursera) — مكتملة (5 دورات): أساسيات الدعم الفني؛ الشبكات؛ نظم التشغيل؛ إدارة الأنظمة وخدمات البنية التحتية؛ أمن المعلومات (الدفاع ضد الهجمات الرقمية).</li>
-              <li><strong>مساقات Google Cloud في الذكاء الاصطناعي وتعلم الآلة</strong> (Coursera) — مقدمة في الذكاء التوليدي؛ مقدمة في AI وML على Google Cloud؛ مقدمة في نماذج اللغة الكبيرة.</li>
-              <li><strong>Programming for Everybody: Getting Started with Python</strong> — جامعة ميتشجان (Coursera).</li>
+              <li><strong>شهادة دعم تكنولوجيا المعلومات من Google</strong> (Coursera) — مكتملة (5 دورات): أساسيات الدعم
+                الفني؛ الشبكات؛ نظم التشغيل؛ إدارة الأنظمة وخدمات البنية التحتية؛ أمن المعلومات (الدفاع ضد الهجمات
+                الرقمية).</li>
+              <li><strong>مساقات Google Cloud في الذكاء الاصطناعي وتعلم الآلة</strong> (Coursera) — مقدمة في الذكاء
+                التوليدي؛ مقدمة في AI وML على Google Cloud؛ مقدمة في نماذج اللغة الكبيرة.</li>
+              <li><strong>Programming for Everybody: Getting Started with Python</strong> — جامعة ميتشجان (Coursera).
+              </li>
               <li><strong>إدارة المشاريع للمشروعات التقنية</strong> — دورات معتمدة من PMI.</li>
               <li><strong>Windows 10 for IT Support: Troubleshooting Basics</strong> — LinkedIn Learning.</li>
               <li><strong>شهادة أخصائي تكنولوجيا المعلومات — NAT Egypt</strong> — شهادة خبرة مهنية.</li>
-              <li><strong>شهادة إتمام تدريب — Taif Al‑Almas</strong> — تدريب تقني في أنظمة المراقبة، التحكم في الوصول، نقاط البيع وأنظمة الحضور.</li>
+              <li><strong>شهادة إتمام تدريب — Taif Al‑Almas</strong> — تدريب تقني في أنظمة المراقبة، التحكم في الوصول،
+                نقاط البيع وأنظمة الحضور.</li>
             </ul>
-            <p style="margin-top:.6rem;color:#c7dff3;direction:rtl">عرض المحفظة الكاملة: <a href="https://raw.githubusercontent.com/Ah-Alshehawy/Ahmed-Alshehawy-Portfolio/main/CERTIFICATIONS.md" style="color:#60a5fa">CERTIFICATIONS.md</a></p>
+            <p style="margin-top:.6rem;color:#c7dff3;direction:rtl">عرض المحفظة الكاملة: <a
+                href="https://raw.githubusercontent.com/Ah-Alshehawy/Ahmed-Alshehawy-Portfolio/main/CERTIFICATIONS.md"
+                style="color:#60a5fa">CERTIFICATIONS.md</a></p>
           </div>
           <div class="skill-card">
             <h3 class="skill-title">الأدوات والمنصات</h3>
@@ -363,21 +1176,27 @@
         <h2 class="section-title">مشاريع مختارة</h2>
         <div class="projects-grid" style="direction:rtl">
           <div class="project-card">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%233b82f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>الحضور</text></svg>" alt="أتمتة الحضور" />
+            <img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%233b82f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>الحضور</text></svg>"
+              alt="أتمتة الحضور" />
             <div class="proj-body">
               <h3>أتمتة الحضور</h3>
               <p>دمج أجهزة ZKTeco مع تقارير آلية وربطها بـ Odoo.</p>
             </div>
           </div>
           <div class="project-card">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%231e3a8a'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>Odoo</text></svg>" alt="تنفيذ Odoo" />
+            <img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%231e3a8a'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>Odoo</text></svg>"
+              alt="تنفيذ Odoo" />
             <div class="proj-body">
               <h3>تنفيذ Odoo</h3>
               <p>نشر Odoo لإدارة الموارد البشرية، الرواتب والمخزون مع تخصيصات خفيفة.</p>
             </div>
           </div>
           <div class="project-card">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%232563eb'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>الشبكات</text></svg>" alt="تحديث الشبكة" />
+            <img
+              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%232563eb'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>الشبكات</text></svg>"
+              alt="تحديث الشبكة" />
             <div class="proj-body">
               <h3>تحديث الشبكة</h3>
               <p>نشر SD‑WAN وجدران نارية مركزية ومراقبة لزيادة الاستقرار والأمن.</p>
@@ -392,28 +1211,58 @@
         <div class="contact-section" style="direction:rtl">
           <h2 class="section-title">تواصل معي</h2>
           <div class="contact-grid">
-            <div class="contact-item"><i class="fas fa-envelope contact-icon"></i><div class="contact-info"><div class="contact-label">البريد الإلكتروني الرئيسي</div><div class="contact-value email"><a href="mailto:ah.alshehawy@gmail.com" style="color:inherit;text-decoration:none">ah.alshehawy@gmail.com</a></div></div></div>
-            <div class="contact-item"><i class="fas fa-envelope-open-text contact-icon"></i><div class="contact-info"><div class="contact-label">البريد الإلكتروني الثانوي</div><div class="contact-value email"><a href="mailto:ah.alshehawy@hotmail.com" style="color:inherit;text-decoration:none">ah.alshehawy@hotmail.com</a></div></div></div>
-            <div class="contact-item"><i class="fas fa-phone contact-icon"></i><div class="contact-info"><div class="contact-label">الجوال</div><div class="contact-value">+20 100 676 5695</div></div></div>
-            <div class="contact-item"><i class="fab fa-linkedin contact-icon"></i><div class="contact-info"><div class="contact-label">لينكدإن</div><div class="contact-value">/in/ahmed-elshehawy</div></div></div>
-            <div class="contact-item"><i class="fas fa-link contact-icon"></i><div class="contact-info"><div class="contact-label">لينك تري</div><div class="contact-value"><a href="https://linktr.ee/Ahmed.Alshehawy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">https://linktr.ee/Ahmed.Alshehawy</a></div></div></div>
+            <div class="contact-item"><i class="fas fa-envelope contact-icon"></i>
+              <div class="contact-info">
+                <div class="contact-label">البريد الإلكتروني الرئيسي</div>
+                <div class="contact-value email"><a href="mailto:ah.alshehawy@gmail.com"
+                    style="color:inherit;text-decoration:none">ah.alshehawy@gmail.com</a></div>
+              </div>
+            </div>
+            <div class="contact-item"><i class="fas fa-envelope-open-text contact-icon"></i>
+              <div class="contact-info">
+                <div class="contact-label">البريد الإلكتروني الثانوي</div>
+                <div class="contact-value email"><a href="mailto:ah.alshehawy@hotmail.com"
+                    style="color:inherit;text-decoration:none">ah.alshehawy@hotmail.com</a></div>
+              </div>
+            </div>
+            <div class="contact-item"><i class="fas fa-phone contact-icon"></i>
+              <div class="contact-info">
+                <div class="contact-label">الجوال</div>
+                <div class="contact-value">+20 100 676 5695</div>
+              </div>
+            </div>
+            <div class="contact-item"><i class="fab fa-linkedin contact-icon"></i>
+              <div class="contact-info">
+                <div class="contact-label">لينكدإن</div>
+                <div class="contact-value">/in/ahmed-elshehawy</div>
+              </div>
+            </div>
+            <div class="contact-item"><i class="fas fa-link contact-icon"></i>
+              <div class="contact-info">
+                <div class="contact-label">لينك تري</div>
+                <div class="contact-value"><a href="https://linktr.ee/Ahmed.Alshehawy" target="_blank" rel="noopener"
+                    style="color:inherit;text-decoration:underline">https://linktr.ee/Ahmed.Alshehawy</a></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="footer" style="direction:rtl"><p>© 2026 أحمد محمود الشهاوي. ملف قيادي في تقنية المعلومات.</p></footer>
+    <footer class="footer" style="direction:rtl">
+      <p>© 2026 أحمد محمود الشهاوي. ملف قيادي في تقنية المعلومات.</p>
+    </footer>
   </div>
 
   <script>
-    (function(){
+    (function () {
       const btnEn = document.getElementById('btn-en');
       const btnAr = document.getElementById('btn-ar');
       const enBlocks = document.querySelectorAll('.lang-en');
       const arBlocks = document.querySelectorAll('.lang-ar');
 
-      function setLang(lang){
-        if(lang === 'ar'){
+      function setLang(lang) {
+        if (lang === 'ar') {
           document.documentElement.lang = 'ar';
           document.documentElement.dir = 'rtl';
           btnAr.classList.add('active'); btnEn.classList.remove('active');
@@ -422,12 +1271,12 @@
           // toggle navbar brand
           const bEn = document.querySelector('.brand-en');
           const bAr = document.querySelector('.brand-ar');
-          if(bEn) bEn.style.display = 'none';
-          if(bAr) bAr.style.display = 'inline';
+          if (bEn) bEn.style.display = 'none';
+          if (bAr) bAr.style.display = 'inline';
           // update nav links to Arabic targets/text
           document.querySelectorAll('.nav-link').forEach(a => {
-            if(a.dataset.targetAr) a.href = a.dataset.targetAr;
-            if(a.dataset.textAr) a.textContent = a.dataset.textAr;
+            if (a.dataset.targetAr) a.href = a.dataset.targetAr;
+            if (a.dataset.textAr) a.textContent = a.dataset.textAr;
           });
         } else {
           document.documentElement.lang = 'en';
@@ -438,22 +1287,22 @@
           // toggle navbar brand
           const bEn = document.querySelector('.brand-en');
           const bAr = document.querySelector('.brand-ar');
-          if(bEn) bEn.style.display = 'inline';
-          if(bAr) bAr.style.display = 'none';
+          if (bEn) bEn.style.display = 'inline';
+          if (bAr) bAr.style.display = 'none';
           // update nav links to English targets/text
           document.querySelectorAll('.nav-link').forEach(a => {
-            if(a.dataset.targetEn) a.href = a.dataset.targetEn;
-            if(a.dataset.textEn) a.textContent = a.dataset.textEn;
+            if (a.dataset.targetEn) a.href = a.dataset.targetEn;
+            if (a.dataset.textEn) a.textContent = a.dataset.textEn;
           });
         }
-        try{localStorage.setItem('site-lang', lang);}catch(e){}
+        try { localStorage.setItem('site-lang', lang); } catch (e) { }
       }
 
       btnEn.addEventListener('click', () => setLang('en'));
       btnAr.addEventListener('click', () => setLang('ar'));
 
       // initialize
-      const saved = (function(){try{return localStorage.getItem('site-lang')}catch(e){return null}})();
+      const saved = (function () { try { return localStorage.getItem('site-lang') } catch (e) { return null } })();
       // Use saved preference if present, otherwise default to English
       setLang(saved ? saved : 'en');
     })();
@@ -461,13 +1310,13 @@
 
   <script>
     // simple scroll reveal for elements with class .revealable
-    (function(){
+    (function () {
       const items = document.querySelectorAll('.revealable');
-      function reveal(){
+      function reveal() {
         const h = window.innerHeight;
         items.forEach(el => {
           const r = el.getBoundingClientRect();
-          if(r.top < h - 80) el.classList.add('reveal');
+          if (r.top < h - 80) el.classList.add('reveal');
         });
       }
       window.addEventListener('scroll', reveal);
@@ -480,45 +1329,45 @@
   <button id="back-to-top" aria-label="Back to top" title="Back to top"><i class="fas fa-chevron-up"></i></button>
 
   <script>
-    (function(){
+    (function () {
       const b = document.getElementById('back-to-top');
-      if(!b) return;
+      if (!b) return;
       // Show when scrolled down
-      function toggle(){
-        if(window.scrollY > 300) b.classList.add('show'); else b.classList.remove('show');
+      function toggle() {
+        if (window.scrollY > 300) b.classList.add('show'); else b.classList.remove('show');
       }
-      window.addEventListener('scroll', toggle, {passive:true});
+      window.addEventListener('scroll', toggle, { passive: true });
       // initial
       setTimeout(toggle, 150);
       // click -> smooth scroll to top
-      b.addEventListener('click', function(e){
+      b.addEventListener('click', function (e) {
         e.preventDefault();
-        try{window.scrollTo({top:0,behavior:'smooth'})}catch(err){window.scrollTo(0,0)}
+        try { window.scrollTo({ top: 0, behavior: 'smooth' }) } catch (err) { window.scrollTo(0, 0) }
       });
     })();
   </script>
 
   <script>
     // Run the globe/cup animation once on hover, then restore the profile image
-    (function(){
+    (function () {
       const wraps = document.querySelectorAll('.profile-wrap');
       wraps.forEach(w => {
         let animating = false;
         w.addEventListener('mouseenter', () => {
-          if(animating) return;
-          if(w.dataset.played === 'true') return; // don't re-run after one full play
+          if (animating) return;
+          if (w.dataset.played === 'true') return; // don't re-run after one full play
           animating = true;
           w.classList.add('animate');
         });
         // listen for animation end on the cup image
         const cup = w.querySelector('.cup-image');
-        if(cup){
+        if (cup) {
           cup.addEventListener('animationend', () => {
             // remove animate class to restore initial state
             w.classList.remove('animate');
             // ensure cup hidden and profile visible
             const prof = w.querySelector('.profile-image');
-            if(prof) prof.style.opacity = '1';
+            if (prof) prof.style.opacity = '1';
             cup.style.opacity = '0';
             // mark as played once so it won't re-trigger without page refresh
             w.dataset.played = 'true';
@@ -531,8 +1380,3 @@
 </body>
 
 </html>
-
-
-
-
-
