@@ -896,9 +896,8 @@
             data-text-en="Skills" data-text-ar="المهارات" data-scroll>Skills</a>
           <a href="#certs" class="nav-link" data-target-en="#certs" data-target-ar="#certs-ar"
             data-text-en="Certifications" data-text-ar="الشهادات">Certifications</a>
-          <a href="case-studies/index.html" class="nav-link" data-target-en="case-studies/index.html"
-            data-target-ar="case-studies/index.html" data-text-en="Case Studies" data-text-ar="دراسات حالة">Case
-            Studies</a>
+          <a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" class="nav-link" target="_blank"
+            data-text-en="LinkedIn" data-text-ar="لينكدإن">LinkedIn</a>
           <a href="#contact" class="nav-link" data-target-en="#contact" data-target-ar="#contact-ar"
             data-text-en="Contact" data-text-ar="تواصل">Contact</a>
         </div>
@@ -1053,27 +1052,26 @@
             <h3 class="skill-title">Certifications</h3>
             <p class="skill-desc">Selected professional & technical certificates</p>
             <ul style="margin-top:.75rem;line-height:1.6;color:#c7dff3">
-              <li><strong>Google IT Support Professional Certificate</strong> (Coursera) — Completed (5 courses):
-                Technical Support Fundamentals; The Bits & Bytes of Computer Networking; Operating Systems and You;
-                System Administration & IT Infrastructure Services; IT Security: Defense Against the Digital Dark
-                Arts.
+              <li><strong>Google IT Support Professional Certificate</strong> (Coursera) — 5 courses completed
+                <a href="https://coursera.org/verify/professional-cert/MQWTSLD8T6TW" target="_blank"
+                  style="color:#60a5fa;font-size:0.85rem"> [Verify]</a>
               </li>
-              <li><strong>Google Cloud — AI & ML Series</strong> (Coursera) — Introduction to Generative AI;
-                Introduction to AI and Machine Learning on Google Cloud; Introduction to Large Language Models.</li>
-              <li><strong>Programming for Everybody: Getting Started with Python</strong> — University of Michigan
-                (Coursera).</li>
-              <li><strong>Project Management for Technical Projects</strong> — PMI (Registered Education Provider).
+              <li><strong>Google Cloud — AI & ML Series</strong> (Coursera) — Generative AI, ML on GCP, LLM
+                <a href="https://coursera.org/verify/TFAYCH8JT38Q" target="_blank"
+                  style="color:#60a5fa;font-size:0.85rem"> [Verify]</a>
               </li>
-              <li><strong>Windows 10 for IT Support: Troubleshooting Basics</strong> — LinkedIn Learning.</li>
-              <li><strong>NAT Egypt — IT Specialist Certificate</strong> — Professional experience certification (NAT
-                Egypt).</li>
-              <li><strong>Taif Al‑Almas — Training Completion Certificate</strong> — Technical training in CCTV,
-                access
-                control, POS and attendance systems.</li>
+              <li><strong>Python Programming</strong> — University of Michigan (Coursera)
+                <a href="https://coursera.org/verify/E9BACQ0BZ3L8" target="_blank"
+                  style="color:#60a5fa;font-size:0.85rem"> [Verify]</a>
+              </li>
+              <li><strong>Project Management for Technical Projects</strong> — PMI</li>
+              <li><strong>Windows 10 IT Support</strong> — LinkedIn Learning</li>
+              <li><strong>NAT Egypt — IT Specialist Certificate</strong> — Professional experience certification</li>
+              <li><strong>Taif Al‑Almas — Training Certificate</strong> — CCTV, Access Control, POS Systems</li>
             </ul>
             <p style="margin-top:.6rem;color:#c7dff3">Full portfolio: <a
                 href="https://raw.githubusercontent.com/Ah-Alshehawy/Ahmed-Alshehawy-Portfolio/main/CERTIFICATIONS.md"
-                style="color:#60a5fa">CERTIFICATIONS.md</a></p>
+                target="_blank" style="color:#60a5fa">CERTIFICATIONS.md</a></p>
           </div>
           <div class="skill-card">
             <h3 class="skill-title">Platforms & Tools</h3>
@@ -1592,28 +1590,44 @@
   </script>
   <!-- Simple Side Nav HTML -->
   <nav class="side-nav" id="sideNav">
-    <a href="#about"><i class="fas fa-user"></i></a>
-    <a href="#skills"><i class="fas fa-code"></i></a>
-    <a href="#experience"><i class="fas fa-briefcase"></i></a>
-    <a href="#contact"><i class="fas fa-envelope"></i></a>
+    <a href="#about" data-target-en="#about" data-target-ar="#about-ar"><i class="fas fa-user"></i></a>
+    <a href="#skills" data-target-en="#skills" data-target-ar="#competencies-ar"><i class="fas fa-code"></i></a>
+    <a href="#experience" data-target-en="#experience" data-target-ar="#experience-ar"><i
+        class="fas fa-briefcase"></i></a>
+    <a href="#contact" data-target-en="#contact" data-target-ar="#contact-ar"><i class="fas fa-envelope"></i></a>
   </nav>
 
   <script>
-    // Simple Side Nav Logic
+    // Simple Side Nav Logic with Language Support
     (function () {
       const sideNav = document.getElementById('sideNav');
       const topNav = document.querySelector('.navbar');
+      const sideNavLinks = sideNav.querySelectorAll('a');
 
+      // Update side nav links based on language
+      function updateSideNavLinks() {
+        const isArabic = document.documentElement.dir === 'rtl';
+        sideNavLinks.forEach(link => {
+          const target = isArabic ? link.dataset.targetAr : link.dataset.targetEn;
+          if (target) link.href = target;
+        });
+      }
+
+      // Update on language change
+      const observer = new MutationObserver(updateSideNavLinks);
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
+
+      // Initial update
+      updateSideNavLinks();
+
+      // Scroll visibility
       window.addEventListener('scroll', () => {
         if (window.scrollY > 150) {
           sideNav.classList.add('show');
           topNav.style.display = 'none';
         } else {
           sideNav.classList.remove('show');
-          topNav.style.display = 'block'; // Ensure flex/block restored
-          // Since original navbar had display:flex via CSS or forced LTR class, 
-          // checking if we simply removing the inline style helps:
-          if (window.scrollY <= 150) topNav.style.display = '';
+          topNav.style.display = '';
         }
       });
     })();
