@@ -676,26 +676,27 @@
 
     /* Back To Top Button */
     #backToTop {
-      display: none;
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 99;
-      font-size: 1.2rem;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+
+      background-color: rgba(22, 3, 96, 0.45);
+      color: #ffffff;
+
       border: none;
-      outline: none;
-      background: var(--primary);
-      color: white;
-      cursor: pointer;
-      padding: 15px;
       border-radius: 50%;
-      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
-      transition: all 0.3s ease;
+      padding: 10px 14px;
+      cursor: pointer;
+
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
     }
 
     #backToTop:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-5px);
+      opacity: 1;
+      transform: none;
+      /* Reset potential transform from previous styles */
     }
 
     /* Force LTR for Navbar Container to keep Lang button on right even in RTL */
@@ -704,6 +705,109 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    /* --- RTL FIXED ALIGNMENT & TYPOGRAPHY --- */
+    html[dir="rtl"] body {
+      text-align: right;
+      direction: rtl;
+    }
+
+    /* Container Spacing for Arabic */
+    html[dir="rtl"] .container {
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+
+    /* Headings and Typography */
+    html[dir="rtl"] h1,
+    html[dir="rtl"] h2,
+    html[dir="rtl"] h3,
+    html[dir="rtl"] h4,
+    html[dir="rtl"] p {
+      padding-right: 5px;
+      /* Prevent sticking to edge */
+      font-family: 'Poppins', sans-serif;
+      /* Fallback, ideally use Cairo or similar if loaded */
+    }
+
+    html[dir="rtl"] p,
+    html[dir="rtl"] .skill-desc,
+    html[dir="rtl"] .timeline-content p {
+      line-height: 2.0;
+      /* Improved line height for Arabic readability */
+    }
+
+    /* Section Title Centering override if needed, or keep centered */
+    /* .section-title is centered by default. In RTL it stays centered. */
+
+    /* Timeline RTL Layout Fixes */
+    html[dir="rtl"] .timeline::before {
+      right: 50%;
+      left: auto;
+    }
+
+    html[dir="rtl"] .timeline-item {
+      text-align: left;
+      /* Content faces inward */
+      padding-right: 0;
+      padding-left: 3rem;
+    }
+
+    html[dir="rtl"] .timeline-item:nth-child(even) {
+      text-align: right;
+      /* Content faces inward */
+      padding-left: 0;
+      padding-right: 3rem;
+    }
+
+    html[dir="rtl"] .timeline-dot {
+      right: -11px;
+      /* Default LTR is right: -11px, we need to invert? 
+         LTR Odd: dot on right.
+         RTL Odd: dot on left? 
+         The existing CSS (lines 518) sets left: -11px. 
+         I will reinforce this behavior.
+      */
+      border-color: var(--primary);
+    }
+
+    /* Buttons & Interactions */
+    html[dir="rtl"] .btn {
+      flex-direction: row;
+      /* Ensure icon is adjacent correctly */
+    }
+
+    html[dir="rtl"] .contact-icon {
+      margin-left: 1rem;
+      margin-right: 0;
+    }
+
+    /* Mobile specific RTL adjustments */
+    @media (max-width: 768px) {
+      html[dir="rtl"] .container {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+      }
+
+      html[dir="rtl"] .timeline-item,
+      html[dir="rtl"] .timeline-item:nth-child(even) {
+        padding-right: 3rem;
+        padding-left: 0;
+        text-align: right !important;
+        /* Force right align on mobile */
+      }
+
+      html[dir="rtl"] .timeline::before {
+        right: 20px;
+        left: auto;
+      }
+
+      html[dir="rtl"] .timeline-dot,
+      html[dir="rtl"] .timeline-item:nth-child(even) .timeline-dot {
+        right: 9px;
+        left: auto;
+      }
     }
   </style>
   </style>
@@ -1371,25 +1475,20 @@
       })();
     </script>
 
-    <button id="back-to-top" aria-label="Back to top" title="Back to top"><i class="fas fa-chevron-up"></i></button>
+    <button id="backToTop" title="Back to top"><i class="fas fa-chevron-up"></i></button>
 
     <script>
-      (function () {
-        const b = document.getElementById('back-to-top');
-        if (!b) return;
-        // Show when scrolled down
-        function toggle() {
-          if (window.scrollY > 300) b.classList.add('show'); else b.classList.remove('show');
-        }
-        window.addEventListener('scroll', toggle, { passive: true });
-        // initial
-        setTimeout(toggle, 150);
-        // click -> smooth scroll to top
-        b.addEventListener('click', function (e) {
-          e.preventDefault();
-          try { window.scrollTo({ top: 0, behavior: 'smooth' }) } catch (err) { window.scrollTo(0, 0) }
-        });
-      })();
+      const backToTop = document.getElementById("backToTop");
+      // Hide initially if at top
+      if (window.scrollY === 0) backToTop.style.display = "none";
+
+      window.addEventListener("scroll", () => {
+        backToTop.style.display = window.scrollY > 0 ? "block" : "none";
+      });
+
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
     </script>
 
     <script>
