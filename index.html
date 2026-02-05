@@ -168,9 +168,29 @@
       padding: 0 1.5rem;
     }
 
+    /* --- Project Grid Updates --- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      /* Ensure consistent height */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .proj-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Original Styles continue below... */
     /* --- Hero Section --- */
     .hero {
-      min-height: 90vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -788,6 +808,27 @@
     }
 
     /* Buttons & Interactions */
+    .btn-interactive {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      display: flex;
+      /* Ensure flex layout works on anchor */
+      align-items: center;
+      /* Vertical center */
+      gap: 15px;
+      /* Match original gap */
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .btn-interactive:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.08);
+      /* Slightly lighter on hover */
+      border-color: var(--primary);
+      /* Highlight border */
+    }
+
     html[dir="rtl"] .btn {
       flex-direction: row;
       /* Ensure icon is adjacent correctly */
@@ -919,16 +960,19 @@
             <img src="golden-cup.png" alt="gold cup" class="cup-image" />
           </div>
           <h1 class="main-name">Ahmed Mahmoud El-Shehawy</h1>
-          <p class="job-title">IT Projects Manager | IT Manager | ERP Consultant | Odoo Project Manager | Technical
-            Expert</p>
-          <p class="tagline">"Transforming Business Operations Through 14+ Years of Technical Excellence in Egypt and
-            Saudi Arabia"</p>
+          <p class="job-title">IT Manager | ERP & Odoo Project Manager<br>Infrastructure, Cybersecurity & Digital
+            Transformation</p>
+          <p class="tagline" style="max-width:700px;margin:1rem auto;color:#b8d4f0;line-height:1.7">
+            Senior IT Leader with 14+ years delivering Odoo ERP implementations, enterprise infrastructure, and
+            cybersecurity solutions across multi-branch retail, franchise, and enterprise environments in Egypt and
+            Saudi Arabia.
+          </p>
           <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact معي</a>
+            <a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" class="btn btn-primary" target="_blank"><i
+                class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+            <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Contact</a>
             <a href="CV With Titles.pdf" class="btn btn-secondary" download><i class="fas fa-file-pdf"></i> Download
               CV</a>
-            <a href="https://github.com/Ah-Alshehawy" class="btn btn-secondary"><i class="fab fa-github"></i>
-              GitHub</a>
           </div>
         </div>
       </div>
@@ -959,8 +1003,8 @@
               <span class="timeline-date">2024 - Present</span>
               <h3>Senior IT Manager</h3>
               <h4>Excellent Franchise Management, Egypt</h4>
-              <p>Leading IT infrastructure, ERP customization (Odoo), and security policies. Enhanced operational
-                reliability and managed vendor contracts.</p>
+              <p>Leading IT infrastructure, ERP customization (Odoo), and security policies. <strong>Centralized ERP
+                  operations for 15+ branches.</strong></p>
             </div>
           </div>
           <div class="timeline-item">
@@ -969,8 +1013,8 @@
               <span class="timeline-date">2023 - 2024</span>
               <h3>Technical Project Manager</h3>
               <h4>Taif Al-Almas Trading Co, Saudi Arabia</h4>
-              <p>Directed low current systems projects (CCTV, Fire Alarm, Access Control). Managed timelines, tenders,
-                and client handovers for complex sites.</p>
+              <p>Directed low current systems projects (CCTV, Fire Alarm, Access Control). <strong>Delivered 20+
+                  projects on time and within budget.</strong></p>
             </div>
           </div>
           <div class="timeline-item">
@@ -979,9 +1023,8 @@
               <span class="timeline-date">2021 - 2023</span>
               <h3>Senior IT Engineer</h3>
               <h4>NAT Egypt (NRPMC), Alexandria</h4>
-              <p>Deployed smart city infrastructure. Secured networks with VLAN/VPN/IPS. Managed high-volume
-                attendance
-                systems reporting for large teams.</p>
+              <p>Deployed smart city infrastructure. Secured networks with VLAN/VPN/IPS. <strong>Managed attendance
+                  systems for 40+ locations.</strong></p>
             </div>
           </div>
           <div class="timeline-item">
@@ -990,8 +1033,8 @@
               <span class="timeline-date">2016 - 2020</span>
               <h3>Branch Manager</h3>
               <h4>Taif Al-Almas Est., Jeddah</h4>
-              <p>Managed branch operations, sales, and technical support. Oversaw safety system deployments per Civil
-                Defense regulations.</p>
+              <p>Managed branch operations, sales, and technical support. <strong>Reduced system downtime by
+                  ~35%.</strong></p>
             </div>
           </div>
         </div>
@@ -1127,30 +1170,67 @@
         <h2 class="section-title">Selected Projects</h2>
         <div class="projects-grid">
           <div class="project-card">
-            <img
-              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%233b82f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>Attendance</text></svg>"
-              alt="Attendance Automation" />
+            <div
+              style="height:140px;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#3b82f6">
+              <i class="fas fa-video"></i>
+            </div>
             <div class="proj-body">
-              <h3>Attendance Automation</h3>
-              <p>Integrated ZKTeco attendance devices with automated reporting and Odoo workflows.</p>
+              <h3>Integrated Surveillance</h3>
+              <p>End-to-end CCTV systems for palaces, hotels, and retail using Hikvision, Dahua, Pelco, Panasonic, and
+                Bosch.</p>
             </div>
           </div>
           <div class="project-card">
-            <img
-              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%231e3a8a'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>Odoo ERP</text></svg>"
-              alt="ERP Implementation" />
+            <div
+              style="height:140px;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#10b981">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
             <div class="proj-body">
-              <h3>Odoo ERP Implementation</h3>
-              <p>End-to-end Odoo customization for HR, Accounting and Inventory with automated dashboards.</p>
+              <h3>Smart Mobility & Fleet</h3>
+              <p>GPS tracking (Ruptela, Teltonika, Wialon, TrackSolid) and dashcams (Hikvision, Jimi) for fleet
+                management.</p>
             </div>
           </div>
           <div class="project-card">
-            <img
-              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%232563eb'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>Network</text></svg>"
-              alt="Network Modernization" />
+            <div
+              style="height:140px;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#f59e0b">
+              <i class="fas fa-parking"></i>
+            </div>
             <div class="proj-body">
-              <h3>Network Modernization</h3>
-              <p>Multi-site SD-WAN and firewall deployment with centralized monitoring and backup strategy.</p>
+              <h3>Access Control & Parking</h3>
+              <p>Smart parking barriers, turnstiles, and ticket systems (ZKTeco, Came, Nice, Fac, Comunello) for secure
+                access.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div
+              style="height:140px;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ef4444">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="proj-body">
+              <h3>ERP & Software Solutions</h3>
+              <p>Odoo customization, POS, Hotel Mgmt, HR, Accounting, and specialized systems for clinics and gyms.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div
+              style="height:140px;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#8b5cf6">
+              <i class="fas fa-network-wired"></i>
+            </div>
+            <div class="proj-body">
+              <h3>Networking & Comms</h3>
+              <p>VoIP systems (Panasonic, Yeastar, Grandstream), firewalls, intrusion alarms, and PA/sound systems.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div
+              style="height:140px;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ec4899">
+              <i class="fas fa-tools"></i>
+            </div>
+            <div class="proj-body">
+              <h3>IT Infrastructure & Services</h3>
+              <p>Server management, Python automation, after-sales maintenance, and technical team leadership/training.
+              </p>
             </div>
           </div>
         </div>
@@ -1162,39 +1242,49 @@
         <div class="contact-section">
           <h2 class="section-title">Contact Me</h2>
           <div class="contact-grid">
-            <div class="contact-item"><i class="fas fa-envelope contact-icon"></i>
+            <a href="https://wa.me/201006765695" target="_blank" class="contact-item btn-interactive">
+              <i class="fab fa-whatsapp contact-icon" style="color:#25d366"></i>
               <div class="contact-info">
-                <div class="contact-label">Primary Email</div>
-                <div class="contact-value email"><a href="mailto:ah.alshehawy@gmail.com"
-                    style="color:inherit;text-decoration:none">ah.alshehawy@gmail.com</a></div>
+                <div class="contact-label">WhatsApp</div>
+                <div class="contact-value" style="text-decoration:underline">Chat Now</div>
               </div>
-            </div>
-            <div class="contact-item"><i class="fas fa-envelope-open-text contact-icon"></i>
-              <div class="contact-info">
-                <div class="contact-label">Secondary Email</div>
-                <div class="contact-value email"><a href="mailto:ah.alshehawy@hotmail.com"
-                    style="color:inherit;text-decoration:none">ah.alshehawy@hotmail.com</a></div>
-              </div>
-            </div>
-            <div class="contact-item"><i class="fas fa-phone contact-icon"></i>
+            </a>
+            <a href="tel:+201006765695" class="contact-item btn-interactive">
+              <i class="fas fa-phone-alt contact-icon"></i>
               <div class="contact-info">
                 <div class="contact-label">Mobile</div>
-                <div class="contact-value">+20 100 676 5695</div>
+                <div class="contact-value" style="text-decoration:underline">Call Now</div>
               </div>
-            </div>
-            <div class="contact-item"><i class="fab fa-linkedin contact-icon"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" target="_blank"
+              class="contact-item btn-interactive">
+              <i class="fab fa-linkedin contact-icon" style="color:#0077b5"></i>
               <div class="contact-info">
                 <div class="contact-label">LinkedIn</div>
-                <div class="contact-value">/in/ahmed-elshehawy</div>
+                <div class="contact-value" style="text-decoration:underline">View Profile</div>
               </div>
-            </div>
-            <div class="contact-item"><i class="fas fa-link contact-icon"></i>
+            </a>
+            <a href="https://people.bayt.com/ahmed-alshehawy/" target="_blank" class="contact-item btn-interactive">
+              <i class="fas fa-briefcase contact-icon" style="color:#22c55e"></i>
+              <div class="contact-info">
+                <div class="contact-label">Bayt.com</div>
+                <div class="contact-value" style="text-decoration:underline">Recruitment Profile</div>
+              </div>
+            </a>
+            <a href="mailto:ah.alshehawy@gmail.com" class="contact-item btn-interactive">
+              <i class="fas fa-envelope contact-icon"></i>
+              <div class="contact-info">
+                <div class="contact-label">Email</div>
+                <div class="contact-value" style="text-decoration:underline">Send Message</div>
+              </div>
+            </a>
+            <a href="https://linktr.ee/Ahmed.Alshehawy" target="_blank" class="contact-item btn-interactive">
+              <i class="fas fa-link contact-icon"></i>
               <div class="contact-info">
                 <div class="contact-label">Linktree</div>
-                <div class="contact-value"><a href="https://linktr.ee/Ahmed.Alshehawy" target="_blank" rel="noopener"
-                    style="color:inherit;text-decoration:underline">https://linktr.ee/Ahmed.Alshehawy</a></div>
+                <div class="contact-value" style="text-decoration:underline">More Links</div>
               </div>
-            </div>
+            </a>
             <div class="contact-item download-item" style="grid-column:1 / -1;justify-content:center">
               <a href="My certificates.pdf" class="btn btn-secondary" download
                 style="display:inline-flex;align-items:center"><i class="fas fa-certificate"></i> View / Download
@@ -1207,6 +1297,8 @@
 
     <footer class="footer">
       <p>© 2026 Ahmed Mahmoud El-Shehawy. IT Leadership Portfolio.</p>
+      <p style="margin-top:0.5rem"><a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" target="_blank"
+          style="color:#60a5fa;text-decoration:none"><i class="fab fa-linkedin"></i> Connect with me on LinkedIn</a></p>
     </footer>
   </div>
 
@@ -1220,16 +1312,18 @@
             <img src="golden-cup.png" alt="كأس ذهبي" class="cup-image" />
           </div>
           <h1 class="main-name">أحمد محمود الشهاوي</h1>
-          <p class="job-title">مدير مشاريع تكنولوجيا المعلومات | مدير تكنولوجيا المعلومات | مستشار ERP | مدير مشروعات
-            Odoo | خبير تقني</p>
-          <p class="tagline">"تحويل العمليات التجارية من خلال أكثر من 14 سنة من التميز الفني في مصر والمملكة العربية
-            السعودية"</p>
+          <p class="job-title">مدير تكنولوجيا المعلومات | مدير مشاريع ERP & Odoo<br>البنية التحتية، الأمن السيبراني
+            والتحول الرقمي</p>
+          <p class="tagline" style="max-width:700px;margin:1rem auto;color:#b8d4f0;line-height:1.9">
+            قائد تكنولوجيا معلومات متمرس بخبرة 14+ سنة في تنفيذ أنظمة Odoo ERP والبنية التحتية للمؤسسات وحلول الأمن
+            السيبراني عبر بيئات متعددة الفروع والتجزئة والامتيازات في مصر والسعودية.
+          </p>
           <div class="cta-buttons">
-            <a href="#contact-ar" class="btn btn-primary"><i class="fas fa-envelope"></i> تواصل</a>
+            <a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" class="btn btn-primary" target="_blank"><i
+                class="fab fa-linkedin"></i> تواصل على LinkedIn</a>
+            <a href="#contact-ar" class="btn btn-secondary"><i class="fas fa-envelope"></i> تواصل</a>
             <a href="السيرة الذاتية الشاملة.pdf" class="btn btn-secondary" download><i class="fas fa-file-pdf"></i>
               تحميل السيرة الذاتية</a>
-            <a href="https://github.com/Ah-Alshehawy" class="btn btn-secondary"><i class="fab fa-github"></i>
-              GitHub</a>
           </div>
         </div>
       </div>
@@ -1256,8 +1350,8 @@
               <span class="timeline-date">2024 - الحالي</span>
               <h3>مدير تكنولوجيا المعلومات</h3>
               <h4>إكسيلنت لادارة الامتيازات التجاريه , مصر</h4>
-              <p>قيادة البنية التحتية، تخصيص Odoo ERP، وسياسات الأمن. تحسين الموثوقية التشغيلية وإدارة عقود الموردين.
-              </p>
+              <p>قيادة البنية التحتية، تخصيص Odoo ERP، وسياسات الأمن. <strong>مركزية عمليات ERP لأكثر من 15
+                  فرعاً.</strong></p>
             </div>
           </div>
           <div class="timeline-item">
@@ -1266,8 +1360,8 @@
               <span class="timeline-date">2023 - 2024</span>
               <h3>مدير مشاريع تقنية</h3>
               <h4>شركة طيف الألماس التجارية، السعودية</h4>
-              <p>إدارة مشاريع الأنظمة الأمنية (كاميرات، حريق، دخول ذكي). إدارة الجداول الزمنية والعطاءات وتسليم
-                المشاريع.</p>
+              <p>إدارة مشاريع الأنظمة الأمنية (كاميرات، حريق، دخول ذكي). <strong>تسليم أكثر من 20 مشروعاً في الوقت
+                  المحدد وضمن الميزانية.</strong></p>
             </div>
           </div>
           <div class="timeline-item">
@@ -1276,7 +1370,8 @@
               <span class="timeline-date">2021 - 2023</span>
               <h3>مهندس تكنولوجيا معلومات أول</h3>
               <h4>الشركة الوطنية للمقاولات والتوريدات (NAT)، الإسكندرية</h4>
-              <p>نشر بنية المدن الذكية، تأمين الشبكات، وإدارة أنظمة الحضور لأعداد كبيرة من الموظفين.</p>
+              <p>نشر بنية المدن الذكية، تأمين الشبكات، وإدارة أنظمة الحضور. <strong>إدارة أنظمة الحضور لأكثر من 40
+                  موقعاً.</strong></p>
             </div>
           </div>
           <div class="timeline-item">
@@ -1285,7 +1380,8 @@
               <span class="timeline-date">2016 - 2020</span>
               <h3>مدير فرع</h3>
               <h4>مؤسسة طيف الألماس، جدة</h4>
-              <p>إدارة عمليات الفرع والمبيعات والدعم الفني. الإشراف على مشاريع السلامة وفق لوائح الدفاع المدني.</p>
+              <p>إدارة عمليات الفرع والمبيعات والدعم الفني. <strong>تقليل فترات توقف النظام بنسبة 35% تقريباً.</strong>
+              </p>
             </div>
           </div>
         </div>
@@ -1344,23 +1440,27 @@
             <h3 class="skill-title">الشهادات</h3>
             <p class="skill-desc">الشهادات المهنية والتقنية المختارة</p>
             <ul style="margin-top:.75rem;line-height:1.6;color:#c7dff3;direction:rtl">
-              <li><strong>شهادة دعم تكنولوجيا المعلومات من Google</strong> (Coursera) — مكتملة (5 دورات): أساسيات
-                الدعم
-                الفني؛ الشبكات؛ نظم التشغيل؛ إدارة الأنظمة وخدمات البنية التحتية؛ أمن المعلومات (الدفاع ضد الهجمات
-                الرقمية).</li>
-              <li><strong>مساقات Google Cloud في الذكاء الاصطناعي وتعلم الآلة</strong> (Coursera) — مقدمة في الذكاء
-                التوليدي؛ مقدمة في AI وML على Google Cloud؛ مقدمة في نماذج اللغة الكبيرة.</li>
-              <li><strong>Programming for Everybody: Getting Started with Python</strong> — جامعة ميتشجان (Coursera).
+              <li><strong>شهادة دعم تكنولوجيا المعلومات من Google</strong> (Coursera) — 5 دورات مكتملة
+                <a href="https://coursera.org/verify/professional-cert/MQWTSLD8T6TW" target="_blank"
+                  style="color:#60a5fa;font-size:0.85rem"> [تحقق]</a>
+              </li>
+              <li><strong>مساقات Google Cloud في الذكاء الاصطناعي وتعلم الآلة</strong> (Coursera) — ذكاء اصطناعي توليدي،
+                تعلم الآلة
+                <a href="https://coursera.org/verify/TFAYCH8JT38Q" target="_blank"
+                  style="color:#60a5fa;font-size:0.85rem"> [تحقق]</a>
+              </li>
+              <li><strong>برمجة Python</strong> — جامعة ميتشجان (Coursera)
+                <a href="https://coursera.org/verify/E9BACQ0BZ3L8" target="_blank"
+                  style="color:#60a5fa;font-size:0.85rem"> [تحقق]</a>
               </li>
               <li><strong>إدارة المشاريع للمشروعات التقنية</strong> — دورات معتمدة من PMI.</li>
-              <li><strong>Windows 10 for IT Support: Troubleshooting Basics</strong> — LinkedIn Learning.</li>
+              <li><strong>Windows 10 للدعم الفني</strong> — LinkedIn Learning.</li>
               <li><strong>شهادة أخصائي تكنولوجيا المعلومات — NAT Egypt</strong> — شهادة خبرة مهنية.</li>
-              <li><strong>شهادة إتمام تدريب — Taif Al‑Almas</strong> — تدريب تقني في أنظمة المراقبة، التحكم في الوصول،
-                نقاط البيع وأنظمة الحضور.</li>
+              <li><strong>شهادة إتمام تدريب — طيف الألماس</strong> — أنظمة المراقبة، التحكم في الوصول، نقاط البيع.</li>
             </ul>
             <p style="margin-top:.6rem;color:#c7dff3;direction:rtl">عرض المحفظة الكاملة: <a
                 href="https://raw.githubusercontent.com/Ah-Alshehawy/Ahmed-Alshehawy-Portfolio/main/CERTIFICATIONS.md"
-                style="color:#60a5fa">CERTIFICATIONS.md</a></p>
+                target="_blank" style="color:#60a5fa">CERTIFICATIONS.md</a></p>
           </div>
           <div class="skill-card">
             <h3 class="skill-title">الأدوات والمنصات</h3>
@@ -1389,33 +1489,66 @@
 
     <section id="projects-ar" class="section revealable">
       <div class="container">
-        <h2 class="section-title">مشاريع مختارة</h2>
+        <h2 class="section-title">مشاريع وحلول متكاملة</h2>
         <div class="projects-grid" style="direction:rtl">
           <div class="project-card">
-            <img
-              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%233b82f6'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>الحضور</text></svg>"
-              alt="أتمتة الحضور" />
+            <div
+              style="height:140px;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#3b82f6">
+              <i class="fas fa-video"></i>
+            </div>
             <div class="proj-body">
-              <h3>أتمتة الحضور</h3>
-              <p>دمج أجهزة ZKTeco مع تقارير آلية وربطها بـ Odoo.</p>
+              <h3>أنظمة المراقبة المتكاملة</h3>
+              <p>أنظمة CCTV للفنادق، القصور، والمحال التجارية باستخدام Hikvision, Dahua, Pelco, Panasonic, Bosch.</p>
             </div>
           </div>
           <div class="project-card">
-            <img
-              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%231e3a8a'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>Odoo</text></svg>"
-              alt="تنفيذ Odoo" />
+            <div
+              style="height:140px;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#10b981">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
             <div class="proj-body">
-              <h3>تنفيذ Odoo</h3>
-              <p>نشر Odoo لإدارة الموارد البشرية، الرواتب والمخزون مع تخصيصات خفيفة.</p>
+              <h3>إدارة الأسطول وتتبع المركبات</h3>
+              <p>أنظمة GPS (Ruptela, Teltonika, Wialon, TrackSolid) وكاميرات المركبات (Dashcams) لإدارة ذكية.</p>
             </div>
           </div>
           <div class="project-card">
-            <img
-              src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300'><rect width='100%' height='100%' fill='%232563eb'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Poppins,Arial' font-size='28' fill='white'>الشبكات</text></svg>"
-              alt="تحديث الشبكة" />
+            <div
+              style="height:140px;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#f59e0b">
+              <i class="fas fa-parking"></i>
+            </div>
             <div class="proj-body">
-              <h3>تحديث الشبكة</h3>
-              <p>نشر SD‑WAN وجدران نارية مركزية ومراقبة لزيادة الاستقرار والأمن.</p>
+              <h3>المواقف الذكية والتحكم بالدخول</h3>
+              <p>بوابات، حواجز مواقف، تذاكر إلكترونية، وTurnstiles (ZKTeco, Came, Nice, Fac, Comunello).</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div
+              style="height:140px;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ef4444">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="proj-body">
+              <h3>حلول البرمجيات والأعمال</h3>
+              <p>تخصيص Odoo، أنظمة محاسبية، إدارة فنادق، موارد بشرية، نوادي، مستشفيات، وأنظمة نقاط البيع (POS).</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div
+              style="height:140px;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#8b5cf6">
+              <i class="fas fa-network-wired"></i>
+            </div>
+            <div class="proj-body">
+              <h3>الشبكات والاتصالات</h3>
+              <p>سنترالات VoIP (Panasonic, Yeastar, Grandstream)، جدران نارية، إنذار حريق وسرقة، وأنظمة صوتية.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div
+              style="height:140px;background:#1e293b;display:flex;align-items:center;justify-content:center;font-size:3rem;color:#ec4899">
+              <i class="fas fa-tools"></i>
+            </div>
+            <div class="proj-body">
+              <h3>خدمات البنية التحتية والقيادة</h3>
+              <p>إدارة خوادم، أتمتة بسيطة (Python)، صيانة وخدمات مابعد البيع، وتدريب وتطوير الفرق التقنية.</p>
             </div>
           </div>
         </div>
@@ -1427,46 +1560,58 @@
         <div class="contact-section" style="direction:rtl">
           <h2 class="section-title">تواصل معي</h2>
           <div class="contact-grid">
-            <div class="contact-item"><i class="fas fa-envelope contact-icon"></i>
+            <a href="https://wa.me/201006765695" target="_blank" class="contact-item btn-interactive">
+              <i class="fab fa-whatsapp contact-icon" style="color:#25d366"></i>
               <div class="contact-info">
-                <div class="contact-label">البريد الإلكتروني الرئيسي</div>
-                <div class="contact-value email"><a href="mailto:ah.alshehawy@gmail.com"
-                    style="color:inherit;text-decoration:none">ah.alshehawy@gmail.com</a></div>
+                <div class="contact-label">واتساب</div>
+                <div class="contact-value" style="text-decoration:underline">راسلني الآن</div>
               </div>
-            </div>
-            <div class="contact-item"><i class="fas fa-envelope-open-text contact-icon"></i>
-              <div class="contact-info">
-                <div class="contact-label">البريد الإلكتروني الثانوي</div>
-                <div class="contact-value email"><a href="mailto:ah.alshehawy@hotmail.com"
-                    style="color:inherit;text-decoration:none">ah.alshehawy@hotmail.com</a></div>
-              </div>
-            </div>
-            <div class="contact-item"><i class="fas fa-phone contact-icon"></i>
+            </a>
+            <a href="tel:+201006765695" class="contact-item btn-interactive">
+              <i class="fas fa-phone-alt contact-icon"></i>
               <div class="contact-info">
                 <div class="contact-label">الجوال</div>
-                <div class="contact-value">+20 100 676 5695</div>
+                <div class="contact-value" style="text-decoration:underline">اتصل الآن</div>
               </div>
-            </div>
-            <div class="contact-item"><i class="fab fa-linkedin contact-icon"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" target="_blank"
+              class="contact-item btn-interactive">
+              <i class="fab fa-linkedin contact-icon" style="color:#0077b5"></i>
               <div class="contact-info">
                 <div class="contact-label">لينكدإن</div>
-                <div class="contact-value">/in/ahmed-elshehawy</div>
+                <div class="contact-value" style="text-decoration:underline">عرض الملف</div>
               </div>
-            </div>
-            <div class="contact-item"><i class="fas fa-link contact-icon"></i>
+            </a>
+            <a href="https://people.bayt.com/ahmed-alshehawy/" target="_blank" class="contact-item btn-interactive">
+              <i class="fas fa-briefcase contact-icon" style="color:#22c55e"></i>
+              <div class="contact-info">
+                <div class="contact-label">بيت.كوم</div>
+                <div class="contact-value" style="text-decoration:underline">ملف التوظيف</div>
+              </div>
+            </a>
+            <a href="mailto:ah.alshehawy@gmail.com" class="contact-item btn-interactive">
+              <i class="fas fa-envelope contact-icon"></i>
+              <div class="contact-info">
+                <div class="contact-label">البريد الإلكتروني</div>
+                <div class="contact-value" style="text-decoration:underline">أرسل رسالة</div>
+              </div>
+            </a>
+            <a href="https://linktr.ee/Ahmed.Alshehawy" target="_blank" class="contact-item btn-interactive">
+              <i class="fas fa-link contact-icon"></i>
               <div class="contact-info">
                 <div class="contact-label">لينك تري</div>
-                <div class="contact-value"><a href="https://linktr.ee/Ahmed.Alshehawy" target="_blank" rel="noopener"
-                    style="color:inherit;text-decoration:underline">https://linktr.ee/Ahmed.Alshehawy</a></div>
+                <div class="contact-value" style="text-decoration:underline">روابط أخرى</div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="footer" style="direction:rtl">
+    <footer class="footer">
       <p>© 2026 أحمد محمود الشهاوي. ملف قيادي في تقنية المعلومات.</p>
+      <p style="margin-top:0.5rem"><a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" target="_blank"
+          style="color:#60a5fa;text-decoration:none"><i class="fab fa-linkedin"></i> تواصل معي على LinkedIn</a></p>
     </footer>
   </div>
 
