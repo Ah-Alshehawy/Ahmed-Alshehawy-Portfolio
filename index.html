@@ -80,6 +80,7 @@
       font-size: 1.6rem;
       font-weight: 700;
       background: linear-gradient(135deg, #60a5fa, #3b82f6);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-decoration: none;
@@ -262,6 +263,7 @@
       margin-bottom: 0.5rem;
       background: linear-gradient(to right, #60a5fa, #fff, #60a5fa);
       background-size: 200% auto;
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: shine 5s linear infinite;
@@ -921,14 +923,205 @@
         display: none !important;
       }
     }
+
+    /* --- Hamburger Menu for Mobile --- */
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger-btn span {
+      width: 100%;
+      height: 3px;
+      background: var(--text-main);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Mobile Navigation Overlay */
+    .mobile-nav-overlay {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 280px;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.98);
+      backdrop-filter: blur(12px);
+      border-right: 1px solid var(--glass-border);
+      z-index: 1000;
+      padding: 80px 20px 20px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+    }
+
+    .mobile-nav-overlay.active {
+      left: 0;
+    }
+
+    html[dir="rtl"] .mobile-nav-overlay {
+      left: auto;
+      right: -100%;
+      border-right: none;
+      border-left: 1px solid var(--glass-border);
+      transition: right 0.3s ease;
+    }
+
+    html[dir="rtl"] .mobile-nav-overlay.active {
+      right: 0;
+    }
+
+    .mobile-nav-overlay a {
+      display: block;
+      padding: 15px 20px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav-overlay a:hover {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    html[dir="rtl"] .mobile-nav-overlay a:hover {
+      transform: translateX(-5px);
+    }
+
+    /* Mobile Language Toggle inside Hamburger */
+    .mobile-lang-section {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .mobile-lang-section .lang-label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .mobile-lang-btns {
+      display: flex;
+      gap: 10px;
+    }
+
+    .mobile-lang-btns .lang-btn {
+      flex: 1;
+    }
+
+    /* Overlay Background */
+    .nav-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .nav-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Mobile responsive adjustments */
+    @media (max-width: 992px) {
+
+      .navbar .nav-link,
+      .navbar .lang-toggle {
+        display: none !important;
+      }
+
+      .hamburger-btn {
+        display: flex;
+      }
+
+      .navbar-container-forced-ltr>div:first-of-type {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+
+    /* Smooth transitions for navbar visibility */
+    .navbar {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar.hide {
+      opacity: 0;
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+
+    .side-nav {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-20px);
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+
+    .side-nav.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    html[dir="rtl"] .side-nav {
+      transform: translateX(20px);
+    }
+
+    html[dir="rtl"] .side-nav.show {
+      transform: translateX(0);
+    }
   </style>
 </head>
 
 <body>
-  <nav class="navbar">
+  <nav class="navbar" id="topNav">
     <div class="container navbar-container-forced-ltr">
-      <a href="#" class="navbar-brand"><span class="brand-en">My Professional Portfolio</span><span class="brand-ar"
-          style="display:none">ملفي المهني الاحترافي</span></a>
+      <div style="display:flex;gap:1rem;align-items:center">
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="#" class="navbar-brand"><span class="brand-en">My Professional Portfolio</span><span class="brand-ar"
+            style="display:none">ملفي المهني الاحترافي</span></a>
+      </div>
       <div style="display:flex;gap:1rem;align-items:center">
         <div style="display:flex;gap:1rem">
           <a href="#about" class="nav-link" data-target-en="#about" data-target-ar="#about-ar" data-text-en="About"
@@ -949,6 +1142,29 @@
       </div>
     </div>
   </nav>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="nav-backdrop" id="navBackdrop"></div>
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <a href="#about" class="mobile-nav-link" data-target-en="#about" data-target-ar="#about-ar" data-text-en="About"
+      data-text-ar="نبذة">About</a>
+    <a href="#skills" class="mobile-nav-link" data-target-en="#skills" data-target-ar="#competencies-ar"
+      data-text-en="Skills" data-text-ar="المهارات">Skills</a>
+    <a href="#certs" class="mobile-nav-link" data-target-en="#certs" data-target-ar="#certs-ar"
+      data-text-en="Certifications" data-text-ar="الشهادات">Certifications</a>
+    <a href="https://www.linkedin.com/in/ahmed-elshehawy-35aa30234" class="mobile-nav-link" target="_blank"
+      data-text-en="LinkedIn" data-text-ar="لينكدإن">LinkedIn</a>
+    <a href="#contact" class="mobile-nav-link" data-target-en="#contact" data-target-ar="#contact-ar"
+      data-text-en="Contact" data-text-ar="تواصل">Contact</a>
+
+    <div class="mobile-lang-section">
+      <span class="lang-label" data-text-en="Language" data-text-ar="اللغة">Language</span>
+      <div class="mobile-lang-btns">
+        <button id="mobile-btn-en" class="lang-btn">EN</button>
+        <button id="mobile-btn-ar" class="lang-btn">العربية</button>
+      </div>
+    </div>
+  </div>
 
   <!-- English content -->
   <div class="lang lang-en active" data-lang="en">
@@ -1743,11 +1959,99 @@
   </nav>
 
   <script>
-    // Simple Side Nav Logic with Language Support
+    // Hamburger Menu Logic
+    (function () {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const navBackdrop = document.getElementById('navBackdrop');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMobileNav() {
+        hamburgerBtn.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        navBackdrop.classList.toggle('active');
+        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+      }
+
+      function closeMobileNav() {
+        hamburgerBtn.classList.remove('active');
+        mobileNav.classList.remove('active');
+        navBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      hamburgerBtn.addEventListener('click', toggleMobileNav);
+      navBackdrop.addEventListener('click', closeMobileNav);
+
+      // Close menu when clicking a link
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (!link.hasAttribute('target')) {
+            closeMobileNav();
+          }
+        });
+      });
+
+      // Update mobile nav links based on language
+      function updateMobileNavLinks() {
+        const isArabic = document.documentElement.dir === 'rtl';
+        const langLabel = document.querySelector('.mobile-lang-section .lang-label');
+
+        mobileNavLinks.forEach(link => {
+          const target = isArabic ? link.dataset.targetAr : link.dataset.targetEn;
+          const text = isArabic ? link.dataset.textAr : link.dataset.textEn;
+          if (target) link.href = target;
+          if (text) link.textContent = text;
+        });
+
+        if (langLabel) {
+          langLabel.textContent = isArabic ? 'اللغة' : 'Language';
+        }
+      }
+
+      // Mobile language buttons
+      const mobileBtnEn = document.getElementById('mobile-btn-en');
+      const mobileBtnAr = document.getElementById('mobile-btn-ar');
+
+      function syncLangButtons(lang) {
+        if (lang === 'ar') {
+          mobileBtnAr.classList.add('active');
+          mobileBtnEn.classList.remove('active');
+        } else {
+          mobileBtnEn.classList.add('active');
+          mobileBtnAr.classList.remove('active');
+        }
+      }
+
+      // Observe language changes
+      const observer = new MutationObserver(() => {
+        updateMobileNavLinks();
+        const currentLang = document.documentElement.lang;
+        syncLangButtons(currentLang);
+      });
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir', 'lang'] });
+
+      // Initial update
+      updateMobileNavLinks();
+      syncLangButtons(document.documentElement.lang);
+
+      // Connect mobile lang buttons to main lang switcher
+      mobileBtnEn.addEventListener('click', () => {
+        document.getElementById('btn-en').click();
+        closeMobileNav();
+      });
+      mobileBtnAr.addEventListener('click', () => {
+        document.getElementById('btn-ar').click();
+        closeMobileNav();
+      });
+    })();
+
+    // Improved Side Nav Logic with Smooth Transitions
     (function () {
       const sideNav = document.getElementById('sideNav');
-      const topNav = document.querySelector('.navbar');
+      const topNav = document.getElementById('topNav');
       const sideNavLinks = sideNav.querySelectorAll('a');
+      let scrollTimeout;
 
       // Update side nav links based on language
       function updateSideNavLinks() {
@@ -1765,16 +2069,19 @@
       // Initial update
       updateSideNavLinks();
 
-      // Scroll visibility
+      // Smooth scroll visibility with debounce
       window.addEventListener('scroll', () => {
-        if (window.scrollY > 150) {
-          sideNav.classList.add('show');
-          topNav.style.display = 'none';
-        } else {
-          sideNav.classList.remove('show');
-          topNav.style.display = '';
-        }
-      });
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          if (window.scrollY > 150) {
+            sideNav.classList.add('show');
+            topNav.classList.add('hide');
+          } else {
+            sideNav.classList.remove('show');
+            topNav.classList.remove('hide');
+          }
+        }, 10);
+      }, { passive: true });
     })();
   </script>
 </body>
