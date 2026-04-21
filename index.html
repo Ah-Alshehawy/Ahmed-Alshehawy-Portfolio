@@ -1,0 +1,3495 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmed El-Shehawy - IT Director & ERP Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+  <style>
+    /* --- Core Design System --- */
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --secondary: #64748b;
+      --accent: #f59e0b;
+      /* Gold/Amber for distinction */
+      --bg-dark: #0f172a;
+      --glass: rgba(30, 41, 59, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top right, #1e293b, #0f172a 60%, #020617);
+      color: var(--text-main);
+      line-height: 1.7;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    /* --- Navigation --- */
+    .navbar {
+      background: rgba(15, 23, 42, 0.85) !important;
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar-brand {
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #60a5fa, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      margin: 0 0.8rem;
+      position: relative;
+      color: #cbd5e1 !important;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: #fff !important;
+    }
+
+    /* Language Toggle */
+    .lang-toggle {
+      position: fixed;
+      right: 20px;
+      top: 85px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (min-width: 992px) {
+      .lang-toggle {
+        position: static;
+        flex-direction: row;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+      }
+    }
+
+    .lang-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* --- Project Grid Updates --- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      /* Ensure consistent height */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .proj-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Original Styles continue below... */
+    /* --- Hero Section --- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 1rem 4rem;
+      position: relative;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Fixed: Typo in margin */
+    .profile-wrap {
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 2.5rem;
+      position: relative;
+      border-radius: 50%;
+      perspective: 1000px;
+    }
+
+    .profile-image,
+    .cup-image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 20%;
+      transition: opacity 0.4s ease;
+      /* Premium Effect: Glow */
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2), 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .cup-image {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .profile-wrap:hover .profile-image {
+      transform: scale(1.02);
+    }
+
+    .profile-wrap.animate .profile-image {
+      opacity: 0;
+    }
+
+    .profile-wrap.animate .cup-image {
+      opacity: 1;
+      animation: coinFlip 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes coinFlip {
+      0% {
+        transform: rotateY(0);
+      }
+
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+
+    .main-name {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, #60a5fa, #fff, #60a5fa);
+      background-size: 200% auto;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 5s linear infinite;
+    }
+
+    @keyframes shine {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    .job-title {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: #fff;
+      box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.5);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px -5px rgba(37, 99, 235, 0.6);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .btn-download {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+      border: none !important;
+      color: white !important;
+      font-weight: 600;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5) !important;
+    }
+
+    .btn-download i {
+      margin-right: 8px;
+    }
+
+    html[dir="rtl"] .btn-download i {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+
+    /* --- Sections & Cards --- */
+    .section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3.5rem;
+      position: relative;
+      display: block;
+      width: 100%;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+      margin: 10px auto 0;
+    }
+
+    /* Glassmorphic Cards */
+    .skills-grid,
+    .projects-grid,
+    .contact-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .skill-card {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      padding: 1.8rem;
+      border-radius: 20px;
+      border: 1px solid var(--glass-border);
+      transition: all 0.3s;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Core Competencies Style */
+    .skill-core {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(30, 41, 59, 0.7));
+      border-left: 4px solid var(--primary);
+    }
+
+    /* Expertise Style */
+    .skill-expertise {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(30, 41, 59, 0.7));
+      border-right: 4px solid var(--accent);
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      color: #60a5fa;
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-desc {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .project-card {
+      padding: 0;
+      border: 1px solid var(--glass-border);
+      background: var(--glass);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .proj-header {
+      height: 160px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .proj-header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .proj-header img {
+      transform: scale(1.1);
+    }
+
+    .proj-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.8));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-card .proj-body {
+      padding: 1.5rem;
+    }
+
+    .project-card h3 {
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    /* --- Timeline Section --- */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      width: 50%;
+      padding-right: 2rem;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      margin-left: 50%;
+      padding-right: 0;
+      padding-left: 2rem;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      right: -11px;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--bg-dark);
+      border: 2px solid var(--primary);
+      box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      right: auto;
+      left: -11px;
+    }
+
+    .timeline-date {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .timeline-content h3 {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-content h4 {
+      font-size: 1rem;
+      color: #94a3b8;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    /* RTL specific overrides handled by dir="rtl" */
+    html[dir="rtl"] .timeline::before {
+      left: 50%;
+    }
+
+    html[dir="rtl"] .timeline-item {
+      text-align: left;
+      padding-left: 2rem;
+      padding-right: 0;
+    }
+
+    html[dir="rtl"] .timeline-item:nth-child(even) {
+      margin-right: 50%;
+      margin-left: 0;
+      text-align: right;
+      padding-right: 2rem;
+      padding-left: 0;
+    }
+
+    html[dir="rtl"] .timeline-dot {
+      left: -11px;
+      right: auto;
+    }
+
+    html[dir="rtl"] .timeline-item:nth-child(even) .timeline-dot {
+      right: -11px;
+      left: auto;
+    }
+
+    html[dir="rtl"] .nav-link::after {
+      right: 0;
+      left: auto;
+    }
+
+    /* --- Contact --- */
+    .contact-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1.2rem;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      text-decoration: none;
+      color: var(--text-main);
+      transition: all 0.3s;
+    }
+
+    .contact-label {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    .contact-value {
+      font-size: 1rem;
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    .contact-item:hover {
+      background: rgba(30, 41, 59, 0.9);
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-icon {
+      font-size: 1.8rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Brand Specific Contact Icons */
+    .contact-item[href*="wa.me"] .contact-icon {
+      color: #25d366;
+      background: rgba(37, 211, 102, 0.1);
+    }
+
+    .contact-item[href*="tel:"] .contact-icon {
+      color: #3b82f6;
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .contact-item[href*="linkedin"] .contact-icon {
+      color: #0077b5;
+      background: rgba(0, 119, 181, 0.1);
+    }
+
+    .contact-item[href*="bayt"] .contact-icon {
+      color: #22c55e;
+      background: rgba(34, 197, 94, 0.1);
+    }
+
+    .contact-item[href*="mailto"] .contact-icon {
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .contact-item[href*="linktr.ee"] .contact-icon {
+      color: #14b8a6;
+      background: rgba(20, 184, 166, 0.1);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #64748b;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 4rem;
+    }
+
+    /* --- Utilities --- */
+    .revealable {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .revealable.reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Language Switching Logic - STRICT ENFORCEMENT */
+    .lang {
+      display: none !important;
+    }
+
+    .lang.active {
+      display: block !important;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Centering Helper */
+    .text-center {
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .main-name {
+        font-size: 2rem;
+        white-space: normal;
+        line-height: 1.2;
+        font-size: 2rem;
+        white-space: normal;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+      }
+
+      .job-title {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+
+      .section {
+        padding: 4rem 1rem;
+      }
+
+      .navbar-brand {
+        font-size: 1.4rem;
+      }
+
+      /* Timeline Responsive Fixes */
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 3rem;
+        padding-right: 0;
+        text-align: left !important;
+        margin-left: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        margin-left: 0;
+        padding-left: 3rem;
+        text-align: left !important;
+      }
+
+      .timeline-dot {
+        left: 9px;
+        right: auto !important;
+      }
+
+      /* RTL Mobile Timeline */
+      html[dir="rtl"] .timeline::before {
+        right: 20px;
+        left: auto;
+      }
+
+      html[dir="rtl"] .timeline-item {
+        padding-right: 3rem;
+        padding-left: 0;
+        text-align: right !important;
+      }
+
+      html[dir="rtl"] .timeline-item:nth-child(even) {
+        padding-right: 3rem;
+        text-align: right !important;
+        margin-right: 0;
+      }
+
+      html[dir="rtl"] .timeline-dot {
+        right: 9px;
+        left: auto !important;
+      }
+
+      /* Center alignment on mobile for specific sections */
+      .hero-content,
+      .section-title,
+      .job-title,
+      .tagline {
+        text-align: center;
+      }
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    #backToTop i,
+    #backToTop svg {
+      font-size: 1.2rem;
+      font-weight: 900;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      stroke: white !important;
+      display: block;
+    }
+
+    #backToTop.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    #backToTop:hover {
+      transform: translateY(-5px) scale(1.1);
+      background: linear-gradient(135deg, #60a5fa, #3b82f6);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.5);
+    }
+
+    html[dir="rtl"] #backToTop {
+      right: auto;
+      left: 30px;
+    }
+
+    /* Force LTR for Navbar Container to keep Lang button on right even in RTL */
+    .navbar-container-forced-ltr {
+      direction: ltr !important;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* --- RTL FIXED ALIGNMENT & TYPOGRAPHY --- */
+    html[dir="rtl"] body {
+      text-align: right;
+      direction: rtl;
+    }
+
+    /* Container Spacing for Arabic */
+    html[dir="rtl"] .container {
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+
+    /* Headings and Typography */
+    html[dir="rtl"] h1,
+    html[dir="rtl"] h2,
+    html[dir="rtl"] h3,
+    html[dir="rtl"] h4 {
+      text-align: center;
+      padding-right: 5px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html[dir="rtl"] p {
+      padding-right: 5px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* توسيط عناوين المهارات والكفاءات */
+    html[dir="rtl"] .skill-title,
+    html[dir="rtl"] .skill-card h3 {
+      text-align: center !important;
+    }
+
+    /* توسيط محتوى الجدول الزمني */
+    html[dir="rtl"] .timeline-content h3,
+    html[dir="rtl"] .timeline-content h4,
+    html[dir="rtl"] .timeline-content {
+      text-align: center !important;
+    }
+
+    html[dir="rtl"] p,
+    html[dir="rtl"] .skill-desc,
+    html[dir="rtl"] .timeline-content p {
+      line-height: 2.0;
+      /* Improved line height for Arabic readability */
+    }
+
+    /* Section Title Centering override if needed, or keep centered */
+    /* .section-title is centered by default. In RTL it stays centered. */
+
+    /* Timeline RTL Layout Fixes */
+    html[dir="rtl"] .timeline::before {
+      right: 50%;
+      left: auto;
+    }
+
+    html[dir="rtl"] .timeline-item {
+      text-align: left;
+      /* Content faces inward */
+      padding-right: 0;
+      padding-left: 3rem;
+    }
+
+    html[dir="rtl"] .timeline-item:nth-child(even) {
+      text-align: right;
+      /* Content faces inward */
+      padding-left: 0;
+      padding-right: 3rem;
+    }
+
+    html[dir="rtl"] .timeline-dot {
+      right: -11px;
+      /* Default LTR is right: -11px, we need to invert? 
+         LTR Odd: dot on right.
+         RTL Odd: dot on left? 
+         The existing CSS (lines 518) sets left: -11px. 
+         I will reinforce this behavior.
+      */
+      border-color: var(--primary);
+    }
+
+    /* Buttons & Interactions */
+    .btn-interactive {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      display: flex;
+      /* Ensure flex layout works on anchor */
+      align-items: center;
+      /* Vertical center */
+      gap: 15px;
+      /* Match original gap */
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .btn-interactive:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.08);
+      /* Slightly lighter on hover */
+      border-color: var(--primary);
+      /* Highlight border */
+    }
+
+    html[dir="rtl"] .btn {
+      flex-direction: row;
+      /* Ensure icon is adjacent correctly */
+    }
+
+    html[dir="rtl"] .contact-icon {
+      margin-left: 1rem;
+      margin-right: 0;
+    }
+
+    /* Mobile specific RTL adjustments */
+    @media (max-width: 768px) {
+      html[dir="rtl"] .container {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+      }
+
+      html[dir="rtl"] .timeline-item,
+      html[dir="rtl"] .timeline-item:nth-child(even) {
+        padding-right: 3rem;
+        padding-left: 0;
+        text-align: right !important;
+        /* Force right align on mobile */
+      }
+
+      html[dir="rtl"] .timeline::before {
+        right: 20px;
+        left: auto;
+      }
+
+      html[dir="rtl"] .timeline-dot,
+      html[dir="rtl"] .timeline-item:nth-child(even) .timeline-dot {
+        right: 9px;
+        left: auto;
+      }
+    }
+
+    /* --- Simple Side Navigation --- */
+    .side-nav {
+      position: fixed;
+      top: 10%;
+      transform: translateY(0);
+      left: 20px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 8px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(15px);
+      border-radius: 40px;
+      /* Pill shape */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    /* Hide scrollbar for sidebar */
+    .side-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .side-nav {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .side-nav.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .side-nav .nav-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+      margin-bottom: 5px;
+      overflow: hidden;
+    }
+
+    .side-nav .nav-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .side-nav a {
+      color: #f1f5f9;
+      font-size: 1.1rem;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s;
+    }
+
+    .side-nav a i,
+    .side-nav a svg {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      font-weight: 900;
+      stroke: white !important;
+      display: block;
+    }
+
+    .side-nav a:hover,
+    .side-nav a.active {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.15);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* RTL Side Nav */
+    html[dir="rtl"] .side-nav {
+      left: auto;
+      right: 20px;
+    }
+
+    /* Hide Side Nav on Mobile */
+    @media (max-width: 992px) {
+      .side-nav {
+        display: none !important;
+      }
+    }
+
+    /* --- Hamburger Menu for Mobile --- */
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger-btn span {
+      width: 100%;
+      height: 3px;
+      background: var(--text-main);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Mobile Navigation Overlay */
+    .mobile-nav-overlay {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 280px;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.98);
+      backdrop-filter: blur(12px);
+      border-right: 1px solid var(--glass-border);
+      z-index: 1000;
+      padding: 80px 20px 20px;
+      transition: left 0.3s ease;
+      overflow-y: auto;
+    }
+
+    .mobile-nav-overlay.active {
+      left: 0;
+    }
+
+    html[dir="rtl"] .mobile-nav-overlay {
+      left: auto;
+      right: -100%;
+      border-right: none;
+      border-left: 1px solid var(--glass-border);
+      transition: right 0.3s ease;
+    }
+
+    html[dir="rtl"] .mobile-nav-overlay.active {
+      right: 0;
+    }
+
+    .mobile-nav-overlay a {
+      display: block;
+      padding: 15px 20px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav-overlay a:hover {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    html[dir="rtl"] .mobile-nav-overlay a:hover {
+      transform: translateX(-5px);
+    }
+
+    /* Mobile Language Toggle inside Hamburger */
+    .mobile-lang-section {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .mobile-lang-section .lang-label {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .mobile-lang-btns {
+      display: flex;
+      gap: 10px;
+    }
+
+    .mobile-lang-btns .lang-btn {
+      flex: 1;
+    }
+
+    /* Overlay Background */
+    .nav-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .nav-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Mobile responsive adjustments */
+    @media (max-width: 992px) {
+
+      .navbar .nav-link,
+      .navbar .lang-toggle {
+        display: none !important;
+      }
+
+      .hamburger-btn {
+        display: flex;
+      }
+
+      .navbar-container-forced-ltr>div:first-of-type {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+
+    /* Smooth transitions for navbar visibility */
+    .navbar {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar.hide {
+      opacity: 0;
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+
+    .side-nav {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-20px);
+      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+
+    .side-nav.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    html[dir="rtl"] .side-nav {
+      transform: translateX(20px);
+    }
+
+    html[dir="rtl"] .side-nav.show {
+      transform: translateX(0);
+    }
+
+    /* --- Certification Cards --- */
+    .cert-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .cert-tab {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      padding: 0.45rem 1.1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.25s;
+    }
+
+    .cert-tab:hover {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .cert-tab.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .cert-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(59, 130, 246, 0.35);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .cert-card.hidden {
+      display: none;
+    }
+
+    .cert-card-header {
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 70px;
+    }
+
+    .cert-issuer-logo {
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .cert-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: rgba(0, 0, 0, 0.25);
+      color: rgba(255, 255, 255, 0.9);
+      padding: 0.3rem 0.7rem;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .cert-card-body {
+      padding: 1.3rem 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .cert-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .cert-issuer {
+      font-size: 0.82rem;
+      color: #60a5fa;
+      margin: 0;
+    }
+
+    .cert-date {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin: 0;
+    }
+
+    .cert-date i {
+      margin-right: 0.3rem;
+    }
+
+    .cert-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.2rem;
+    }
+
+    .cert-tag {
+      font-size: 0.72rem;
+      background: rgba(59, 130, 246, 0.12);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      padding: 0.2rem 0.55rem;
+      border-radius: 50px;
+    }
+
+    .cert-desc {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.55;
+      margin: 0.3rem 0 0;
+      flex: 1;
+    }
+
+    .cert-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.9rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .cert-verify-btn {
+      font-size: 0.8rem;
+      color: #60a5fa;
+      text-decoration: none;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .cert-verify-btn:hover {
+      background: rgba(59, 130, 246, 0.25);
+    }
+
+    .cert-id {
+      font-size: 0.7rem;
+      color: #475569;
+      font-family: monospace;
+      letter-spacing: 0.3px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar" id="topNav">
+    <div class="container navbar-container-forced-ltr">
+      <div style="display:flex;gap:1rem;align-items:center">
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="#" class="navbar-brand"><span class="brand-en">My Professional Portfolio</span><span class="brand-ar"
+            style="display:none">ملفي المهني الاحترافي</span></a>
+      </div>
+      <div style="display:flex;gap:1rem;align-items:center">
+        <div style="display:flex;gap:1rem">
+          <a href="#about" class="nav-link" data-target-en="#about" data-target-ar="#about-ar" data-text-en="About"
+            data-text-ar="نبذة" data-scroll>About</a>
+          <a href="#services" class="nav-link" data-target-en="#services" data-target-ar="#services-ar"
+            data-text-en="Services" data-text-ar="الخدمات" data-scroll>Services</a>
+          <a href="#skills" class="nav-link" data-target-en="#skills" data-target-ar="#skills-ar" data-text-en="Skills"
+            data-text-ar="المهارات" data-scroll>Skills</a>
+          <a href="#certs" class="nav-link" data-target-en="#certs" data-target-ar="#certs-ar"
+            data-text-en="Certifications" data-text-ar="الشهادات">Certifications</a>
+          <a href="https://linkedin.com/in/ahmed-el-shehawy" class="nav-link" target="_blank" data-text-en="LinkedIn"
+            data-text-ar="لينكدإن">LinkedIn</a>
+          <a href="#contact" class="nav-link" data-target-en="#contact" data-target-ar="#contact-ar"
+            data-text-en="Contact" data-text-ar="تواصل">Contact</a>
+        </div>
+        <div class="lang-toggle" aria-hidden="false">
+          <button id="btn-en" class="lang-btn">EN</button>
+          <button id="btn-ar" class="lang-btn">العربية</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="nav-backdrop" id="navBackdrop"></div>
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <a href="#about" class="mobile-nav-link" data-target-en="#about" data-target-ar="#about-ar" data-text-en="About"
+      data-text-ar="نبذة">About</a>
+    <a href="#services" class="mobile-nav-link" data-target-en="#services" data-target-ar="#services-ar"
+      data-text-en="Services" data-text-ar="الخدمات">Services</a>
+    <a href="#skills" class="mobile-nav-link" data-target-en="#skills" data-target-ar="#skills-ar" data-text-en="Skills"
+      data-text-ar="المهارات">Skills</a>
+    <a href="#certs" class="mobile-nav-link" data-target-en="#certs" data-target-ar="#certs-ar"
+      data-text-en="Certifications" data-text-ar="الشهادات">Certifications</a>
+    <a href="https://linkedin.com/in/ahmed-el-shehawy" class="mobile-nav-link" target="_blank" data-text-en="LinkedIn"
+      data-text-ar="لينكدإن">LinkedIn</a>
+    <a href="#contact" class="mobile-nav-link" data-target-en="#contact" data-target-ar="#contact-ar"
+      data-text-en="Contact" data-text-ar="تواصل">Contact</a>
+
+    <div class="mobile-lang-section">
+      <span class="lang-label" data-text-en="Language" data-text-ar="اللغة">Language</span>
+      <div class="mobile-lang-btns">
+        <button id="mobile-btn-en" class="lang-btn">EN</button>
+        <button id="mobile-btn-ar" class="lang-btn">العربية</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- English content -->
+  <div class="lang lang-en active" data-lang="en">
+    <section class="hero" id="about">
+      <div class="container">
+        <div class="hero-content revealable">
+          <div class="profile-wrap">
+            <img src="Portfolio-pict.png" alt="Ahmed El-Shehawy" class="profile-image" />
+            <img src="golden-cup.png" alt="gold cup" class="cup-image" />
+          </div>
+          <h1 class="main-name">Ahmed Mahmoud El-Shehawy</h1>
+          <p class="job-title">Senior IT Manager | ERP Manager (Odoo, ERPNext) | IT Project Manager | Infrastructure &
+            Cybersecurity</p>
+          <p class="tagline" style="max-width:700px;margin:1rem auto;color:#b8d4f0;line-height:1.7">
+            Enterprise IT & ERP Leader with 14+ years architecting Odoo & ERPNext systems, managing IT projects, and
+            building secure multi-branch infrastructure. Proven track record delivering measurable business impact.
+          </p>
+          <div class="cta-buttons">
+            <a href="https://linkedin.com/in/ahmed-el-shehawy" class="btn btn-primary" target="_blank"><i
+                class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+            <a href="#contact" class="btn btn-secondary"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="CV With Titles.pdf" class="btn btn-secondary btn-download" download><i class="fas fa-file-pdf"></i>
+              Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="summary" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">Professional Summary</h2>
+        <p style="max-width:900px;margin:0 auto;color:#cbdcea">A dynamic and results-driven Senior IT Manager with over
+          14 years of robust experience in architecting and managing enterprise IT solutions across the MENA region.
+          Specializing in <strong style="color:#60a5fa">ERP Systems (Odoo, ERPNext)</strong>, <strong
+            style="color:#60a5fa">IT Project Management</strong>, <strong style="color:#60a5fa">Infrastructure
+            Design</strong>, and <strong style="color:#60a5fa">Cybersecurity</strong>. Proven track record in
+          streamlining multi-branch operations, deploying cutting-edge automation, and safeguarding corporate networks.
+          Dedicated to driving digital transformation, reducing operational costs, and optimizing business processes for
+          maximum efficiency.</p>
+      </div>
+    </section>
+
+
+    <section id="services" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">Professional Services</h2>
+        <div class="skills-grid">
+          <div class="skill-card"><i class="fas fa-server skill-icon"></i>
+            <h3 class="skill-title">Infrastructure</h3>
+            <p class="skill-desc">Designing, deploying, and maintaining robust, scalable on-premise and cloud
+              infrastructure solutions.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-cubes skill-icon"></i>
+            <h3 class="skill-title">ERP (Odoo / ERPNext)</h3>
+            <p class="skill-desc">End-to-end ERP implementation, customization, and multi-branch rollouts to streamline
+              business operations.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-shield-alt skill-icon"></i>
+            <h3 class="skill-title">Cybersecurity</h3>
+            <p class="skill-desc">Comprehensive security audits, firewall configurations, and data protection
+              strategies.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-cash-register skill-icon" style="color:#f59e0b"></i>
+            <h3 class="skill-title">Retail Systems (POS)</h3>
+            <p class="skill-desc">Setup and integration of advanced Point of Sale systems with inventory and accounting
+              software.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-video skill-icon" style="color:#10b981"></i>
+            <h3 class="skill-title">CCTV & Access Control</h3>
+            <p class="skill-desc">Integrated surveillance and physical security access systems for enterprise safety.
+            </p>
+          </div>
+          <div class="skill-card"><i class="fas fa-truck skill-icon" style="color:#8b5cf6"></i>
+            <h3 class="skill-title">Fleet Tracking</h3>
+            <p class="skill-desc">GPS tracking and advanced fleet management solutions for logistics and operations.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-laptop-code skill-icon" style="color:#ec4899"></i>
+            <h3 class="skill-title">Software & Web</h3>
+            <p class="skill-desc">Custom software development, API integrations, and robust web applications.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-brain skill-icon" style="color:#a78bfa"></i>
+            <h3 class="skill-title">Automation & AI</h3>
+            <p class="skill-desc">Implementing AI agents, LLM integration, and workflow automation to eliminate manual
+              tasks.</p>
+          </div>
+          <div class="skill-card"><i class="fas fa-lightbulb skill-icon" style="color:#38bdf8"></i>
+            <h3 class="skill-title">Digital Solutions</h3>
+            <p class="skill-desc">Tailored digital transformation strategies and consultation for sustainable growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">Experience Timeline</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2024 - Present</span>
+              <h3>Senior IT Manager</h3>
+              <h4>Excellent Franchise Management, Egypt</h4>
+              <p>Leading IT infrastructure, ERP customization (Odoo), and security policies. <strong>Centralized ERP
+                  operations for 15+ branches.</strong></p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2023 - 2024</span>
+              <h3>Technical Project Manager</h3>
+              <h4>Taif Al-Almas Trading Co, Saudi Arabia</h4>
+              <p>Directed low current systems projects (CCTV, Fire Alarm, Access Control). <strong>Delivered 20+
+                  projects on time and within budget.</strong></p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2021 - 2023</span>
+              <h3>Senior IT Engineer</h3>
+              <h4>NAT Egypt (NRPMC), Alexandria</h4>
+              <p>Deployed smart city infrastructure. Secured networks with VLAN/VPN/IPS. <strong>Managed attendance
+                  systems for 40+ locations.</strong></p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2016 - 2020</span>
+              <h3>Branch Manager</h3>
+              <h4>Taif Al-Almas Est., Jeddah</h4>
+              <p>Managed branch operations, sales, and technical support. <strong>Reduced system downtime by
+                  ~35%.</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="skills-grid">
+          <div class="skill-card skill-core"><i class="fas fa-chess-knight skill-icon"></i>
+            <h3 class="skill-title">Leadership & Strategy</h3>
+            <p class="skill-desc">IT Strategy, Team Leadership, Vendor & Budget Management. Enterprise Architecture
+              design and scalable systems.</p>
+          </div>
+          <div class="skill-card skill-core"><i class="fas fa-brain skill-icon" style="color:#a78bfa"></i>
+            <h3 class="skill-title">AI Systems & LLMs</h3>
+            <p class="skill-desc">Local LLM deployment (Ollama, Open WebUI), Prompt Engineering, AI Agents, Browser
+              Automation, Orchestrating multiple models (Llama, DeepSeek, Phi).</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-server skill-icon"></i>
+            <h3 class="skill-title">Enterprise Infrastructure</h3>
+            <p class="skill-desc">Windows Server, Linux, Proxmox, Virtualization, High Availability & Backup.
+              Multi-branch design for scalable infrastructure.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-shield-alt skill-icon"></i>
+            <h3 class="skill-title">Network & Cybersecurity</h3>
+            <p class="skill-desc">Firewall design (Fortigate/Sophos/OPNsense), VPN, VLANs, Intrusion Detection. Security
+              policies and compliance.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-cubes skill-icon"></i>
+            <h3 class="skill-title">ERP Architecture (Odoo & ERPNext)</h3>
+            <p class="skill-desc">End-to-end implementation from scratch, multi-company architecture, advanced POS
+              design (templates/pricing/multi-branch), custom module development, ERPNext, and BPR.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-plug skill-icon" style="color:#34d399"></i>
+            <h3 class="skill-title">System Integrations & APIs</h3>
+            <p class="skill-desc">REST API integrations, third-party system bridging, payment and POS integration,
+              cross-branch data synchronization.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-robot skill-icon" style="color:#f59e0b"></i>
+            <h3 class="skill-title">Business Process Automation</h3>
+            <p class="skill-desc">Python automation systems, AI-powered workflows, monitoring scripts, ETL pipelines,
+              process optimization, and manual task reduction.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-docker skill-icon" style="color:#38bdf8"></i>
+            <h3 class="skill-title">DevOps & AI Infrastructure</h3>
+            <p class="skill-desc">Docker orchestration (AI + App), Local AI hosting (GPU/inference), Nginx reverse
+              proxy, CI/CD basics, service orchestration.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-video skill-icon"></i>
+            <h3 class="skill-title">Low Current Systems</h3>
+            <p class="skill-desc">CCTV, Access Control, Attendance Systems, Fire Alarms, Smart Parking.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">Career Highlights</h2>
+        <ul style="max-width:900px;margin:0 auto;color:#bcd3ea;line-height:2.0">
+          <li>🏗️ <strong>ERP Architect:</strong> Led end-to-end Odoo implementations (multi-company, 15+ branches) —
+            streamlined HR, payroll, POS, and accelerated month-end close.</li>
+          <li>🤖 <strong>AI Pioneer:</strong> Deployed local LLM infrastructure (Ollama + Open WebUI) for internal AI
+            tools, prompt engineering workflows, and AI-powered automation agents.</li>
+          <li>🔗 <strong>Integration Leader:</strong> Built REST API connectors linking ERP, POS, payment gateways, and
+            third-party platforms — eliminating manual data entry across branches.</li>
+          <li>🌐 <strong>Multi-Branch Architect:</strong> Designed multi-branch VPN mesh with automated device sync for
+            40+ sites, enabling centralized reporting and unified access control.</li>
+          <li>🛡️ <strong>Security Overhaul:</strong> Redesigned firewall and network infrastructure (Fortigate/Sophos)
+            — reduced critical incidents and cut MTTR significantly.</li>
+          <li>⚙️ <strong>Automation Systems:</strong> Built Python-based automation systems with AI integration for
+            monitoring, reporting, and process workflows — cutting manual effort by 60%+.</li>
+          <li>📦 <strong>DevOps &amp; Containerization:</strong> Orchestrated Docker-based AI and app stacks with Nginx
+            reverse proxy, enabling scalable local AI hosting on enterprise GPU infrastructure.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="certs" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">Certifications & Credentials</h2>
+
+        <!-- Category Filter Tabs -->
+        <div class="cert-tabs" id="certTabs">
+          <button class="cert-tab active" data-filter="all">All</button>
+          <button class="cert-tab" data-filter="google">Google</button>
+          <button class="cert-tab" data-filter="ai">AI & ML</button>
+          <button class="cert-tab" data-filter="dev">Development</button>
+          <button class="cert-tab" data-filter="pm">Project Mgmt</button>
+          <button class="cert-tab" data-filter="exp">Experience</button>
+        </div>
+
+        <div class="cert-grid" id="certGrid">
+
+          <!-- 1. Google IT Support Professional -->
+          <div class="cert-card" data-category="google">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#4285F4,#34A853)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i></div>
+              <span class="cert-badge">Professional Certificate</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">Google IT Support</h3>
+              <p class="cert-issuer">Google via Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> March 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Networking</span>
+                <span class="cert-tag">Security</span>
+                <span class="cert-tag">Sysadmin</span>
+                <span class="cert-tag">5 Courses</span>
+              </div>
+              <p class="cert-desc">5-course program covering IT support, networking, OS administration, infrastructure
+                services, and cybersecurity fundamentals.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/professional-cert/MQWTSLD8T6TW" target="_blank"
+                  class="cert-verify-btn"><i class="fas fa-external-link-alt"></i> Verify</a>
+                <span class="cert-id">MQWTSLD8T6TW</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Intro to Generative AI -->
+          <div class="cert-card" data-category="google ai">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#1a73e8,#0d47a1)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i> Cloud</div>
+              <span class="cert-badge">AI Certificate</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">Introduction to Generative AI</h3>
+              <p class="cert-issuer">Google Cloud via Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> March 29, 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Generative AI</span>
+                <span class="cert-tag">LLMs</span>
+                <span class="cert-tag">AI Applications</span>
+              </div>
+              <p class="cert-desc">Fundamentals of generative AI, large language models, and real-world AI use cases and
+                applications.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/TFAYCH8JT38Q" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> Verify</a>
+                <span class="cert-id">TFAYCH8JT38Q</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Intro to Large Language Models -->
+          <div class="cert-card" data-category="google ai">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#673ab7,#4527a0)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i> Cloud</div>
+              <span class="cert-badge">AI Certificate</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">Introduction to Large Language Models</h3>
+              <p class="cert-issuer">Google Cloud via Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> March 29, 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">LLM Architecture</span>
+                <span class="cert-tag">Prompt Engineering</span>
+                <span class="cert-tag">NLP</span>
+              </div>
+              <p class="cert-desc">LLM architecture, capabilities, prompt engineering techniques, and applications with
+                limitations.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/BFDL2QQVJMYB" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> Verify</a>
+                <span class="cert-id">BFDL2QQVJMYB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. AI & ML on Google Cloud -->
+          <div class="cert-card" data-category="google ai">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#00897b,#00695c)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i> Cloud</div>
+              <span class="cert-badge">ML Certificate</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">AI & Machine Learning on Google Cloud</h3>
+              <p class="cert-issuer">Google Cloud via Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> March 29, 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Machine Learning</span>
+                <span class="cert-tag">GCP AI Platform</span>
+                <span class="cert-tag">ML Deployment</span>
+              </div>
+              <p class="cert-desc">ML fundamentals, Google Cloud AI platform, and end-to-end AI/ML workflow and
+                deployment.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/B2RQL988XCHD" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> Verify</a>
+                <span class="cert-id">B2RQL988XCHD</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Python -->
+          <div class="cert-card" data-category="dev">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#ffb300,#e65100)">
+              <div class="cert-issuer-logo"><i class="fas fa-university"></i></div>
+              <span class="cert-badge">Programming</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">Programming for Everybody (Python)</h3>
+              <p class="cert-issuer">University of Michigan via Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> November 12, 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Python</span>
+                <span class="cert-tag">Automation</span>
+                <span class="cert-tag">Data Structures</span>
+              </div>
+              <p class="cert-desc">Python programming fundamentals — variables, functions, loops, data structures,
+                taught by Prof. Charles Severance.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/E9BACQ0BZ3L8" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> Verify</a>
+                <span class="cert-id">E9BACQ0BZ3L8</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Google IT Security -->
+          <div class="cert-card" data-category="google">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#c62828,#b71c1c)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i></div>
+              <span class="cert-badge">Security</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">IT Security: Defense Against the Digital Dark Arts</h3>
+              <p class="cert-issuer">Google via Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> March 3, 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Cybersecurity</span>
+                <span class="cert-tag">Cryptography</span>
+                <span class="cert-tag">Network Security</span>
+              </div>
+              <p class="cert-desc">Network security, cryptography, AAA frameworks, securing network architecture, and
+                incident response.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/TYL7F327EEFK" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> Verify</a>
+                <span class="cert-id">TYL7F327EEFK</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Google System Admin -->
+          <div class="cert-card" data-category="google">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#2e7d32,#1b5e20)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i></div>
+              <span class="cert-badge">Sysadmin</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">System Administration & IT Infrastructure Services</h3>
+              <p class="cert-issuer">Google via Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> March 3, 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Active Directory</span>
+                <span class="cert-tag">Cloud Infra</span>
+                <span class="cert-tag">DR & Backup</span>
+              </div>
+              <p class="cert-desc">IT infrastructure planning, cloud services, Active Directory, backup and disaster
+                recovery, monitoring.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/RJGPXDVUPR48" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> Verify</a>
+                <span class="cert-id">RJGPXDVUPR48</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Google Networking -->
+          <div class="cert-card" data-category="google">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#0277bd,#01579b)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i></div>
+              <span class="cert-badge">Networking</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">The Bits and Bytes of Computer Networking</h3>
+              <p class="cert-issuer">Google via Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> October 31, 2022</p>
+              <div class="cert-tags">
+                <span class="cert-tag">TCP/IP</span>
+                <span class="cert-tag">DNS & DHCP</span>
+                <span class="cert-tag">Routing</span>
+              </div>
+              <p class="cert-desc">TCP/IP model, network protocols, routing and switching, DNS, DHCP, and network
+                troubleshooting.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/KAMQ3N5JHPT8" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> Verify</a>
+                <span class="cert-id">KAMQ3N5JHPT8</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Google OS -->
+          <div class="cert-card" data-category="google">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#558b2f,#33691e)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i></div>
+              <span class="cert-badge">OS Administration</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">Operating Systems and You: Becoming a Power User</h3>
+              <p class="cert-issuer">Google via Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> October 31, 2022</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Windows</span>
+                <span class="cert-tag">Linux</span>
+                <span class="cert-tag">File Systems</span>
+              </div>
+              <p class="cert-desc">Windows and Linux administration, file systems, process management, user permissions,
+                system configuration.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/QFU5Y8NC8BBB" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> Verify</a>
+                <span class="cert-id">QFU5Y8NC8BBB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. Project Management PMI -->
+          <div class="cert-card" data-category="pm">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#6a1b9a,#4a148c)">
+              <div class="cert-issuer-logo"><i class="fas fa-project-diagram"></i></div>
+              <span class="cert-badge">PMI Registered</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">Project Management: Technical Projects</h3>
+              <p class="cert-issuer">LinkedIn Learning — PMI® Registered Provider</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> February 29, 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">PMI</span>
+                <span class="cert-tag">Technical PM</span>
+                <span class="cert-tag">1 PDU</span>
+              </div>
+              <p class="cert-desc">Technical project planning, lifecycle management, risk management, resource
+                allocation, and stakeholder communication. Provider ID #4101.</p>
+              <div class="cert-footer">
+                <span class="cert-verify-btn" style="cursor:default;opacity:0.8"><i class="fas fa-check-circle"></i>
+                  Verified</span>
+                <span class="cert-id" style="font-size:0.65rem">2a8331be...ee8aaf</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 11. Windows 10 LinkedIn -->
+          <div class="cert-card" data-category="dev">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#0288d1,#01579b)">
+              <div class="cert-issuer-logo"><i class="fab fa-linkedin"></i></div>
+              <span class="cert-badge">LinkedIn Learning</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">Windows 10 for IT Support: Troubleshooting Basics</h3>
+              <p class="cert-issuer">LinkedIn Learning</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> February 18, 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Windows 10</span>
+                <span class="cert-tag">IT Support</span>
+                <span class="cert-tag">Troubleshooting</span>
+              </div>
+              <p class="cert-desc">Windows 10 troubleshooting, system diagnostics, performance optimization, and user
+                support best practices.</p>
+              <div class="cert-footer">
+                <span class="cert-verify-btn" style="cursor:default;opacity:0.8"><i class="fas fa-check-circle"></i>
+                  Verified</span>
+                <span class="cert-id" style="font-size:0.65rem">e5156d76...95fd2</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12. NAT Egypt Experience -->
+          <div class="cert-card" data-category="exp">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#37474f,#263238)">
+              <div class="cert-issuer-logo"><i class="fas fa-building"></i></div>
+              <span class="cert-badge">Experience Certificate</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">IT Specialist — NAT Egypt</h3>
+              <p class="cert-issuer">NAT Egypt (NRPMC) — Alexandria</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> 2021 – September 2023</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Infrastructure</span>
+                <span class="cert-tag">Smart Cities</span>
+                <span class="cert-tag">Network Security</span>
+              </div>
+              <p class="cert-desc">Official experience certificate — infrastructure deployment, smart city projects,
+                network security, server administration, and attendance system management (40+ sites).</p>
+              <div class="cert-footer">
+                <span class="cert-verify-btn" style="cursor:default;opacity:0.8"><i class="fas fa-stamp"></i>
+                  Official</span>
+                <span class="cert-id">ID: 201100765695</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 13. Taif Al-Almas Experience -->
+          <div class="cert-card" data-category="exp">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#bf360c,#8d1b00)">
+              <div class="cert-issuer-logo"><i class="fas fa-building"></i></div>
+              <span class="cert-badge">Training Certificate</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">Technical Training — Taif Al-Almas Est.</h3>
+              <p class="cert-issuer">Taif Al-Almas Trading Est. — Jeddah, Saudi Arabia</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> Oct 2016 – Oct 2020</p>
+              <div class="cert-tags">
+                <span class="cert-tag">CCTV Systems</span>
+                <span class="cert-tag">Access Control</span>
+                <span class="cert-tag">POS Systems</span>
+                <span class="cert-tag">GPS Tracking</span>
+              </div>
+              <p class="cert-desc">Comprehensive training in security systems, CCTV, biometric attendance, GPS tracking,
+                POS, accounting software, hardware and networking infrastructure.</p>
+              <div class="cert-footer">
+                <span class="cert-verify-btn" style="cursor:default;opacity:0.8"><i class="fas fa-stamp"></i>
+                  Official</span>
+                <span class="cert-id">ID: 1010124196</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 14. Technical Support Fundamentals -->
+          <div class="cert-card" data-category="google">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#00838f,#006064)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i></div>
+              <span class="cert-badge">IT Support</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">Technical Support Fundamentals</h3>
+              <p class="cert-issuer">Google via Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> October 31, 2022</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Troubleshooting</span>
+                <span class="cert-tag">Customer Service</span>
+                <span class="cert-tag">Hardware & Software</span>
+              </div>
+              <p class="cert-desc">IT support fundamentals: troubleshooting, customer service, operating systems,
+                computer hardware, and network basics.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/FNB2J88JTQHJ" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> Verify</a>
+                <span class="cert-id">FNB2J88JTQHJ</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 15. Bachelor's Degree -->
+          <div class="cert-card" data-category="exp">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#d4a017,#a0720f)">
+              <div class="cert-issuer-logo"><i class="fas fa-graduation-cap"></i></div>
+              <span class="cert-badge">Academic Degree</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">Bachelor's Degree</h3>
+              <p class="cert-issuer">Tanta University — Egypt</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> 2008</p>
+              <div class="cert-tags">
+                <span class="cert-tag">University Degree</span>
+                <span class="cert-tag">Egypt</span>
+              </div>
+              <p class="cert-desc">Bachelor's degree from Tanta University — foundational academic credential
+                underpinning 14+ years of professional IT career.</p>
+              <div class="cert-footer">
+                <span class="cert-verify-btn" style="cursor:default;opacity:0.8"><i class="fas fa-university"></i> Tanta
+                  Univ.</span>
+                <span class="cert-id">Class of 2008</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /cert-grid -->
+
+        <!-- Upcoming certs strip -->
+        <div
+          style="margin-top:3rem;padding:1.5rem;background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:14px;text-align:center">
+          <p style="color:#94a3b8;font-size:0.9rem;margin-bottom:0.8rem">🎯 Planned Certifications (2026–2027)</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center">
+            <span class="cert-tag" style="opacity:0.7">PMP — PMI</span>
+            <span class="cert-tag" style="opacity:0.7">CCNA — Cisco</span>
+            <span class="cert-tag" style="opacity:0.7">CISSP — ISC²</span>
+            <span class="cert-tag" style="opacity:0.7">CompTIA Security+</span>
+            <span class="cert-tag" style="opacity:0.7">AWS Solutions Architect</span>
+            <span class="cert-tag" style="opacity:0.7">RHCSA — Red Hat</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <section id="projects" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="Surveillance">
+              <div class="proj-overlay" style="color:#3b82f6"><i class="fas fa-video"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>Integrated Surveillance</h3>
+              <p>End-to-end CCTV systems for palaces, hotels, and retail using Hikvision, Dahua, Pelco, Panasonic, and Bosch.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="network_project_thumb.png" alt="Fleet">
+              <div class="proj-overlay" style="color:#10b981"><i class="fas fa-map-marked-alt"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>Smart Mobility & Fleet</h3>
+              <p>GPS tracking (Ruptela, Teltonika, Wialon, TrackSolid) and dashcams (Hikvision, Jimi) for fleet management.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="Access Control">
+              <div class="proj-overlay" style="color:#f59e0b"><i class="fas fa-parking"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>Access Control & Parking</h3>
+              <p>Smart parking barriers, turnstiles, and ticket systems (ZKTeco, Came, Nice, Fac, Comunello) for secure access.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="erp_project_thumb.png" alt="ERP Project">
+              <div class="proj-overlay" style="color:#3b82f6"><i class="fas fa-cubes"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>ERP & Software Solutions</h3>
+              <p>Odoo customization, POS, Hotel Mgmt, HR, Accounting, and specialized systems for clinics and gyms.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="network_project_thumb.png" alt="Networking">
+              <div class="proj-overlay" style="color:#10b981"><i class="fas fa-network-wired"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>Networking & Comms</h3>
+              <p>VoIP systems (Panasonic, Yeastar, Grandstream), firewalls, intrusion alarms, and PA/sound systems.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="Security">
+              <div class="proj-overlay" style="color:#f59e0b"><i class="fas fa-shield-alt"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>Security & Access Control</h3>
+              <p>CCTV surveillance, Smart parking barriers, turnstiles, and biometric access systems (ZKTeco, Came).</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="network_project_thumb.png" alt="Enterprise Networking">
+              <div class="proj-overlay" style="color:#10b981"><i class="fas fa-network-wired"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>Enterprise Networking</h3>
+              <p><strong>Problem:</strong> Unstable branch connectivity affecting daily operations and data sync.</p>
+              <p><strong>Action:</strong> Designed a multi-site Mesh VPN using Fortigate/Sophos firewalls.</p>
+              <p><strong>Result:</strong> Achieved 99.9% network uptime across 40+ remote locations.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="Security Systems">
+              <div class="proj-overlay" style="color:#f59e0b"><i class="fas fa-shield-alt"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>CCTV & Low Current</h3>
+              <p><strong>Problem:</strong> Inadequate security coverage leading to blind spots in major facilities.</p>
+              <p><strong>Action:</strong> Installed IP-based high-definition CCTV systems with central monitoring.</p>
+              <p><strong>Result:</strong> Improved facility security and enabled 24/7 remote monitoring for management.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="ai_project_thumb.png" alt="AI Automation">
+              <div class="proj-overlay" style="color:#8b5cf6"><i class="fas fa-robot"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>AI & Process Automation</h3>
+              <p><strong>Problem:</strong> Repetitive data extraction and reporting tasks consuming excessive engineering time.</p>
+              <p><strong>Action:</strong> Created Python-based automation scripts and deployed local LLM agents.</p>
+              <p><strong>Result:</strong> Cut manual data processing effort by 60%+ allowing staff to focus on strategy.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="Smart Parking">
+              <div class="proj-overlay" style="color:#a78bfa"><i class="fas fa-parking"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>Smart Parking</h3>
+              <p><strong>Problem:</strong> Unauthorized parking and congestion at corporate facilities.</p>
+              <p><strong>Action:</strong> Implemented automated barriers with LPR (License Plate Recognition) technology.</p>
+              <p><strong>Result:</strong> Eliminated unauthorized parking and streamlined vehicle access control.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="ai_project_thumb.png" alt="Gold Dashboard">
+              <div class="proj-overlay" style="color:#fbbf24"><i class="fas fa-coins"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>Live Gold Price Dashboard</h3>
+              <p><strong>Problem:</strong> Manual updates of gold prices leading to display delays and pricing errors.</p>
+              <p><strong>Action:</strong> Developed a responsive real-time web dashboard pulling live market APIs.</p>
+              <p><strong>Result:</strong> Provided 100% accurate, automated pricing screens across all retail branches.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="network_project_thumb.png" alt="Web Portals">
+              <div class="proj-overlay" style="color:#38bdf8"><i class="fas fa-globe"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>Websites & Portals</h3>
+              <p><strong>Problem:</strong> Lack of strong online presence and customer self-service portals.</p>
+              <p><strong>Action:</strong> Developed scalable corporate websites and interactive client portals.</p>
+              <p><strong>Result:</strong> Enhanced brand visibility and reduced customer support calls by 25%.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="Cybersecurity">
+              <div class="proj-overlay" style="color:#ef4444"><i class="fas fa-shield-alt"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>Cybersecurity Overhaul</h3>
+              <p><strong>Problem:</strong> Vulnerable network perimeter exposed to malware and unauthorized access.</p>
+              <p><strong>Action:</strong> Conducted audits, enforced zero-trust policies, and deployed IDS/IPS solutions.</p>
+              <p><strong>Result:</strong> Achieved zero successful breaches and ensured full compliance with security standards.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="Attendance">
+              <div class="proj-overlay" style="color:#14b8a6"><i class="fas fa-fingerprint"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>Attendance Systems</h3>
+              <p><strong>Problem:</strong> Inefficient manual time-tracking resulting in payroll discrepancies.</p>
+              <p><strong>Action:</strong> Installed biometric attendance devices synced centrally to the HR portal.</p>
+              <p><strong>Result:</strong> Automated payroll processing, saving 40 hours of HR admin work monthly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section revealable">
+      <div class="container">
+        <div class="contact-section">
+          <h2 class="section-title">Contact Me</h2>
+          <div class="contact-grid">
+            <a href="https://wa.me/201006765695" target="_blank" class="contact-item">
+              <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+              <div class="contact-info">
+                <div class="contact-label">WhatsApp</div>
+                <div class="contact-value">+20 100 676 5695</div>
+              </div>
+            </a>
+            <a href="tel:+201006765695" class="contact-item">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div class="contact-info">
+                <div class="contact-label">Phone</div>
+                <div class="contact-value">+20 100 676 5695</div>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/ahmed-el-shehawy" target="_blank" class="contact-item">
+              <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+              <div class="contact-info">
+                <div class="contact-label">LinkedIn</div>
+                <div class="contact-value">ahmed-el-shehawy</div>
+              </div>
+            </a>
+            <a href="mailto:ah.alshehawy@gmail.com" class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-info">
+                <div class="contact-label">Email</div>
+                <div class="contact-value">ah.alshehawy@gmail.com</div>
+              </div>
+            </a>
+            <a href="https://linktr.ee/ah.alshehawy" target="_blank" class="contact-item">
+              <div class="contact-icon"><i class="fas fa-link"></i></div>
+              <div class="contact-info">
+                <div class="contact-label">Linktree</div>
+                <div class="contact-value">ah.alshehawy</div>
+              </div>
+            </a>
+            <a href="https://www.bayt.com/en/egypt/members/ahmed-alshehawy-109448976/" target="_blank"
+              class="contact-item">
+              <div class="contact-icon"><i class="fas fa-briefcase"></i></div>
+              <div class="contact-info">
+                <div class="contact-label">Bayt.com</div>
+                <div class="contact-value">Ahmed Alshehawy</div>
+              </div>
+            </a>
+            <div class="contact-item download-item" style="grid-column:1 / -1;justify-content:center">
+              <a href="My certificates.pdf" class="btn btn-secondary btn-download" download
+                style="display:inline-flex;align-items:center"><i class="fas fa-certificate"></i> View / Download
+                Certifications</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Ahmed El-Shehawy. All Rights Reserved Smart IT Solutions <a
+            href="https://sits-nine.vercel.app/ar" target="_blank"
+            style="color:var(--primary);text-decoration:none">🌐</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Arabic content -->
+  <div class="lang lang-ar" data-lang="ar">
+    <section class="hero" id="about-ar">
+      <div class="container">
+        <div class="hero-content">
+          <div class="profile-wrap">
+            <img src="Portfolio-pict.png" alt="Ahmed El-Shehawy" class="profile-image" />
+            <img src="golden-cup.png" alt="كأس ذهبي" class="cup-image" />
+          </div>
+          <h1 class="main-name">أحمد محمود الشهاوي</h1>
+          <p class="job-title">مدير تقنية المعلومات | مدير تخطيط موارد المؤسسات (Odoo, ERPNext) | مدير مشاريع تقنية |
+            البنية التحتية والأمن السيبراني</p>
+          <p class="tagline" style="max-width:700px;margin:1rem auto;color:#b8d4f0;line-height:1.9">
+            قائد مؤسسي في تكنولوجيا المعلومات وإدارة الموارد بخبرة 14+ سنة في تصميم أنظمة Odoo و ERPNext، وإدارة
+            المشاريع، وبناء بنية تحتية آمنة في مصر والسعودية. سجل حافل بتحقيق نتائج ملموسة.
+          </p>
+          <div class="cta-buttons">
+            <a href="https://linkedin.com/in/ahmed-el-shehawy" class="btn btn-primary" target="_blank"><i
+                class="fab fa-linkedin"></i> تواصل على LinkedIn</a>
+            <a href="#contact-ar" class="btn btn-secondary"><i class="fas fa-envelope"></i> تواصل</a>
+            <a href="السيرة الذاتية الشاملة.pdf" class="btn btn-secondary btn-download" download><i
+                class="fas fa-file-pdf"></i> تحميل السيرة الذاتية</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="summary-ar" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">نبذة مهنية</h2>
+        <p style="max-width:900px;margin:0 auto;color:#cbdcea">مدير تقنية معلومات متمرس بخبرة تمتد لأكثر من 14 عاماً في
+          تصميم وإدارة حلول تكنولوجيا المعلومات على مستوى الشركات في منطقة الشرق الأوسط وشمال أفريقيا. خبير متخصص في
+          <strong style="color:#60a5fa">أنظمة تخطيط موارد المؤسسات (Odoo, ERPNext)</strong>، <strong
+            style="color:#60a5fa">إدارة المشاريع التقنية</strong>، <strong style="color:#60a5fa">البنية
+            التحتية</strong>، و<strong style="color:#60a5fa">الأمن السيبراني</strong>. أمتلك سجلاً حافلاً في تبسيط
+          عمليات الفروع المتعددة، ونشر أحدث تقنيات الأتمتة، وحماية الشبكات المؤسسية. أكرس جهودي لقيادة التحول الرقمي،
+          تقليل التكاليف التشغيلية، وتحسين العمليات التجارية لتحقيق أقصى درجات الكفاءة.</p>
+      </div>
+    </section>
+
+
+    <section id="services-ar" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">الخدمات المهنية</h2>
+        <div class="skills-grid" style="direction:rtl">
+          <div class="skill-card skill-core"><i class="fas fa-server skill-icon"></i>
+            <h3 class="skill-title">البنية التحتية</h3>
+            <p class="skill-desc">تصميم ونشر وصيانة حلول البنية التحتية السحابية والمحلية القابلة للتوسع.</p>
+          </div>
+          <div class="skill-card skill-core"><i class="fas fa-cubes skill-icon"></i>
+            <h3 class="skill-title">أنظمة ERP (Odoo / ERPNext)</h3>
+            <p class="skill-desc">تنفيذ شامل لتخطيط موارد المؤسسات، وتخصيص الأنظمة، ونشرها على فروع متعددة لتبسيط العمليات.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-shield-alt skill-icon"></i>
+            <h3 class="skill-title">الأمن السيبراني</h3>
+            <p class="skill-desc">تدقيق أمني شامل، تكوين الجدران النارية، وتطوير استراتيجيات حماية البيانات.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-cash-register skill-icon" style="color:#f59e0b"></i>
+            <h3 class="skill-title">أنظمة التجزئة (نقاط البيع)</h3>
+            <p class="skill-desc">إعداد وتكامل أنظمة نقاط البيع المتقدمة مع برامج المحاسبة والمخزون.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-video skill-icon" style="color:#10b981"></i>
+            <h3 class="skill-title">كاميرات المراقبة والتحكم بالدخول</h3>
+            <p class="skill-desc">أنظمة مراقبة متكاملة وحلول أمنية للتحكم بالدخول لضمان سلامة المنشآت.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-truck skill-icon" style="color:#8b5cf6"></i>
+            <h3 class="skill-title">تتبع الأسطول</h3>
+            <p class="skill-desc">أنظمة تتبع GPS وحلول الإدارة المتقدمة للأساطيل للعمليات اللوجستية.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-laptop-code skill-icon" style="color:#ec4899"></i>
+            <h3 class="skill-title">البرمجيات والويب</h3>
+            <p class="skill-desc">تطوير برمجيات مخصصة، تكامل واجهات API، وإنشاء تطبيقات ويب قوية.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-brain skill-icon" style="color:#a78bfa"></i>
+            <h3 class="skill-title">الأتمتة والذكاء الاصطناعي</h3>
+            <p class="skill-desc">تنفيذ وكلاء الذكاء الاصطناعي، وتكامل نماذج اللغة، وأتمتة مسارات العمل للقضاء على المهام اليدوية.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-lightbulb skill-icon" style="color:#38bdf8"></i>
+            <h3 class="skill-title">الحلول الرقمية</h3>
+            <p class="skill-desc">استراتيجيات تحول رقمي مخصصة واستشارات لتحقيق النمو المستدام.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience-ar" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">الجدول الزمني للخبرات</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2024 - الحالي</span>
+              <h3>مدير تكنولوجيا المعلومات</h3>
+              <h4>إكسيلنت لادارة الامتيازات التجاريه , مصر</h4>
+              <p>قيادة البنية التحتية، تخصيص Odoo ERP، وسياسات الأمن. <strong>مركزية عمليات ERP لأكثر من 15
+                  فرعاً.</strong></p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2023 - 2024</span>
+              <h3>مدير مشاريع تقنية</h3>
+              <h4>شركة طيف الألماس التجارية، السعودية</h4>
+              <p>إدارة مشاريع الأنظمة الأمنية (كاميرات، حريق، دخول ذكي). <strong>تسليم أكثر من 20 مشروعاً في الوقت
+                  المحدد وضمن الميزانية.</strong></p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2021 - 2023</span>
+              <h3>مهندس تكنولوجيا معلومات أول</h3>
+              <h4>الشركة الوطنية للمقاولات والتوريدات (NAT)، الإسكندرية</h4>
+              <p>نشر بنية المدن الذكية، تأمين الشبكات، وإدارة أنظمة الحضور. <strong>إدارة أنظمة الحضور لأكثر من 40
+                  موقعاً.</strong></p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot"></span>
+            <div class="timeline-content">
+              <span class="timeline-date">2016 - 2020</span>
+              <h3>مدير فرع</h3>
+              <h4>مؤسسة طيف الألماس، جدة</h4>
+              <p>إدارة عمليات الفرع والمبيعات والدعم الفني. <strong>تقليل فترات توقف النظام بنسبة 35% تقريباً.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills-ar" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">المهارات والقدرات</h2>
+        <div class="skills-grid" style="direction:rtl">
+          <div class="skill-card skill-core"><i class="fas fa-chess-knight skill-icon"></i>
+            <h3 class="skill-title">القيادة والاستراتيجية</h3>
+            <p class="skill-desc">استراتيجية تقنية المعلومات، قيادة الفرق، إدارة الموردين والميزانيات. تصميم المعمارية
+              المؤسسية والأنظمة القابلة للتوسع.</p>
+          </div>
+          <div class="skill-card skill-core"><i class="fas fa-brain skill-icon" style="color:#a78bfa"></i>
+            <h3 class="skill-title">أنظمة الذكاء الاصطناعي ونماذج اللغة</h3>
+            <p class="skill-desc">نشر نماذج اللغة المحلية (Ollama, Open WebUI)، هندسة التعليمات (Prompt Engineering)،
+              وكلاء الذكاء الاصطناعي، أتمتة المتصفح، تنسيق نماذج متعددة (Llama, DeepSeek, Phi).</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-server skill-icon"></i>
+            <h3 class="skill-title">البنية التحتية المؤسسية</h3>
+            <p class="skill-desc">Windows Server، Linux، Proxmox، الافتراضية، التوافر العالي والنسخ الاحتياطي. تصميم
+              أنظمة متعددة الفروع قابلة للتوسع.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-shield-alt skill-icon"></i>
+            <h3 class="skill-title">الشبكات والأمن السيبراني</h3>
+            <p class="skill-desc">تصميم الجدران النارية (Fortigate/Sophos/OPNsense)، VPN، VLANs، كشف التسلل. سياسات
+              الأمن والامتثال.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-cubes skill-icon"></i>
+            <h3 class="skill-title">معمارية ERP (Odoo وERPNext)</h3>
+            <p class="skill-desc">تنفيذ متكامل من الصفر، معمارية متعددة الشركات، تصميم POS متقدم (قوالب/أسعار/تعدد
+              الفروع)، تطوير وحدات مخصصة، ERPNext، وإعادة هندسة العمليات (BPR).</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-plug skill-icon" style="color:#34d399"></i>
+            <h3 class="skill-title">تكامل الأنظمة وواجهات API</h3>
+            <p class="skill-desc">تكامل REST API، ربط أنظمة الطرف الثالث، تكامل المدفوعات ونقاط البيع، مزامنة البيانات
+              بين الفروع.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-robot skill-icon" style="color:#f59e0b"></i>
+            <h3 class="skill-title">أتمتة العمليات التجارية</h3>
+            <p class="skill-desc">أنظمة أتمتة Python، سير عمل مدعوم بالذكاء الاصطناعي، سكريبتات المراقبة، خطوط ETL،
+              أتمتة العمليات وتقليل المهام اليدوية.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-docker skill-icon" style="color:#38bdf8"></i>
+            <h3 class="skill-title">DevOps والبنية التحتية للذكاء الاصطناعي</h3>
+            <p class="skill-desc">تنسيق Docker (AI + التطبيقات)، استضافة AI محلية (GPU/inference)، Nginx reverse proxy،
+              أساسيات CI/CD، تنسيق الخدمات.</p>
+          </div>
+          <div class="skill-card skill-expertise"><i class="fas fa-video skill-icon"></i>
+            <h3 class="skill-title">الأنظمة التيار الخفيف</h3>
+            <p class="skill-desc">CCTV، التحكم في الدخول، أنظمة الحضور، إنذار الحريق، المواقف الذكية.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights-ar" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">أبرز الإنجازات</h2>
+        <ul style="max-width:900px;margin:0 auto;color:#bcd3ea;line-height:2.2;direction:rtl">
+          <li>🏗️ <strong>معمار ERP:</strong> قيادة تنفيذ Odoo من الصفر (متعدد الشركات، 15+ فرعاً) — تحسين الموارد
+            البشرية والرواتب ونقاط البيع وتسريع إغلاق الشهر.</li>
+          <li>🤖 <strong>رائد الذكاء الاصطناعي:</strong> نشر بنية تحتية محلية لنماذج اللغة (Ollama + Open WebUI) لأدوات
+            AI داخلية، وسير عمل هندسة التعليمات، ووكلاء أتمتة مدعومين بالذكاء الاصطناعي.</li>
+          <li>🔗 <strong>قائد التكامل:</strong> بناء موصلات REST API تربط ERP ونقاط البيع وبوابات الدفع والأنظمة
+            الخارجية — إلغاء الإدخال اليدوي للبيانات بين الفروع.</li>
+          <li>🌐 <strong>معمار متعدد الفروع:</strong> تصميم شبكة VPN متعددة الفروع مع مزامنة آلية للأجهزة لأكثر من 40
+            موقعاً، مع تقارير مركزية وتحكم موحد.</li>
+          <li>🛡️ <strong>إعادة هيكلة الأمن:</strong> إعادة تصميم الجدران النارية والشبكات (Fortigate/Sophos) — تقليل
+            الحوادث الحرجة وخفض زمن الاستجابة بشكل ملحوظ.</li>
+          <li>⚙️ <strong>أنظمة الأتمتة:</strong> بناء أنظمة أتمتة بـPython مدمجة بالذكاء الاصطناعي للمراقبة والتقارير
+            وسير العمل — تقليل الجهد اليدوي بأكثر من 60%.</li>
+          <li>📦 <strong>DevOps والحاويات:</strong> تنسيق حزم Docker للذكاء الاصطناعي والتطبيقات مع Nginx reverse proxy،
+            مما يُتيح استضافة AI محلية قابلة للتوسع على بنية GPU المؤسسية.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="certs-ar" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">الشهادات والمؤهلات</h2>
+
+        <!-- Category Filter Tabs Arabic -->
+        <div class="cert-tabs" id="certTabsAr">
+          <button class="cert-tab active" data-filter-ar="all">الكل</button>
+          <button class="cert-tab" data-filter-ar="google">Google</button>
+          <button class="cert-tab" data-filter-ar="ai">الذكاء الاصطناعي</button>
+          <button class="cert-tab" data-filter-ar="dev">البرمجة</button>
+          <button class="cert-tab" data-filter-ar="pm">إدارة المشاريع</button>
+          <button class="cert-tab" data-filter-ar="exp">شهادات خبرة</button>
+        </div>
+
+        <div class="cert-grid" id="certGridAr" style="direction:rtl">
+
+          <div class="cert-card" data-category-ar="google">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#4285F4,#34A853)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i></div>
+              <span class="cert-badge">Professional Certificate</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">شهادة دعم تكنولوجيا المعلومات من Google</h3>
+              <p class="cert-issuer">Google عبر Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> مارس 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">الشبكات</span><span class="cert-tag">الأمن</span><span class="cert-tag">إدارة
+                  الأنظمة</span><span class="cert-tag">5 دورات</span>
+              </div>
+              <p class="cert-desc">برنامج من 5 دورات يشمل دعم تكنولوجيا المعلومات، الشبكات، إدارة أنظمة التشغيل، خدمات
+                البنية التحتية، والأمن السيبراني.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/professional-cert/MQWTSLD8T6TW" target="_blank"
+                  class="cert-verify-btn"><i class="fas fa-external-link-alt"></i> تحقق</a>
+                <span class="cert-id">MQWTSLD8T6TW</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category-ar="google ai">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#1a73e8,#0d47a1)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i> Cloud</div>
+              <span class="cert-badge">شهادة AI</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">مقدمة في الذكاء الاصطناعي التوليدي</h3>
+              <p class="cert-issuer">Google Cloud عبر Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> 29 مارس 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Generative AI</span><span class="cert-tag">نماذج اللغة الكبيرة</span><span
+                  class="cert-tag">تطبيقات AI</span>
+              </div>
+              <p class="cert-desc">أساسيات الذكاء الاصطناعي التوليدي، نماذج اللغة الكبيرة، وحالات الاستخدام الفعلي
+                للذكاء الاصطناعي.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/TFAYCH8JT38Q" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> تحقق</a>
+                <span class="cert-id">TFAYCH8JT38Q</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category-ar="google ai">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#673ab7,#4527a0)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i> Cloud</div>
+              <span class="cert-badge">شهادة AI</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">مقدمة في نماذج اللغة الكبيرة (LLMs)</h3>
+              <p class="cert-issuer">Google Cloud عبر Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> 29 مارس 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">معمارية LLM</span><span class="cert-tag">هندسة التعليمات</span><span
+                  class="cert-tag">معالجة اللغة الطبيعية</span>
+              </div>
+              <p class="cert-desc">معمارية نماذج اللغة الكبيرة، تقنيات هندسة التعليمات، والتطبيقات العملية مع القيود.
+              </p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/BFDL2QQVJMYB" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> تحقق</a>
+                <span class="cert-id">BFDL2QQVJMYB</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category-ar="google ai">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#00897b,#00695c)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i> Cloud</div>
+              <span class="cert-badge">شهادة ML</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">الذكاء الاصطناعي وتعلم الآلة على Google Cloud</h3>
+              <p class="cert-issuer">Google Cloud عبر Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> 29 مارس 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Machine Learning</span><span class="cert-tag">GCP AI Platform</span><span
+                  class="cert-tag">نشر النماذج</span>
+              </div>
+              <p class="cert-desc">أساسيات تعلم الآلة، منصة Google Cloud للذكاء الاصطناعي، وسير عمل ML الكامل من البناء
+                إلى النشر.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/B2RQL988XCHD" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> تحقق</a>
+                <span class="cert-id">B2RQL988XCHD</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category-ar="dev">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#ffb300,#e65100)">
+              <div class="cert-issuer-logo"><i class="fas fa-university"></i></div>
+              <span class="cert-badge">برمجة</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">البرمجة للجميع — Python</h3>
+              <p class="cert-issuer">جامعة ميتشيغان عبر Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> 12 نوفمبر 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Python</span><span class="cert-tag">الأتمتة</span><span class="cert-tag">هياكل
+                  البيانات</span>
+              </div>
+              <p class="cert-desc">أساسيات برمجة Python — المتغيرات، الدوال، الحلقات، هياكل البيانات، بتدريس أ.د.
+                Charles Severance.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/E9BACQ0BZ3L8" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> تحقق</a>
+                <span class="cert-id">E9BACQ0BZ3L8</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category-ar="google">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#c62828,#b71c1c)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i></div>
+              <span class="cert-badge">الأمن السيبراني</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">أمن تكنولوجيا المعلومات: الدفاع ضد الفنون المظلمة الرقمية</h3>
+              <p class="cert-issuer">Google عبر Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> 3 مارس 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Cybersecurity</span><span class="cert-tag">التشفير</span><span
+                  class="cert-tag">أمن الشبكات</span>
+              </div>
+              <p class="cert-desc">أمن الشبكات، التشفير، إطار AAA، تأمين معمارية الشبكات، والاستجابة للحوادث.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/TYL7F327EEFK" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> تحقق</a>
+                <span class="cert-id">TYL7F327EEFK</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category-ar="google">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#2e7d32,#1b5e20)">
+              <div class="cert-issuer-logo"><i class="fab fa-google"></i></div>
+              <span class="cert-badge">إدارة الأنظمة</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">إدارة الأنظمة وخدمات البنية التحتية</h3>
+              <p class="cert-issuer">Google عبر Coursera</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> 3 مارس 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">Active Directory</span><span class="cert-tag">الحوسبة السحابية</span><span
+                  class="cert-tag">النسخ الاحتياطي</span>
+              </div>
+              <p class="cert-desc">تخطيط البنية التحتية، الخدمات السحابية، Active Directory، النسخ الاحتياطي والتعافي من
+                الكوارث، المراقبة.</p>
+              <div class="cert-footer">
+                <a href="https://coursera.org/verify/RJGPXDVUPR48" target="_blank" class="cert-verify-btn"><i
+                    class="fas fa-external-link-alt"></i> تحقق</a>
+                <span class="cert-id">RJGPXDVUPR48</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category-ar="pm">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#6a1b9a,#4a148c)">
+              <div class="cert-issuer-logo"><i class="fas fa-project-diagram"></i></div>
+              <span class="cert-badge">PMI معتمد</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">إدارة المشاريع التقنية</h3>
+              <p class="cert-issuer">LinkedIn Learning — مزود معتمد من PMI®</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> 29 فبراير 2024</p>
+              <div class="cert-tags">
+                <span class="cert-tag">PMI</span><span class="cert-tag">إدارة المشاريع التقنية</span><span
+                  class="cert-tag">1 PDU</span>
+              </div>
+              <p class="cert-desc">تخطيط المشاريع التقنية، دورة حياة المشروع، إدارة المخاطر، تخصيص الموارد، والتواصل مع
+                أصحاب المصلحة.</p>
+              <div class="cert-footer">
+                <span class="cert-verify-btn" style="cursor:default;opacity:0.8"><i class="fas fa-check-circle"></i>
+                  موثّق</span>
+                <span class="cert-id">Provider #4101</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category-ar="exp">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#37474f,#263238)">
+              <div class="cert-issuer-logo"><i class="fas fa-building"></i></div>
+              <span class="cert-badge">شهادة خبرة</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">أخصائي تكنولوجيا المعلومات — شركة NAT Egypt</h3>
+              <p class="cert-issuer">شركة نات إيجيبت (NRPMC) — الإسكندرية</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> 2021 – سبتمبر 2023</p>
+              <div class="cert-tags">
+                <span class="cert-tag">البنية التحتية</span><span class="cert-tag">المدن الذكية</span><span
+                  class="cert-tag">أمن الشبكات</span>
+              </div>
+              <p class="cert-desc">شهادة خبرة رسمية — نشر البنية التحتية، مشاريع المدن الذكية، أمن الشبكات، إدارة
+                الخوادم، وأنظمة الحضور لأكثر من 40 موقعاً.</p>
+              <div class="cert-footer">
+                <span class="cert-verify-btn" style="cursor:default;opacity:0.8"><i class="fas fa-stamp"></i>
+                  رسمي</span>
+                <span class="cert-id">ID: 201100765695</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category-ar="exp">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#bf360c,#8d1b00)">
+              <div class="cert-issuer-logo"><i class="fas fa-building"></i></div>
+              <span class="cert-badge">شهادة تدريب</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">شهادة تدريب تقني — مؤسسة طيف الألماس</h3>
+              <p class="cert-issuer">مؤسسة طيف الألماس التجارية — جدة، المملكة العربية السعودية</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> أكتوبر 2016 – أكتوبر 2020</p>
+              <div class="cert-tags">
+                <span class="cert-tag">كاميرات CCTV</span><span class="cert-tag">التحكم بالدخول</span><span
+                  class="cert-tag">نقاط البيع</span><span class="cert-tag">تتبع GPS</span>
+              </div>
+              <p class="cert-desc">تدريب شامل على أنظمة الأمن، كاميرات المراقبة، أجهزة الحضور البيومترية، تتبع GPS، نقاط
+                البيع، برامج المحاسبة، والشبكات.</p>
+              <div class="cert-footer">
+                <span class="cert-verify-btn" style="cursor:default;opacity:0.8"><i class="fas fa-stamp"></i>
+                  رسمي</span>
+                <span class="cert-id">ID: 1010124196</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-card" data-category-ar="exp">
+            <div class="cert-card-header" style="background:linear-gradient(135deg,#d4a017,#a0720f)">
+              <div class="cert-issuer-logo"><i class="fas fa-graduation-cap"></i></div>
+              <span class="cert-badge">مؤهل أكاديمي</span>
+            </div>
+            <div class="cert-card-body">
+              <h3 class="cert-name">بكالوريوس</h3>
+              <p class="cert-issuer">جامعة طنطا — مصر</p>
+              <p class="cert-date"><i class="far fa-calendar-alt"></i> 2008</p>
+              <div class="cert-tags">
+                <span class="cert-tag">درجة جامعية</span><span class="cert-tag">مصر</span>
+              </div>
+              <p class="cert-desc">بكالوريوس من جامعة طنطا — المؤهل الأكاديمي الأساسي الذي يدعم مسيرة مهنية في تكنولوجيا
+                المعلومات تمتد 14+ سنة.</p>
+              <div class="cert-footer">
+                <span class="cert-verify-btn" style="cursor:default;opacity:0.8"><i class="fas fa-university"></i> جامعة
+                  طنطا</span>
+                <span class="cert-id">دفعة 2008</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /cert-grid-ar -->
+
+        <!-- Upcoming certs strip Arabic -->
+        <div
+          style="margin-top:3rem;padding:1.5rem;background:rgba(59,130,246,0.06);border:1px solid rgba(59,130,246,0.15);border-radius:14px;text-align:center;direction:rtl">
+          <p style="color:#94a3b8;font-size:0.9rem;margin-bottom:0.8rem">🎯 شهادات مخططة (2026–2027)</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center">
+            <span class="cert-tag" style="opacity:0.7">PMP — PMI</span>
+            <span class="cert-tag" style="opacity:0.7">CCNA — Cisco</span>
+            <span class="cert-tag" style="opacity:0.7">CISSP — ISC²</span>
+            <span class="cert-tag" style="opacity:0.7">CompTIA Security+</span>
+            <span class="cert-tag" style="opacity:0.7">AWS Solutions Architect</span>
+            <span class="cert-tag" style="opacity:0.7">RHCSA — Red Hat</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="projects-ar" class="section revealable">
+      <div class="container">
+        <h2 class="section-title">مشاريع وحلول متكاملة</h2>
+        <div class="projects-grid" style="direction:rtl">
+
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="erp_project_thumb.png" alt="Odoo ERP">
+              <div class="proj-overlay" style="color:#3b82f6"><i class="fas fa-cubes"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>أنظمة ERP (Odoo)</h3>
+              <p>تنفيذ متكامل يشمل المحاسبة، المخازن، الموارد البشرية، ونقاط البيع مع مزامنة كاملة لـ 15+ فرع.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="network_project_thumb.png" alt="Network Mesh">
+              <div class="proj-overlay" style="color:#10b981"><i class="fas fa-network-wired"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>الشبكات والربط</h3>
+              <p>تصميم شبكات VPN متداخلة، جدران نارية متطورة، وأنظمة اتصالات VoIP موحدة للمؤسسات.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="Security Systems">
+              <div class="proj-overlay" style="color:#f59e0b"><i class="fas fa-shield-alt"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>أنظمة الأمن والتيار الخفيف</h3>
+              <p>كاميرات مراقبة IP، التحكم بالدخول، أنظمة الحضور البيومترية، وحواجز المواقف الذكية.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="ai_project_thumb.png" alt="AI Automation">
+              <div class="proj-overlay" style="color:#8b5cf6"><i class="fas fa-robot"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>الذكاء الاصطناعي والأتمتة</h3>
+              <p>نشر وكلاء ذكاء اصطناعي محليين، أتمتة العمليات باستخدام Python، وتحليلات البيانات الذكية.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="erp_project_thumb.png" alt="Odoo ERP">
+              <div class="proj-overlay" style="color:#3b82f6"><i class="fas fa-cubes"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>نظام ERP (Odoo)</h3>
+              <p><strong>المشكلة:</strong> عمليات منفصلة عبر أكثر من 15 فرعًا تسببت في إدخال بيانات يدوي وتأخير.</p>
+              <p><strong>الإجراء:</strong> تنفيذ نظام Odoo مركزي يشمل نقاط البيع والمخزون والموارد البشرية بمزامنة آلية.
+              </p>
+              <p><strong>النتيجة:</strong> تقليل وقت الإغلاق الشهري بنسبة 40% وتحسين دقة المخزون بنسبة 95%.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="network_project_thumb.png" alt="Network Mesh">
+              <div class="proj-overlay" style="color:#10b981"><i class="fas fa-network-wired"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>شبكات المؤسسات</h3>
+              <p><strong>المشكلة:</strong> اتصال غير مستقر للفروع مما أثر على العمليات اليومية ومزامنة البيانات.</p>
+              <p><strong>الإجراء:</strong> تصميم شبكة VPN متعددة المواقع باستخدام جدران الحماية Fortigate/Sophos.</p>
+              <p><strong>النتيجة:</strong> الوصول إلى 99.9% من وقت استقرار الشبكة عبر 40+ موقعًا بعيدًا.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="Security Systems">
+              <div class="proj-overlay" style="color:#f59e0b"><i class="fas fa-shield-alt"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>المراقبة الأمنية CCTV</h3>
+              <p><strong>المشكلة:</strong> تغطية أمنية غير كافية تترك زوايا غير مرئية في المنشآت الكبرى.</p>
+              <p><strong>الإجراء:</strong> تركيب أنظمة CCTV عالية الدقة تعتمد على IP مع مراقبة مركزية.</p>
+              <p><strong>النتيجة:</strong> تحسين أمان المنشأة وتمكين الإدارة من المراقبة عن بعد على مدار الساعة.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="ai_project_thumb.png" alt="AI Automation">
+              <div class="proj-overlay" style="color:#8b5cf6"><i class="fas fa-robot"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>الذكاء الاصطناعي والأتمتة</h3>
+              <p><strong>المشكلة:</strong> مهام استخراج البيانات وكتابة التقارير المتكررة تستهلك وقت المهندسين.</p>
+              <p><strong>الإجراء:</strong> إنشاء نصوص أتمتة بواسطة Python ونشر وكلاء LLM محليين.</p>
+              <p><strong>النتيجة:</strong> تقليل العمل اليدوي بنسبة تتجاوز 60% للسماح بالتركيز على الاستراتيجية.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="erp_project_thumb.png" alt="ERPNext">
+              <div class="proj-overlay" style="color:#10b981"><i class="fas fa-ship"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>نظام ERPNext (صيانة القوارب)</h3>
+              <p><strong>المشكلة:</strong> غياب التتبع الموحد لصيانة القوارب وجدولة أطقم العمل.</p>
+              <p><strong>الإجراء:</strong> تخصيص ونشر نظام ERPNext مخصص للمتطلبات التشغيلية البحرية.</p>
+              <p><strong>النتيجة:</strong> تحقيق رؤية 100% لجداول الصيانة وتخصيصات الأطقم.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="network_project_thumb.png" alt="Call Center">
+              <div class="proj-overlay" style="color:#f59e0b"><i class="fas fa-headset"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>مركز الاتصال (Call Center)</h3>
+              <p><strong>المشكلة:</strong> ضغط كبير لطلبات العملاء دون نظام تتبع مناسب.</p>
+              <p><strong>الإجراء:</strong> نشر حل مركز اتصال يعتمد على VoIP ومدمج مباشرة بنظام إدارة العملاء (CRM).</p>
+              <p><strong>النتيجة:</strong> تقليل متوسط وقت الاستجابة بنسبة 50% وزيادة رضا العملاء.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="POS Systems">
+              <div class="proj-overlay" style="color:#34d399"><i class="fas fa-cash-register"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>أنظمة نقاط البيع POS</h3>
+              <p><strong>المشكلة:</strong> أنظمة تجزئة قديمة تتسبب في طوابير طويلة واختلافات في المخزون.</p>
+              <p><strong>الإجراء:</strong> إطلاق معدات POS حديثة متصلة بالسحابة ومدمجة بنظام ERP المركزي.</p>
+              <p><strong>النتيجة:</strong> تسريع الدفع بنسبة 30% وتمكين تحديث المخزون في الوقت الفعلي.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="Parking Systems">
+              <div class="proj-overlay" style="color:#a78bfa"><i class="fas fa-parking"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>المواقف الذكية</h3>
+              <p><strong>المشكلة:</strong> إيقاف سيارات غير مصرح به وازدحام في مرافق الشركات.</p>
+              <p><strong>الإجراء:</strong> تنفيذ حواجز آلية مع تقنية التعرف على لوحات الترخيص (LPR).</p>
+              <p><strong>النتيجة:</strong> القضاء على المواقف غير المصرح بها وتنظيم وصول المركبات بسلاسة.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="ai_project_thumb.png" alt="AI Dashboard">
+              <div class="proj-overlay" style="color:#fbbf24"><i class="fas fa-coins"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>لوحة أسعار الذهب المباشرة</h3>
+              <p><strong>المشكلة:</strong> التحديث اليدوي لأسعار الذهب مما يتسبب في تأخير وأخطاء في التسعير.</p>
+              <p><strong>الإجراء:</strong> تطوير لوحة ويب حية تتصل بـ APIs مباشرة لمعرفة الأسعار اللحظية.</p>
+              <p><strong>النتيجة:</strong> توفير شاشات تسعير دقيقة وتلقائية 100% في جميع فروع البيع.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="network_project_thumb.png" alt="Web Portals">
+              <div class="proj-overlay" style="color:#38bdf8"><i class="fas fa-globe"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>مواقع الويب والبوابات</h3>
+              <p><strong>المشكلة:</strong> عدم وجود حضور رقمي قوي وبوابات خدمة ذاتية للعملاء.</p>
+              <p><strong>الإجراء:</strong> تطوير مواقع مؤسسية وبوابات تفاعلية للعملاء قابلة للتوسع.</p>
+              <p><strong>النتيجة:</strong> تعزيز رؤية العلامة التجارية وتقليل مكالمات الدعم بنسبة 25%.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="Cybersecurity">
+              <div class="proj-overlay" style="color:#ef4444"><i class="fas fa-shield-alt"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>تطوير الأمن السيبراني</h3>
+              <p><strong>المشكلة:</strong> شبكة معرضة لبرامج ضارة والوصول غير المصرح به.</p>
+              <p><strong>الإجراء:</strong> إجراء عمليات تدقيق، تطبيق سياسة الثقة المعدومة، ونشر حلول IDS/IPS.</p>
+              <p><strong>النتيجة:</strong> تحقيق صفر اختراقات لضمان الامتثال الكامل لمعايير الأمان.</p>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="proj-header">
+              <img src="security_project_thumb.png" alt="Attendance">
+              <div class="proj-overlay" style="color:#14b8a6"><i class="fas fa-fingerprint"></i></div>
+            </div>
+            <div class="proj-body">
+              <h3>أنظمة الحضور والانصراف</h3>
+              <p><strong>المشكلة:</strong> تتبع يدوي للوقت يتسبب في اختلافات و أخطاء برواتب الموظفين.</p>
+              <p><strong>الإجراء:</strong> تركيب أجهزة حضور بيومترية متصلة مركزياً ببوابة الموارد البشرية.</p>
+              <p><strong>النتيجة:</strong> أتمتة الرواتب، وتوفير 40 ساعة عمل شهرياً من المهام الإدارية.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-ar" class="section">
+      <div class="container">
+        <div class="contact-section" style="direction:rtl">
+          <h2 class="section-title">تواصل معي</h2>
+          <div class="contact-grid">
+            <a href="https://wa.me/201006765695" target="_blank" class="contact-item">
+              <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+              <div class="contact-info">
+                <div class="contact-label">واتساب</div>
+                <div class="contact-value">+20 100 676 5695</div>
+              </div>
+            </a>
+            <a href="tel:+201006765695" class="contact-item">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div class="contact-info">
+                <div class="contact-label">الجوال</div>
+                <div class="contact-value">+20 100 676 5695</div>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/ahmed-el-shehawy" target="_blank" class="contact-item">
+              <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+              <div class="contact-info">
+                <div class="contact-label">لينكدإن</div>
+                <div class="contact-value">ahmed-el-shehawy</div>
+              </div>
+            </a>
+            <a href="https://www.bayt.com/ar/egypt/members/ahmed-alshehawy-109448976/" target="_blank" class="contact-item">
+              <div class="contact-icon"><i class="fas fa-briefcase"></i></div>
+              <div class="contact-info">
+                <div class="contact-label">بيت.كوم</div>
+                <div class="contact-value">Ahmed Alshehawy</div>
+              </div>
+            </a>
+            <a href="mailto:ah.alshehawy@gmail.com" class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-info">
+                <div class="contact-label">البريد الإلكتروني</div>
+                <div class="contact-value">ah.alshehawy@gmail.com</div>
+              </div>
+            </a>
+            <a href="https://linktr.ee/ah.alshehawy" target="_blank" class="contact-item">
+              <div class="contact-icon"><i class="fas fa-link"></i></div>
+              <div class="contact-info">
+                <div class="contact-label">لينكتري</div>
+                <div class="contact-value">ah.alshehawy</div>
+              </div>
+            </a>
+            <div class="contact-item download-item" style="grid-column:1 / -1;justify-content:center">
+              <a href="My certificates.pdf" class="btn btn-secondary btn-download" download
+                style="display:inline-flex;align-items:center"><i class="fas fa-certificate"></i> عرض وتحميل
+                الشهادات</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2026 أحمد محمود الشهاوي. جميع الحقوق محفوظة Smart IT Solutions <a href="https://sits-nine.vercel.app/ar"
+          target="_blank" style="color:var(--primary);text-decoration:none">🌐</a></p>
+    </footer>
+  </div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    (function () {
+      const btnEn = document.getElementById('btn-en');
+      const btnAr = document.getElementById('btn-ar');
+      const enBlocks = document.querySelectorAll('.lang-en');
+      const arBlocks = document.querySelectorAll('.lang-ar');
+
+      function setLang(lang) {
+        if (lang === 'ar') {
+          document.documentElement.lang = 'ar';
+          document.documentElement.dir = 'rtl';
+          btnAr.classList.add('active'); btnEn.classList.remove('active');
+          arBlocks.forEach(el => el.classList.add('active'));
+          enBlocks.forEach(el => el.classList.remove('active'));
+          // toggle navbar brand
+          const bEn = document.querySelector('.brand-en');
+          const bAr = document.querySelector('.brand-ar');
+          if (bEn) bEn.style.display = 'none';
+          if (bAr) bAr.style.display = 'inline';
+          // update nav links to Arabic targets/text
+          document.querySelectorAll('.nav-link').forEach(a => {
+            if (a.dataset.targetAr) a.href = a.dataset.targetAr;
+            if (a.dataset.textAr) a.textContent = a.dataset.textAr;
+          });
+        } else {
+          document.documentElement.lang = 'en';
+          document.documentElement.dir = 'ltr';
+          btnEn.classList.add('active'); btnAr.classList.remove('active');
+          enBlocks.forEach(el => el.classList.add('active'));
+          arBlocks.forEach(el => el.classList.remove('active'));
+          // toggle navbar brand
+          const bEn = document.querySelector('.brand-en');
+          const bAr = document.querySelector('.brand-ar');
+          if (bEn) bEn.style.display = 'inline';
+          if (bAr) bAr.style.display = 'none';
+          // update nav links to English targets/text
+          document.querySelectorAll('.nav-link').forEach(a => {
+            if (a.dataset.targetEn) a.href = a.dataset.targetEn;
+            if (a.dataset.textEn) a.textContent = a.dataset.textEn;
+          });
+        }
+        try { localStorage.setItem('site-lang', lang); } catch (e) { }
+      }
+
+      btnEn.addEventListener('click', () => setLang('en'));
+      btnAr.addEventListener('click', () => setLang('ar'));
+
+      // initialize
+      const saved = (function () { try { return localStorage.getItem('site-lang') } catch (e) { return null } })();
+      // Use saved preference if present, otherwise default to English
+      setLang(saved ? saved : 'en');
+    })();
+  </script>
+
+  <script>
+    // simple scroll reveal for elements with class .revealable
+    (function () {
+      const items = document.querySelectorAll('.revealable');
+      function reveal() {
+        const h = window.innerHeight;
+        items.forEach(el => {
+          const r = el.getBoundingClientRect();
+          if (r.top < h - 80) el.classList.add('reveal');
+        });
+      }
+      window.addEventListener('scroll', reveal);
+      window.addEventListener('resize', reveal);
+      // initial
+      setTimeout(reveal, 200);
+    })();
+  </script>
+
+  <button id="backToTop" title="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+      stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 15-6-6-6 6" />
+    </svg>
+  </button>
+
+  <script>
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+
+  <script>
+    // Run the globe/cup animation once on hover, then restore the profile image
+    (function () {
+      const wraps = document.querySelectorAll('.profile-wrap');
+      wraps.forEach(w => {
+        let animating = false;
+        w.addEventListener('mouseenter', () => {
+          if (animating) return;
+          if (w.dataset.played === 'true') return; // don't re-run after one full play
+          animating = true;
+          w.classList.add('animate');
+        });
+        // listen for animation end on the cup image
+        const cup = w.querySelector('.cup-image');
+        if (cup) {
+          cup.addEventListener('animationend', () => {
+            // remove animate class to restore initial state
+            w.classList.remove('animate');
+            // ensure cup hidden and profile visible
+            const prof = w.querySelector('.profile-image');
+            if (prof) prof.style.opacity = '1';
+            cup.style.opacity = '0';
+            // mark as played once so it won't re-trigger without page refresh
+            w.dataset.played = 'true';
+            animating = false;
+          });
+        }
+      });
+    })();
+  </script>
+  <!-- Simple Side Nav HTML -->
+  <nav class="side-nav" id="sideNav">
+    <div class="nav-avatar">
+      <img src="Portfolio-pict.png" onerror="this.src='https://i.ibb.co/v4m1p8R/avatar.png'" alt="Ahmed">
+    </div>
+    <a href="#about" data-target-en="#about" data-target-ar="#about-ar" title="About">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </svg>
+    </a>
+    <a href="#services" data-target-en="#services" data-target-ar="#services-ar" title="Services">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+        <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+      </svg>
+    </a>
+    <a href="#skills" data-target-en="#skills" data-target-ar="#skills-ar" title="Skills">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    </a>
+    <a href="#experience" data-target-en="#experience" data-target-ar="#experience-ar" title="Experience">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+      </svg>
+    </a>
+    <a href="#projects" data-target-en="#projects" data-target-ar="#projects-ar" title="Projects">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 3v18h18" />
+        <path d="m19 9-5 5-4-4-3 3" />
+      </svg>
+    </a>
+    <a href="#contact" data-target-en="#contact" data-target-ar="#contact-ar" title="Contact">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <rect width="20" height="16" x="2" y="4" rx="2" />
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+      </svg>
+    </a>
+  </nav>
+
+  <script>
+    // Hamburger Menu Logic
+    (function () {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const navBackdrop = document.getElementById('navBackdrop');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMobileNav() {
+        hamburgerBtn.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        navBackdrop.classList.toggle('active');
+        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+      }
+
+      function closeMobileNav() {
+        hamburgerBtn.classList.remove('active');
+        mobileNav.classList.remove('active');
+        navBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      hamburgerBtn.addEventListener('click', toggleMobileNav);
+      navBackdrop.addEventListener('click', closeMobileNav);
+
+      // Close menu when clicking a link
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (!link.hasAttribute('target')) {
+            closeMobileNav();
+          }
+        });
+      });
+
+      // Update mobile nav links based on language
+      function updateMobileNavLinks() {
+        const isArabic = document.documentElement.dir === 'rtl';
+        const langLabel = document.querySelector('.mobile-lang-section .lang-label');
+
+        mobileNavLinks.forEach(link => {
+          const target = isArabic ? link.dataset.targetAr : link.dataset.targetEn;
+          const text = isArabic ? link.dataset.textAr : link.dataset.textEn;
+          if (target) link.href = target;
+          if (text) link.textContent = text;
+        });
+
+        if (langLabel) {
+          langLabel.textContent = isArabic ? 'اللغة' : 'Language';
+        }
+      }
+
+      // Mobile language buttons
+      const mobileBtnEn = document.getElementById('mobile-btn-en');
+      const mobileBtnAr = document.getElementById('mobile-btn-ar');
+
+      function syncLangButtons(lang) {
+        if (lang === 'ar') {
+          mobileBtnAr.classList.add('active');
+          mobileBtnEn.classList.remove('active');
+        } else {
+          mobileBtnEn.classList.add('active');
+          mobileBtnAr.classList.remove('active');
+        }
+      }
+
+      // Observe language changes
+      const observer = new MutationObserver(() => {
+        updateMobileNavLinks();
+        const currentLang = document.documentElement.lang;
+        syncLangButtons(currentLang);
+      });
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir', 'lang'] });
+
+      // Initial update
+      updateMobileNavLinks();
+      syncLangButtons(document.documentElement.lang);
+
+      // Connect mobile lang buttons to main lang switcher
+      mobileBtnEn.addEventListener('click', () => {
+        document.getElementById('btn-en').click();
+        closeMobileNav();
+      });
+      mobileBtnAr.addEventListener('click', () => {
+        document.getElementById('btn-ar').click();
+        closeMobileNav();
+      });
+    })();
+
+    // Improved Side Nav Logic with Smooth Transitions
+    (function () {
+      const sideNav = document.getElementById('sideNav');
+      const topNav = document.getElementById('topNav');
+      const sideNavLinks = sideNav.querySelectorAll('a');
+      let scrollTimeout;
+
+      // Update side nav links based on language
+      function updateSideNavLinks() {
+        const isArabic = document.documentElement.dir === 'rtl';
+        sideNavLinks.forEach(link => {
+          const target = isArabic ? link.dataset.targetAr : link.dataset.targetEn;
+          if (target) link.href = target;
+        });
+      }
+
+      // Update on language change
+      const observer = new MutationObserver(updateSideNavLinks);
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
+
+      // Initial update
+      updateSideNavLinks();
+
+      // Smooth scroll visibility with debounce
+      window.addEventListener('scroll', () => {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          if (window.scrollY > 150) {
+            sideNav.classList.add('show');
+            topNav.classList.add('hide');
+          } else {
+            sideNav.classList.remove('show');
+            topNav.classList.remove('hide');
+          }
+        }, 100);
+      });
+    })();
+  </script>
+
+  <script>
+    // Cert filter tabs — English
+    (function () {
+      const tabs = document.querySelectorAll('#certTabs .cert-tab');
+      const cards = document.querySelectorAll('#certGrid .cert-card');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const filter = tab.dataset.filter;
+          cards.forEach(card => {
+            const cats = card.dataset.category || '';
+            card.classList.toggle('hidden', filter !== 'all' && !cats.includes(filter));
+          });
+        });
+      });
+    })();
+    // Cert filter tabs — Arabic
+    (function () {
+      const tabs = document.querySelectorAll('#certTabsAr .cert-tab');
+      const cards = document.querySelectorAll('#certGridAr .cert-card');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const filter = tab.dataset.filterAr;
+          cards.forEach(card => {
+            const cats = card.dataset.categoryAr || '';
+            card.classList.toggle('hidden', filter !== 'all' && !cats.includes(filter));
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>

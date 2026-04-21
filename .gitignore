@@ -1,0 +1,22 @@
+# Archives
+*.zip
+*.rar
+*.7z
+
+# Internal docs (not part of portfolio)
+CERTIFICATIONS.md
+IT-DEPARTMENT-DEVELOPMENT-PLAN.md
+
+# Unused images
+nobackground.jpeg
+
+# OS generated files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
