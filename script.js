@@ -1,4 +1,4 @@
-// --- Language Switching Logic ---
+﻿// --- Language Switching Logic ---
 (function () {
   const btnEn = document.getElementById('btn-en');
   const btnAr = document.getElementById('btn-ar');
@@ -51,7 +51,7 @@
   setLang(saved ? saved : 'en');
 })();
 
-// --- Scroll Reveal Logic ---
+// simple scroll reveal for elements with class .revealable
 (function () {
   const items = document.querySelectorAll('.revealable');
   function reveal() {
@@ -67,25 +67,21 @@
   setTimeout(reveal, 200);
 })();
 
-// --- Back to Top Logic ---
-(function () {
-  const backToTop = document.getElementById("backToTop");
-  if (backToTop) {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        backToTop.classList.add("visible");
-      } else {
-        backToTop.classList.remove("visible");
-      }
-    });
+const backToTop = document.getElementById("backToTop");
 
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTop.classList.add("visible");
+  } else {
+    backToTop.classList.remove("visible");
   }
-})();
+});
 
-// --- Profile Image Animation ---
+backToTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Run the globe/cup animation once on hover, then restore the profile image
 (function () {
   const wraps = document.querySelectorAll('.profile-wrap');
   wraps.forEach(w => {
@@ -114,167 +110,157 @@
   });
 })();
 
-// --- Mobile Navigation Logic ---
+// Hamburger Menu Logic
 (function () {
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const mobileNav = document.getElementById('mobileNav');
   const navBackdrop = document.getElementById('navBackdrop');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-  if (hamburgerBtn && mobileNav && navBackdrop) {
-    function toggleMobileNav() {
-      hamburgerBtn.classList.toggle('active');
-      mobileNav.classList.toggle('active');
-      navBackdrop.classList.toggle('active');
-      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
-    }
+  function toggleMobileNav() {
+    hamburgerBtn.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    navBackdrop.classList.toggle('active');
+    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+  }
 
-    function closeMobileNav() {
-      hamburgerBtn.classList.remove('active');
-      mobileNav.classList.remove('active');
-      navBackdrop.classList.remove('active');
-      document.body.style.overflow = '';
-    }
+  function closeMobileNav() {
+    hamburgerBtn.classList.remove('active');
+    mobileNav.classList.remove('active');
+    navBackdrop.classList.remove('active');
+    document.body.style.overflow = '';
+  }
 
-    hamburgerBtn.addEventListener('click', toggleMobileNav);
-    navBackdrop.addEventListener('click', closeMobileNav);
+  hamburgerBtn.addEventListener('click', toggleMobileNav);
+  navBackdrop.addEventListener('click', closeMobileNav);
 
-    // Close menu when clicking a link
+  // Close menu when clicking a link
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (!link.hasAttribute('target')) {
+        closeMobileNav();
+      }
+    });
+  });
+
+  // Update mobile nav links based on language
+  function updateMobileNavLinks() {
+    const isArabic = document.documentElement.dir === 'rtl';
+    const langLabel = document.querySelector('.mobile-lang-section .lang-label');
+
     mobileNavLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (!link.hasAttribute('target')) {
-          closeMobileNav();
-        }
-      });
+      const target = isArabic ? link.dataset.targetAr : link.dataset.targetEn;
+      const text = isArabic ? link.dataset.textAr : link.dataset.textEn;
+      if (target) link.href = target;
+      if (text) link.textContent = text;
     });
 
-    // Update mobile nav links based on language
-    function updateMobileNavLinks() {
-      const isArabic = document.documentElement.dir === 'rtl';
-      const langLabel = document.querySelector('.mobile-lang-section .lang-label');
-
-      mobileNavLinks.forEach(link => {
-        const target = isArabic ? link.dataset.targetAr : link.dataset.targetEn;
-        const text = isArabic ? link.dataset.textAr : link.dataset.textEn;
-        if (target) link.href = target;
-        if (text) link.textContent = text;
-      });
-
-      if (langLabel) {
-        langLabel.textContent = isArabic ? 'اللغة' : 'Language';
-      }
-    }
-
-    // Mobile language buttons
-    const mobileBtnEn = document.getElementById('mobile-btn-en');
-    const mobileBtnAr = document.getElementById('mobile-btn-ar');
-
-    function syncLangButtons(lang) {
-      if (mobileBtnEn && mobileBtnAr) {
-        if (lang === 'ar') {
-          mobileBtnAr.classList.add('active');
-          mobileBtnEn.classList.remove('active');
-        } else {
-          mobileBtnEn.classList.add('active');
-          mobileBtnAr.classList.remove('active');
-        }
-      }
-    }
-
-    // Observe language changes
-    const observer = new MutationObserver(() => {
-      updateMobileNavLinks();
-      const currentLang = document.documentElement.lang;
-      syncLangButtons(currentLang);
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir', 'lang'] });
-
-    // Initial update
-    updateMobileNavLinks();
-    syncLangButtons(document.documentElement.lang);
-
-    // Connect mobile lang buttons to main lang switcher
-    if (mobileBtnEn && mobileBtnAr) {
-      mobileBtnEn.addEventListener('click', () => {
-        const mainBtnEn = document.getElementById('btn-en');
-        if (mainBtnEn) mainBtnEn.click();
-        closeMobileNav();
-      });
-      mobileBtnAr.addEventListener('click', () => {
-        const mainBtnAr = document.getElementById('btn-ar');
-        if (mainBtnAr) mainBtnAr.click();
-        closeMobileNav();
-      });
+    if (langLabel) {
+      langLabel.textContent = isArabic ? 'اللغة' : 'Language';
     }
   }
+
+  // Mobile language buttons
+  const mobileBtnEn = document.getElementById('mobile-btn-en');
+  const mobileBtnAr = document.getElementById('mobile-btn-ar');
+
+  function syncLangButtons(lang) {
+    if (lang === 'ar') {
+      mobileBtnAr.classList.add('active');
+      mobileBtnEn.classList.remove('active');
+    } else {
+      mobileBtnEn.classList.add('active');
+      mobileBtnAr.classList.remove('active');
+    }
+  }
+
+  // Observe language changes
+  const observer = new MutationObserver(() => {
+    updateMobileNavLinks();
+    const currentLang = document.documentElement.lang;
+    syncLangButtons(currentLang);
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir', 'lang'] });
+
+  // Initial update
+  updateMobileNavLinks();
+  syncLangButtons(document.documentElement.lang);
+
+  // Connect mobile lang buttons to main lang switcher
+  mobileBtnEn.addEventListener('click', () => {
+    document.getElementById('btn-en').click();
+    closeMobileNav();
+  });
+  mobileBtnAr.addEventListener('click', () => {
+    document.getElementById('btn-ar').click();
+    closeMobileNav();
+  });
 })();
 
-// --- Side Navigation Logic ---
+// Improved Side Nav Logic with Smooth Transitions
 (function () {
   const sideNav = document.getElementById('sideNav');
   const topNav = document.getElementById('topNav');
-  if (sideNav && topNav) {
-    const sideNavLinks = sideNav.querySelectorAll('a');
-    let scrollTimeout;
+  const sideNavLinks = sideNav.querySelectorAll('a');
+  let scrollTimeout;
 
-    // Update side nav links based on language
-    function updateSideNavLinks() {
-      const isArabic = document.documentElement.dir === 'rtl';
-      sideNavLinks.forEach(link => {
-        const target = isArabic ? link.dataset.targetAr : link.dataset.targetEn;
-        if (target) link.href = target;
-      });
-    }
-
-    // Update on language change
-    const observer = new MutationObserver(updateSideNavLinks);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
-
-    // Initial update
-    updateSideNavLinks();
-
-    // Smooth scroll visibility with debounce
-    window.addEventListener('scroll', () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        if (window.scrollY > 150) {
-          sideNav.classList.add('show');
-          topNav.classList.add('hide');
-        } else {
-          sideNav.classList.remove('show');
-          topNav.classList.remove('hide');
-        }
-      }, 100);
+  // Update side nav links based on language
+  function updateSideNavLinks() {
+    const isArabic = document.documentElement.dir === 'rtl';
+    sideNavLinks.forEach(link => {
+      const target = isArabic ? link.dataset.targetAr : link.dataset.targetEn;
+      if (target) link.href = target;
     });
   }
+
+  // Update on language change
+  const observer = new MutationObserver(updateSideNavLinks);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['dir'] });
+
+  // Initial update
+  updateSideNavLinks();
+
+  // Smooth scroll visibility with debounce
+  window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      if (window.scrollY > 150) {
+        sideNav.classList.add('show');
+        topNav.classList.add('hide');
+      } else {
+        sideNav.classList.remove('show');
+        topNav.classList.remove('hide');
+      }
+    }, 100);
+  });
 })();
 
-// --- Certification Filter Logic ---
+// Cert filter tabs — English
 (function () {
-  // English Tabs
-  const tabsEn = document.querySelectorAll('#certTabs .cert-tab');
-  const cardsEn = document.querySelectorAll('#certGrid .cert-card');
-  tabsEn.forEach(tab => {
+  const tabs = document.querySelectorAll('#certTabs .cert-tab');
+  const cards = document.querySelectorAll('#certGrid .cert-card');
+  tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      tabsEn.forEach(t => t.classList.remove('active'));
+      tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       const filter = tab.dataset.filter;
-      cardsEn.forEach(card => {
+      cards.forEach(card => {
         const cats = card.dataset.category || '';
         card.classList.toggle('hidden', filter !== 'all' && !cats.includes(filter));
       });
     });
   });
-
-  // Arabic Tabs
-  const tabsAr = document.querySelectorAll('#certTabsAr .cert-tab');
-  const cardsAr = document.querySelectorAll('#certGridAr .cert-card');
-  tabsAr.forEach(tab => {
+})();
+// Cert filter tabs — Arabic
+(function () {
+  const tabs = document.querySelectorAll('#certTabsAr .cert-tab');
+  const cards = document.querySelectorAll('#certGridAr .cert-card');
+  tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      tabsAr.forEach(t => t.classList.remove('active'));
+      tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       const filter = tab.dataset.filterAr;
-      cardsAr.forEach(card => {
+      cards.forEach(card => {
         const cats = card.dataset.categoryAr || '';
         card.classList.toggle('hidden', filter !== 'all' && !cats.includes(filter));
       });

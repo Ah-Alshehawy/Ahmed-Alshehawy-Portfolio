@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Ahmed El-Shehawy</title>
+
+  <!-- Fonts: Poppins (EN) + Cairo (AR) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #fff;
+      --text: #1e293b;
+      --muted: #64748b;
+      --primary: #3b82f6;
+      --accent: #f59e0b;
+      --border: #e2e8f0;
+      --page-width: 960px;
+    }
+
+    /* Dark Mode Variables */
+    html.dark-mode {
+      --bg: #0f172a;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: #334155;
+    }
+    html.dark-mode .skill-item, html.dark-mode .cert-card { background: #1e293b; }
+    html.dark-mode .job-target {
+      background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(59,130,246,0.05));
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.65;
+      font-size: 11pt;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html[dir="rtl"] body { font-family: 'Cairo', sans-serif; }
+
+    @page {
+      size: A4;
+      margin: 15mm 18mm;
+    }
+
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      * { animation: none !important; opacity: 1 !important; transform: none !important; }
+      .no-print { display: none !important; }
+      a { text-decoration: none; color: inherit !important; }
+      .section { page-break-inside: avoid; }
+      .job-page { page-break-after: always; }
+      .job-page:last-child { page-break-after: auto; }
+
+      /* Force light background on cards for printing */
+      .skill-item, .cert-card, .job-target {
+        background: #fff !important;
+        border-color: #ccc !important;
+        color: #000 !important;
+      }
+      .skill-item h4, .cert-card .cert-name { color: #000 !important; }
+      .job-target p, .skill-item p, .cert-card .cert-issuer { color: #333 !important; }
+    }
+
+    .wrapper {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    h1.name {
+      font-size: 26pt;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.5px;
+    }
+
+    .title-line {
+      font-size: 12pt;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-block {
+      font-size: 10pt;
+      color: var(--muted);
+      margin-top: 0.8rem;
+      line-height: 2;
+    }
+
+    .contact-block a { color: var(--primary); text-decoration: none; }
+    .contact-block a:hover { text-decoration: underline; }
+
+    /* Sections */
+    .section {
+      margin-bottom: 1.8rem;
+    }
+
+    .section-title {
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-subtitle {
+      font-size: 11.5pt;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .summary p { text-align: justify; margin-bottom: 0.5rem; }
+
+    /* Experience Items */
+    .exp-item {
+      margin-bottom: 1.1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.3rem;
+      flex-wrap: wrap;
+    }
+
+    .exp-title {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 11.5pt;
+    }
+
+    .exp-company {
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .exp-date {
+      font-size: 10pt;
+      color: var(--muted);
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    .exp-desc {
+      font-size: 10.5pt;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    html[dir="rtl"] .exp-header { flex-direction: row-reverse; text-align: right; }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.8rem;
+    }
+
+    .skill-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+    }
+
+    .skill-item h4 {
+      font-size: 10.5pt;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .skill-item p {
+      font-size: 9.5pt;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Certs List */
+    .cert-list {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .cert-card {
+      padding: 0.8rem 1rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .cert-card .cert-name {
+      font-weight: 700;
+      font-size: 11pt;
+      color: var(--text);
+    }
+    .cert-card .cert-issuer {
+      font-size: 10pt;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+    .cert-card .cert-meta {
+      font-size: 9.5pt;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 0.2rem;
+    }
+
+    /* Job-Specific CV Sections */
+    .job-target {
+      background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(59,130,246,0.02));
+      border: 1px solid rgba(59,130,246,0.15);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .job-target-title {
+      font-size: 12pt;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .job-target p {
+      font-size: 10pt;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Language Selector Buttons */
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .lang-btn {
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 9.5pt;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.4rem 0.8rem;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 9pt;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+    .theme-toggle:hover { border-color: var(--primary); color: var(--primary); }
+    html[dir="rtl"] .theme-toggle { right: auto; left: 1.5rem; }
+
+    /* Role Buttons (Targeted CV) */
+    .role-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .role-btn {
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-size: 10pt;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      transition: all 0.2s;
+    }
+
+    .role-btn.active, .role-btn:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .hidden-cv { display: none; }
+
+    /* Print actions */
+    .actions {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(59,130,246,0.35);
+      transition: transform 0.2s, background 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 11pt;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: #2563deb;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      margin-left: 0.8rem;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(59,130,246,0.05);
+    }
+
+    html[dir="rtl"] .btn-secondary { margin-left: 0; margin-right: 0.8rem; }
+
+    /* Back to Top */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 9999;
+      background: var(--primary);
+      color: #fff;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 12px rgba(59,130,246,0.3);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+    }
+    #backToTop.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    #backToTop:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(59,130,246,0.5); }
+    html[dir="rtl"] #backToTop { right: auto; left: 30px; }
+
+    footer {
+      text-align: center;
+      font-size: 9pt;
+      color: var(--muted);
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    /* --- Entry Animations --- */
+    @keyframes slideFadeUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Animate Top Controls on Initial Load */
+    .theme-toggle {
+      animation: slideFadeUp 0.5s ease forwards;
+    }
+    .lang-switch {
+      opacity: 0;
+      animation: slideFadeUp 0.5s ease 0.1s forwards;
+    }
+    .role-buttons {
+      opacity: 0;
+      animation: slideFadeUp 0.5s ease 0.2s forwards;
+    }
+
+    /* Apply animation to header */
+    .job-page:not(.hidden-cv) header {
+      animation: slideFadeUp 0.5s ease forwards;
+    }
+    
+    /* Apply animation to target box */
+    .job-page:not(.hidden-cv) .job-target {
+      opacity: 0; animation: slideFadeUp 0.5s ease 0.15s forwards;
+    }
+
+    /* Staggered animation for sections */
+    .job-page:not(.hidden-cv) .section:nth-of-type(1) { opacity: 0; animation: slideFadeUp 0.5s ease 0.25s forwards; }
+    .job-page:not(.hidden-cv) .section:nth-of-type(2) { opacity: 0; animation: slideFadeUp 0.5s ease 0.35s forwards; }
+    .job-page:not(.hidden-cv) .section:nth-of-type(3) { opacity: 0; animation: slideFadeUp 0.5s ease 0.45s forwards; }
+    .job-page:not(.hidden-cv) .section:nth-of-type(4) { opacity: 0; animation: slideFadeUp 0.5s ease 0.55s forwards; }
+    .job-page:not(.hidden-cv) .section:nth-of-type(5) { opacity: 0; animation: slideFadeUp 0.5s ease 0.65s forwards; }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- Theme Toggle -->
+  <button id="themeToggle" class="theme-toggle no-print">
+    <span class="icon">🌙</span> <span class="text">Dark</span>
+  </button>
+
+  <!-- Language Switcher (Screen Only) -->
+  <div class="lang-switch no-print">
+    <button class="lang-btn active" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="ar">العربية</button>
+  </div>
+
+  <!-- Role Selector for Targeted CVs -->
+  <div class="role-buttons no-print">
+    <button class="role-btn active" data-role="generic">General CV</button>
+    <button class="role-btn" data-role="itmanager">IT Director / Senior IT Manager</button>
+    <button class="role-btn" data-role="erppm">IT & ERP Project Manager</button>
+    <button class="role-btn" data-role="infosec">Infrastructure & Cybersecurity</button>
+  </div>
+
+  <!-- Auto-select role from URL on load -->
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const role = params.get('role');
+      if (role && ['generic','itmanager','erppm','infosec'].includes(role)) {
+        localStorage.setItem('cv-role', role);
+      }
+    })();
+  </script>
+
+
+  <!-- ==================== ENGLISH CV ==================== -->
+  <div id="cv-en" class="cv-lang">
+
+    <!-- ==== GENERIC / MASTER CV ==== -->
+    <div class="job-page" id="page-generic-en">
+      <header>
+        <h1 class="name">Ahmed El-Shehawy</h1>
+        <div class="title-line">IT Director &amp; ERP Specialist</div>
+        <div class="contact-block">
+          📞 +20 100 676 5695 &nbsp;|&nbsp;
+          ✉️ <a href="mailto:ah.alshehawy@gmail.com">ah.alshehawy@gmail.com</a> &nbsp;|&nbsp;
+          🔗 <a href="https://linkedin.com/in/ahmed-el-shehawy" target="_blank">linkedin.com/in/ahmed-el-shehawy</a>
+          <br>
+          🌐 <a href="https://linktr.ee/ah.alshehawy" target="_blank">linktr.ee/ah.alshehawy</a> &nbsp;|&nbsp;
+          💼 Bayt: <a href="https://people.bayt.com/ahmed-alshehawy" target="_blank">Ahmed Alshehawy</a>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title">Professional Summary</h2>
+        <div class="summary">
+          <p>Dynamic and results-driven Senior IT Manager with over 14 years of robust experience in architecting and managing enterprise IT solutions across the MENA region. Specializing in ERP Systems (Odoo, ERPNext), IT Project Management, Infrastructure Design, and Cybersecurity. Proven track record in streamlining multi-branch operations, deploying cutting-edge automation, and safeguarding corporate networks. Dedicated to driving digital transformation, reducing operational costs, and optimizing business processes for maximum efficiency.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Work Experience</h2>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Senior IT Manager</span>
+            <span class="exp-company">Excellent Franchise Management, Egypt</span>
+            <span class="exp-date">2024 – Present</span>
+          </div>
+          <div class="exp-desc">
+            Leading IT infrastructure, ERP customization (Odoo), and enterprise security policies. Centralized ERP operations across 15+ branches. Designed scalable multi-site network architecture with high availability and redundancy.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Technical Project Manager</span>
+            <span class="exp-company">Taif Al-Almas Trading Co, Saudi Arabia</span>
+            <span class="exp-date">2023 – 2024</span>
+          </div>
+          <div class="exp-desc">
+            Directed low current systems projects (CCTV, Fire Alarm, Access Control). Delivered 20+ projects on time and within budget. Coordinated between clients, vendors, and technical teams to ensure scope and quality compliance.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Senior IT Engineer</span>
+            <span class="exp-company">NAT Egypt (NRPMC), Alexandria</span>
+            <span class="exp-date">2021 – 2023</span>
+          </div>
+          <div class="exp-desc">
+            Deployed smart city infrastructure and secured networks using VLAN/VPN/IDS. Managed attendance & access control systems for 40+ locations. Optimized network performance and reliability through proactive monitoring.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Branch Manager</span>
+            <span class="exp-company">Taif Al-Almas Est., Jeddah</span>
+            <span class="exp-date">2016 – 2020</span>
+          </div>
+          <div class="exp-desc">
+            Managed branch operations, sales, and technical support. Reduced system downtime by ~35%. Implemented CRM practices and trained technical staff on best practices.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <h4>Leadership &amp; Strategy</h4>
+            <p>IT Strategy &amp; Roadmapping, Cross-Functional Leadership, CAPEX/OPEX Budgeting, Vendor Management, Enterprise Architecture.</p>
+          </div>
+          <div class="skill-item">
+            <h4>AI Systems &amp; LLMs</h4>
+            <p>Local LLM Deployment (Ollama), Prompt Engineering, AI Agents, Browser Automation, Generative AI Integration.</p>
+          </div>
+          <div class="skill-item">
+            <h4>Enterprise Infrastructure</h4>
+            <p>Windows Server, Linux Administration, Proxmox VE, Virtualization, High Availability (HA), Backup &amp; Disaster Recovery (DR).</p>
+          </div>
+          <div class="skill-item">
+            <h4>Network &amp; Cybersecurity</h4>
+            <p>Network Security, Firewalls (Fortinet, Sophos), IPsec/SSL VPN, VLAN Segmentation, IDS/IPS, Zero Trust Architecture.</p>
+          </div>
+          <div class="skill-item">
+            <h4>ERP Architecture (Odoo &amp; ERPNext)</h4>
+            <p>Full-Lifecycle Implementation, Multi-Company Setup, Point of Sale (POS), Custom Modules, Business Process Reengineering (BPR).</p>
+          </div>
+          <div class="skill-item">
+            <h4>System Integrations &amp; APIs</h4>
+            <p>REST API Development, Third-Party System Integration, Payment Gateways, Cross-Branch Data Synchronization.</p>
+          </div>
+          <div class="skill-item">
+            <h4>Business Process Automation</h4>
+            <p>Python Automation, AI-Powered Workflows, Monitoring Scripts, ETL Pipelines, Process Optimization.</p>
+          </div>
+          <div class="skill-item">
+            <h4>DevOps &amp; AI Infrastructure</h4>
+            <p>Docker Orchestration, Nginx Reverse Proxy, CI/CD Basics, ITIL Framework, ITSM, Service Desk Management.</p>
+          </div>
+          <div class="skill-item">
+            <h4>Low Current Systems</h4>
+            <p>CCTV Surveillance, Access Control Systems, Biometric Attendance, Fire Alarms, Smart Parking Systems.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Certifications</h2>
+        <div class="cert-list">
+          <div class="cert-card">
+            <div class="cert-name">Bachelor's Degree (LL.B.)</div>
+            <div class="cert-issuer">Tanta University, Egypt</div>
+            <div class="cert-meta">Graduated 2008</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Project Management: Technical Projects (PMI Registered)</div>
+            <div class="cert-issuer">LinkedIn Learning</div>
+            <div class="cert-meta">Issued Feb 2024 | 1 PDU | Provider #4101</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Google IT Support Professional Certificate</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: MQWTSLD8T6TW</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">IT Security: Defense Against the Digital Dark Arts</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: TYL7F327EEFK</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">System Administration &amp; IT Infrastructure Services</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: RJGPXDVUPR48</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">The Bits and Bytes of Computer Networking</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Oct 2022 | ID: KAMQ3N5JHPT8</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Programming for Everybody (Python)</div>
+            <div class="cert-issuer">University of Michigan via Coursera</div>
+            <div class="cert-meta">Issued Nov 2024 | ID: E9BACQ0BZ3L8</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Introduction to Generative AI</div>
+            <div class="cert-issuer">Google Cloud via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: TFAYCH8JT38Q</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Introduction to Large Language Models</div>
+            <div class="cert-issuer">Google Cloud via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: BFDL2QQVJMYB</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">AI &amp; Machine Learning on Google Cloud</div>
+            <div class="cert-issuer">Google Cloud via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: B2RQL988XCHD</div>
+          </div>
+        </div>
+      </section>
+
+    </div> <!-- END #page-generic-en -->
+
+    <!-- ==== TARGETED: IT DIRECTOR / SENIOR IT MANAGER ==== -->
+    <div class="job-page hidden-cv" id="page-itmanager-en">
+      <header>
+        <h1 class="name">Ahmed El-Shehawy</h1>
+        <div class="title-line">Senior IT Manager | Infrastructure &amp; Cybersecurity Leader</div>
+        <div class="contact-block">
+          📞 +20 100 676 5695 &nbsp;|&nbsp;
+          ✉️ <a href="mailto:ah.alshehawy@gmail.com">ah.alshehawy@gmail.com</a> &nbsp;|&nbsp;
+          🔗 <a href="https://linkedin.com/in/ahmed-el-shehawy" target="_blank">linkedin.com/in/ahmed-el-shehawy</a>
+        </div>
+      </header>
+
+      <div class="job-target">
+        <div class="job-target-title">🎯 Targeted for: Senior IT Manager / IT Director Roles</div>
+        <p>This CV highlights strategic leadership, enterprise infrastructure, security governance, and team management experience across 14+ years in MENA.</p>
+      </div>
+
+      <section class="section">
+        <h2 class="section-title">Professional Profile</h2>
+        <div class="summary">
+          <p>Seasoned IT Leader with 14+ years of experience directing enterprise technology strategy, infrastructure modernization, and cybersecurity operations across Egypt and Saudi Arabia. Proven success in building and scaling IT departments, centralizing ERP operations for 15+ branches, and implementing robust security frameworks that prevent breaches and ensure compliance. Adept at budget management, vendor negotiations, and leading cross-functional technology teams.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Relevant Experience</h2>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Senior IT Manager</span>
+            <span class="exp-company">Excellent Franchise Management, Egypt</span>
+            <span class="exp-date">2024 – Present</span>
+          </div>
+          <div class="exp-desc">
+            <strong>Leadership:</strong> Built and lead IT department; set technology roadmap; managed vendor relationships and CAPEX budgeting. <strong>Infrastructure:</strong> Designed multi-site network with redundancy, high-availability servers, and centralized monitoring. <strong>Security:</strong> Implemented zero-trust model, endpoint protection, and security awareness training. <strong>ERP:</strong> Led Odoo customization and data migration across 15 branches, standardizing business processes.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Senior IT Engineer</span>
+            <span class="exp-company">NAT Egypt (NRPMC), Alexandria</span>
+            <span class="exp-date">2021 – 2023</span>
+          </div>
+          <div class="exp-desc">
+            Engineered smart city infrastructure: fiber backbone, VLAN segmentation, VPN remote access, and IDS/IPS deployment. Managed 40+ attendance/access points network. Maintained Windows/Linux servers, Proxmox virtualization, and backup/disaster recovery solutions.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Branch Manager — IT &amp; Technical Operations</span>
+            <span class="exp-company">Taif Al-Almas Est., Jeddah</span>
+            <span class="exp-date">2016 – 2020</span>
+          </div>
+          <div class="exp-desc">
+            Oversaw technical support, system maintenance, and branch IT operations. Reduced system downtime by ~35% through preventive maintenance and SLA enforcement. Trained and mentored technical staff.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Strategic Competencies</h2>
+        <div class="skills-grid">
+          <div class="skill-item"><h4>IT Strategy &amp; Governance</h4><p>Strategic Roadmapping, ITIL Framework, Risk Management, Regulatory Compliance, Digital Transformation.</p></div>
+          <div class="skill-item"><h4>Infrastructure Architecture</h4><p>High Availability (HA), Disaster Recovery (DR), Cloud Integration, Proxmox, Multi-Site SD-WAN, VPN.</p></div>
+          <div class="skill-item"><h4>Cybersecurity &amp; Risk</h4><p>Zero Trust Architecture, Firewalls (Fortinet/Sophos), IDS/IPS, Endpoint Detection &amp; Response (EDR), Security Audits.</p></div>
+          <div class="skill-item"><h4>Team Leadership</h4><p>Cross-Functional Leadership, Talent Acquisition, Performance Management, Agile Methodologies, Mentoring.</p></div>
+          <div class="skill-item"><h4>Budget &amp; Vendor Management</h4><p>CAPEX/OPEX Planning, RFP Development, SLA Negotiations, Cost Optimization, IT Procurement.</p></div>
+          <div class="skill-item"><h4>ERP &amp; Digital Solutions</h4><p>Odoo Customization, Data Migration, Process Digitization, Workflow Automation, Business Intelligence (BI).</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Key Certifications</h2>
+        <div class="cert-list">
+          <div class="cert-card">
+            <div class="cert-name">Project Management: Technical Projects (PMI Registered)</div>
+            <div class="cert-issuer">LinkedIn Learning</div>
+            <div class="cert-meta">Issued Feb 2024 | 1 PDU | Provider #4101</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">System Administration &amp; IT Infrastructure Services</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: RJGPXDVUPR48</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">IT Security: Defense Against the Digital Dark Arts</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: TYL7F327EEFK</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">The Bits and Bytes of Computer Networking</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Oct 2022 | ID: KAMQ3N5JHPT8</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Google IT Support Professional Certificate</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: MQWTSLD8T6TW</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Bachelor's Degree in Computer Science</div>
+            <div class="cert-issuer">Tanta University, Egypt</div>
+            <div class="cert-meta">Graduated 2008</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Programming for Everybody (Python)</div>
+            <div class="cert-issuer">University of Michigan via Coursera</div>
+            <div class="cert-meta">Issued Nov 2024 | ID: E9BACQ0BZ3L8</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Introduction to Generative AI</div>
+            <div class="cert-issuer">Google Cloud via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: TFAYCH8JT38Q</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Introduction to Large Language Models</div>
+            <div class="cert-issuer">Google Cloud via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: BFDL2QQVJMYB</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">AI &amp; Machine Learning on Google Cloud</div>
+            <div class="cert-issuer">Google Cloud via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: B2RQL988XCHD</div>
+          </div>
+        </div>
+      </section>
+    </div> <!-- END #page-itmanager-en -->
+
+    <!-- ==== TARGETED: IT & ERP PROJECT MANAGER ==== -->
+    <div class="job-page hidden-cv" id="page-erppm-en">
+      <header>
+        <h1 class="name">Ahmed El-Shehawy</h1>
+        <div class="title-line">IT &amp; ERP (Odoo, ERPNext) Project Manager</div>
+        <div class="contact-block">
+          📞 +20 100 676 5695 &nbsp;|&nbsp;
+          ✉️ <a href="mailto:ah.alshehawy@gmail.com">ah.alshehawy@gmail.com</a> &nbsp;|&nbsp;
+          🔗 <a href="https://linkedin.com/in/ahmed-el-shehawy" target="_blank">linkedin.com/in/ahmed-el-shehawy</a>
+        </div>
+      </header>
+
+      <div class="job-target">
+        <div class="job-target-title">🎯 Targeted for: IT &amp; ERP Project Manager Roles</div>
+        <p>This CV emphasizes end-to-end ERP implementation, project delivery, business process reengineering, and cross-functional team leadership.</p>
+      </div>
+
+      <section class="section">
+        <h2 class="section-title">Professional Profile</h2>
+        <div class="summary">
+          <p>Project Manager with deep expertise in ERP systems (Odoo &amp; ERPNext) and IT infrastructure. Delivered 20+ technical projects on time and within budget across Saudi Arabia and Egypt. Combines hands-on technical knowledge with strong PM skills to lead requirements gathering, solution design, deployment, and user training. Specializes in multi-company implementations, POS rollouts, and custom module development.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Project Experience</h2>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Technical Project Manager — ERP &amp; Low Current Systems</span>
+            <span class="exp-company">Taif Al-Almas Trading Co, Saudi Arabia</span>
+            <span class="exp-date">2023 – 2024</span>
+          </div>
+          <div class="exp-desc">
+            Managed portfolio of 20+ projects including CCTV, Fire Alarm, Access Control, and POS deployments. Coordinated with clients, vendors, and field technicians. Maintained project schedules, budgets, and quality gates.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Senior IT Manager — ERP Rollout</span>
+            <span class="exp-company">Excellent Franchise Management, Egypt</span>
+            <span class="exp-date">2024 – Present</span>
+          </div>
+          <div class="exp-desc">
+            Leading Odoo ERP implementation across 15+ branches: requirements gathering, customization (sales, inventory, accounting), data migration, training, and post-go-live support. Standardized business processes using BPR principles.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Branch Manager — Technical Operations</span>
+            <span class="exp-company">Taif Al-Almas Est., Jeddah</span>
+            <span class="exp-date">2016 – 2020</span>
+          </div>
+          <div class="exp-desc">
+            Executed technical projects including POS system installation, CCTV upgrades, and access control integration. Trained end-users and wrote SOPs for operational excellence.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">ERP &amp; Project Management Competencies</h2>
+        <div class="skills-grid">
+          <div class="skill-item"><h4>Odoo / ERPNext Implementation</h4><p>Full-Lifecycle Delivery, Module Configuration, Custom Development, Master Data Management (MDM), Data Migration.</p></div>
+          <div class="skill-item"><h4>Business Process Reengineering (BPR)</h4><p>Gap Analysis, Workflow Redesign, Process Optimization, Change Management, Operational Excellence.</p></div>
+          <div class="skill-item"><h4>POS &amp; Retail Systems</h4><p>Multi-Branch POS Architecture, Pricing Strategies, Hardware Integration, Real-Time Inventory Sync.</p></div>
+          <div class="skill-item"><h4>Project Planning &amp; Delivery</h4><p>Agile/Scrum, Scope Definition, Work Breakdown Structure (WBS), Resource Allocation, Risk Management.</p></div>
+          <div class="skill-item"><h4>REST API Integrations</h4><p>System Bridging, Payment Gateway Integration, Logistics API, Third-Party Software Connectors.</p></div>
+          <div class="skill-item"><h4>User Training &amp; Support</h4><p>User Acceptance Testing (UAT), Training Manuals, SLA-based Support, Stakeholder Communication.</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Certifications</h2>
+        <div class="cert-list">
+          <div class="cert-card">
+            <div class="cert-name">Project Management: Technical Projects (PMI Registered)</div>
+            <div class="cert-issuer">LinkedIn Learning</div>
+            <div class="cert-meta">Issued Feb 2024 | 1 PDU | Provider #4101</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Programming for Everybody (Python)</div>
+            <div class="cert-issuer">University of Michigan via Coursera</div>
+            <div class="cert-meta">Issued Nov 2024 | ID: E9BACQ0BZ3L8</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Bachelor's Degree in Computer Science</div>
+            <div class="cert-issuer">Tanta University, Egypt</div>
+            <div class="cert-meta">Graduated 2008</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Google IT Support Professional Certificate</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: MQWTSLD8T6TW</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">System Administration &amp; IT Infrastructure Services</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: RJGPXDVUPR48</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">The Bits and Bytes of Computer Networking</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Oct 2022 | ID: KAMQ3N5JHPT8</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">IT Security: Defense Against the Digital Dark Arts</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: TYL7F327EEFK</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Introduction to Generative AI</div>
+            <div class="cert-issuer">Google Cloud via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: TFAYCH8JT38Q</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Introduction to Large Language Models</div>
+            <div class="cert-issuer">Google Cloud via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: BFDL2QQVJMYB</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">AI &amp; Machine Learning on Google Cloud</div>
+            <div class="cert-issuer">Google Cloud via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: B2RQL988XCHD</div>
+          </div>
+        </div>
+      </section>
+    </div> <!-- END #page-erppm-en -->
+
+    <!-- ==== TARGETED: INFRASTRUCTURE & CYBERSECURITY ==== -->
+    <div class="job-page hidden-cv" id="page-infosec-en">
+      <header>
+        <h1 class="name">Ahmed El-Shehawy</h1>
+        <div class="title-line">Infrastructure &amp; Cybersecurity Specialist</div>
+        <div class="contact-block">
+          📞 +20 100 676 5695 &nbsp;|&nbsp;
+          ✉️ <a href="mailto:ah.alshehawy@gmail.com">ah.alshehawy@gmail.com</a> &nbsp;|&nbsp;
+          🔗 <a href="https://linkedin.com/in/ahmed-el-shehawy" target="_blank">linkedin.com/in/ahmed-el-shehawy</a>
+        </div>
+      </header>
+
+      <div class="job-target">
+        <div class="job-target-title">🎯 Targeted for: Infrastructure &amp; Cybersecurity Roles</div>
+        <p>This CV highlights network engineering, security operations, firewall/IDS/IPS deployment, and smart-city infrastructure projects.</p>
+      </div>
+
+      <section class="section">
+        <h2 class="section-title">Professional Profile</h2>
+        <div class="summary">
+          <p>Cybersecurity and infrastructure engineer with 14+ years of hands-on experience designing, deploying, and securing enterprise networks across Egypt and Saudi Arabia. Expertise in firewall implementation (Fortigate, Sophos, OPNsense), intrusion detection/prevention, VPN, VLAN segmentation, and compliance. Proven record of securing smart-city deployments and large-scale attendance/access systems.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Security &amp; Infrastructure Experience</h2>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Senior IT Manager — Enterprise Security</span>
+            <span class="exp-company">Excellent Franchise Management, Egypt</span>
+            <span class="exp-date">2024 – Present</span>
+          </div>
+          <div class="exp-desc">
+            Enforced enterprise-wide security policies, deploying zero-trust network architectures and endpoint protection across 15+ branches. Conducted regular vulnerability assessments and safeguarded corporate data.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Senior IT Engineer — Security &amp; Smart Infrastructure</span>
+            <span class="exp-company">NAT Egypt (NRPMC), Alexandria</span>
+            <span class="exp-date">2021 – 2023</span>
+          </div>
+          <div class="exp-desc">
+            Designed and deployed secure network infrastructure for smart city projects: implemented firewall rules, VPN tunnels, VLANs for traffic isolation, and IDS/IPS sensors. Hardened servers and workstations against threats. Conducted regular security audits and vulnerability assessments.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Technical Project Manager — Security Systems</span>
+            <span class="exp-company">Taif Al-Almas Trading Co, Saudi Arabia</span>
+            <span class="exp-date">2023 – 2024</span>
+          </div>
+          <div class="exp-desc">
+            Led 20+ security projects: CCTV, Fire Alarm, Access Control systems. Ensured installations met security standards and integration with existing IT infrastructure. Trained clients on system operation and security best practices.
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">Branch Manager — Technical Operations</span>
+            <span class="exp-company">Taif Al-Almas Est., Jeddah</span>
+            <span class="exp-date">2016 – 2020</span>
+          </div>
+          <div class="exp-desc">
+            Maintained branch network security, updated firewall policies, and managed incident response. Oversaw physical security systems including access control and alarm monitoring.
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-item"><h4>Network Security</h4><p>Next-Gen Firewalls (FortiGate, Sophos), IPsec/SSL VPN, VLAN Segmentation, L2/L3 Routing, SD-WAN.</p></div>
+          <div class="skill-item"><h4>IDS/IPS &amp; Threat Monitoring</h4><p>Intrusion Detection/Prevention, SIEM Concepts, Log Analysis, Threat Hunting, Packet Inspection.</p></div>
+          <div class="skill-item"><h4>Compliance &amp; Hardening</h4><p>Security Baselines, Patch Management, Endpoint Protection (EDR), Penetration Testing Basics, Audit Trails.</p></div>
+          <div class="skill-item"><h4>Enterprise Infrastructure</h4><p>Windows/Linux Server Administration, Proxmox Virtualization, High Availability Clusters, Veeam Backup &amp; DR.</p></div>
+          <div class="skill-item"><h4>Physical Security Systems</h4><p>CCTV Network Design, Access Control Panels, Fire Alarm Integration, Biometric Authentication Systems.</p></div>
+          <div class="skill-item"><h4>Python for Security</h4><p>Task Automation Scripts, Security Monitoring Tools, Log Parsing, ETL Pipelines for Security Data.</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Certifications</h2>
+        <div class="cert-list">
+          <div class="cert-card">
+            <div class="cert-name">IT Security: Defense Against the Digital Dark Arts</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: TYL7F327EEFK</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">The Bits and Bytes of Computer Networking</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Oct 2022 | ID: KAMQ3N5JHPT8</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">System Administration &amp; IT Infrastructure Services</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: RJGPXDVUPR48</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Google IT Support Professional Certificate</div>
+            <div class="cert-issuer">Google via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: MQWTSLD8T6TW</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Programming for Everybody (Python)</div>
+            <div class="cert-issuer">University of Michigan via Coursera</div>
+            <div class="cert-meta">Issued Nov 2024 | ID: E9BACQ0BZ3L8</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Bachelor's Degree in Computer Science</div>
+            <div class="cert-issuer">Tanta University, Egypt</div>
+            <div class="cert-meta">Graduated 2008</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Project Management: Technical Projects (PMI Registered)</div>
+            <div class="cert-issuer">LinkedIn Learning</div>
+            <div class="cert-meta">Issued Feb 2024 | 1 PDU | Provider #4101</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Introduction to Generative AI</div>
+            <div class="cert-issuer">Google Cloud via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: TFAYCH8JT38Q</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">Introduction to Large Language Models</div>
+            <div class="cert-issuer">Google Cloud via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: BFDL2QQVJMYB</div>
+          </div>
+          <div class="cert-card">
+            <div class="cert-name">AI &amp; Machine Learning on Google Cloud</div>
+            <div class="cert-issuer">Google Cloud via Coursera</div>
+            <div class="cert-meta">Issued Mar 2024 | ID: B2RQL988XCHD</div>
+          </div>
+        </div>
+      </section>
+    </div> <!-- END #page-infosec-en -->
+
+    <!-- Actions EN -->
+    <div class="actions no-print">
+      <button class="btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+      <a href="My certificates.pdf" class="btn btn-secondary" target="_blank" download>🎓 Download Certificates</a>
+      <a href="index.html" class="btn btn-secondary">← Back to Portfolio</a>
+    </div>
+
+    <footer class="no-print">
+      <p>Ahmed El-Shehawy — Curriculum Vitae • Generated electronically from portfolio data • Last updated 2025</p>
+    </footer>
+
+  </div> <!-- END #cv-en -->
+
+    <!-- ==================== العربية CV ==================== -->
+    <div id="cv-ar" class="cv-lang hidden-cv" dir="rtl">
+
+      <div class="job-page" id="page-generic-ar">
+        <header>
+          <h1 class="name">أحمد الشهاوي</h1>
+          <div class="title-line">مدير تكنولوجيا المعلومات &amp; خبير ERP</div>
+          <div class="contact-block">
+            📞 +20 100 676 5695 &nbsp;|&nbsp;
+            ✉️ <a href="mailto:ah.alshehawy@gmail.com">ah.alshehawy@gmail.com</a> &nbsp;|&nbsp;
+            🔗 <a href="https://linkedin.com/in/ahmed-el-shehawy" target="_blank">linkedin.com/in/ahmed-el-shehawy</a>
+            <br>
+            🌐 <a href="https://linktr.ee/ah.alshehawy" target="_blank">linktr.ee/ah.alshehawy</a> &nbsp;|&nbsp;
+            💼 Bayt: <a href="https://people.bayt.com/ahmed-alshehawy" target="_blank">Ahmed Alshehawy</a>
+          </div>
+        </header>
+
+        <section class="section">
+          <h2 class="section-title">الملف المهني</h2>
+          <div class="summary">
+            <p>مدير تقنية معلومات متمرس بخبرة تزيد عن 14 عاماً في تصميم وإدارة حلول تكنولوجيا المعلومات للشركات عبر منطقة الشرق الأوسط وشمال أفريقيا. خبير متخصص في أنظمة ERP (Odoo، ERPNext)، إدارة المشاريع التقنية، البنية التحتية، والأمن السيبراني. أمتلك سجلاً حافلاً في تبسيط عمليات الفروع المتعددة، نشر أحدث تقنيات الأتمتة، وحماية الشبكات المؤسسية. أركز على قيادة التحول الرقمي، خفض التكاليف التشغيلية، وتحسين الكفاءة التشغيلية.</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">الخبرة العملية</h2>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مدير تكنولوجيا المعلومات</span>
+              <span class="exp-company">إكسيلنت لادارة الامتيازات التجاريه، مصر</span>
+              <span class="exp-date">2024 – الحالي</span>
+            </div>
+            <div class="exp-desc">
+              قيادة البنية التحتية وتخصيص Odoo وسياسات الأمن. مركزة عمليات ERP لأكثر من 15 فرعاً. تصميم بنية شبكية متعددة المواقع مع توفر عالي وتكرار.
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مدير مشاريع تقنية</span>
+              <span class="exp-company">شركة طيف الألماس التجارية، السعودية</span>
+              <span class="exp-date">2023 – 2024</span>
+            </div>
+            <div class="exp-desc">
+              إدارة أكثر من 20 مشروعاً (كاميرات، إنذار حريق، التحكم بالدخول). التسليم في الوقت المحدد وضمن الميزانية. التنسيق بين العملاء والموردين والفريق التقني.
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مهندس تكنولوجيا معلومات أول</span>
+              <span class="exp-company">الشركة الوطنية للمقاولات (NAT)، الإسكندرية</span>
+              <span class="exp-date">2021 – 2023</span>
+            </div>
+            <div class="exp-desc">
+              نشر بنية المدن الذكية، تأمين الشبكات باستخدام VLAN/VPN/IDS. إدارة أنظمة الحضور والتحكم بالدخول لأكثر من 40 موقعاً. تحسين أداء وموثوقية الشبكة.
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مدير فرع — عمليات تقنية</span>
+              <span class="exp-company">مؤسسة طيف الألماس، جدة</span>
+              <span class="exp-date">2016 – 2020</span>
+            </div>
+            <div class="exp-desc">
+              إدارة عمليات الفرع والمبيعات والدعم الفني. خفض فترات توقف النظام بنسبة 35%. تدريب الكوادر الفنية ووضع سياسات التشغيل.
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">المهارات الأساسية</h2>
+          <div class="skills-grid">
+            <div class="skill-item"><h4>القيادة والاستراتيجية</h4><p>التخطيط الاستراتيجي لتقنية المعلومات، قيادة الفرق متعددة التخصصات، إدارة الميزانيات (CAPEX/OPEX)، إدارة الموردين، المعمارية المؤسسية.</p></div>
+            <div class="skill-item"><h4>أنظمة الذكاء الاصطناعي</h4><p>نشر نماذج اللغة المحلية (Ollama)، هندسة التعليمات، وكلاء الذكاء الاصطناعي، أتمتة المتصفح، تكامل الذكاء التوليدي.</p></div>
+            <div class="skill-item"><h4>البنية التحتية المؤسسية</h4><p>إدارة خوادم Windows/Linux، Proxmox VE، الافتراضية، التوافر العالي (HA)، النسخ الاحتياطي والتعافي من الكوارث (DR).</p></div>
+            <div class="skill-item"><h4>الشبكات والأمن السيبراني</h4><p>أمن الشبكات، الجدران النارية (Fortinet, Sophos)، شبكات VPN، تقسيم VLAN، كشف/منع التسلل (IDS/IPS)، الثقة المعدومة.</p></div>
+            <div class="skill-item"><h4>معمارية ERP (Odoo وERPNext)</h4><p>التنفيذ المتكامل، إعداد الشركات المتعددة، أنظمة نقاط البيع (POS)، الوحدات المخصصة، إعادة هندسة العمليات (BPR).</p></div>
+            <div class="skill-item"><h4>تكامل الأنظمة وواجهات API</h4><p>تطوير REST API، ربط أنظمة الطرف الثالث، بوابات الدفع، مزامنة البيانات اللحظية بين الفروع.</p></div>
+            <div class="skill-item"><h4>أتمتة العمليات التجارية</h4><p>أتمتة Python، سير العمل المدعوم بالذكاء الاصطناعي، سكريبتات المراقبة، مسارات ETL، تحسين العمليات.</p></div>
+            <div class="skill-item"><h4>DevOps وعمليات تقنية المعلومات</h4><p>تنسيق Docker، Nginx Reverse Proxy، أساسيات CI/CD، إطار عمل ITIL، إدارة مكتب مساعدة تقنية المعلومات.</p></div>
+            <div class="skill-item"><h4>الأنظمة التيار الخفيف</h4><p>كاميرات المراقبة CCTV، أنظمة التحكم بالدخول، الحضور والانصراف البيومتري، إنذار الحريق، المواقف الذكية.</p></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">الشهادات المهنية</h2>
+          <div class="cert-list">
+            <div class="cert-card">
+              <div class="cert-name">ليسانس حقوق</div>
+              <div class="cert-issuer">جامعة طنطا، مصر</div>
+              <div class="cert-meta">تخرج 2008</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">إدارة المشاريع التقنية (PMI معتمد)</div>
+              <div class="cert-issuer">LinkedIn Learning</div>
+              <div class="cert-meta">فبراير 2024 | 1 PDU | مزود #4101</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">شهادة دعم تكنولوجيا المعلومات من Google</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: MQWTSLD8T6TW</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">أمن تكنولوجيا المعلومات: الدفاع ضد الفنون المظلمة الرقمية</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: TYL7F327EEFK</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">إدارة الأنظمة والبنية التحتية</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: RJGPXDVUPR48</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">أساسيات شبكات الحاسوب</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">أكتوبر 2022 | الرقم: KAMQ3N5JHPT8</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">البرمجة للجميع (Python)</div>
+              <div class="cert-issuer">جامعة ميتشيغان عبر Coursera</div>
+              <div class="cert-meta">نوفمبر 2024 | الرقم: E9BACQ0BZ3L8</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">مقدمة في الذكاء الاصطناعي التوليدي</div>
+              <div class="cert-issuer">Google Cloud عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: TFAYCH8JT38Q</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">مقدمة في نماذج اللغة الكبيرة (LLMs)</div>
+              <div class="cert-issuer">Google Cloud عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: BFDL2QQVJMYB</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">الذكاء الاصطناعي وتعلم الآلة على Google Cloud</div>
+              <div class="cert-issuer">Google Cloud عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: B2RQL988XCHD</div>
+            </div>
+          </div>
+        </section>
+      </div> <!-- END #page-generic-ar -->
+
+      <div class="job-page hidden-cv" id="page-itmanager-ar">
+        <header>
+          <h1 class="name">أحمد الشهاوي</h1>
+          <div class="title-line">مدير تكنولوجيا المعلومات — القيادة التقنية والأمن</div>
+          <div class="contact-block">
+            📞 +20 100 676 5695 &nbsp;|&nbsp;
+            ✉️ <a href="mailto:ah.alshehawy@gmail.com">ah.alshehawy@gmail.com</a> &nbsp;|&nbsp;
+            🔗 <a href="https://linkedin.com/in/ahmed-el-shehawy" target="_blank">linkedin.com/in/ahmed-el-shehawy</a>
+          </div>
+        </header>
+
+        <div class="job-target">
+          <div class="job-target-title">🎯 موجه لوظيفة: مدير تكنولوجيا المعلومات / IT Director</div>
+          <p>هذه السيرة الذاتية تبرز الخبرة في القيادة التقنية، بناء البنية التحتية، حوكمة الأمن، وإدارة الفرق على مدى 14+ سنة.</p>
+        </div>
+
+        <section class="section">
+          <h2 class="section-title">الملف المهني</h2>
+          <div class="summary">
+            <p>قائد تقني متمرس بخبرة تزيد عن 14 عاماً في إدارة استراتيجية تكنولوجيا المعلومات، تحديث البنية التحتية، وعمليات الأمن السيبراني في مصر والسعودية. سجل حافل في تطوير أقسام التقنية، مركزة عمليات ERP عبر 15+ فرع، وبناء أطر أمنية قوية تمنع الاختراقات. أتمتع بخبرة في إدارة الميزانيات، مفاوضات الموردين، وقيادة الفرق التقنية متعددة المواقع.</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">الخبرة العملية ذات الصلة</h2>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مدير تكنولوجيا المعلومات</span>
+              <span class="exp-company">إكسيلنت لادارة الامتيازات التجاريه، مصر</span>
+              <span class="exp-date">2024 – الحالي</span>
+            </div>
+            <div class="exp-desc">
+              <strong>القيادة:</strong> بناء وقيادة قسم التقنية؛ وضع خارطة الطريق التقنية؛ إدارة علاقات الموردين والميزانية. <strong>الأمن:</strong> تطبيق نموذج zero-trust، حماية النقاط النهائية، وزرع ثقافة الأمان. <strong>ERP:</strong> قيادة تخصيص Odoo وترحيل البيانات عبر 15 فرعاً.
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مهندس تكنولوجيا معلومات أول</span>
+              <span class="exp-company">الشركة الوطنية للمقاولات (NAT)، الإسكندرية</span>
+              <span class="exp-date">2021 – 2023</span>
+            </div>
+            <div class="exp-desc">
+              هندسة بنية المدن الذكية: شبكات الألياف، VLAN، VPN، ونشر أنظمة IDS/IPS. إدارة شبكة الحضور والتحكم بالدخول لأكثر من 40 موقعاً. صيانة الخوادم (Windows/Linux) وحلول Proxmox والنسخ الاحتياطي.
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مدير فرع — عمليات تقنية</span>
+              <span class="exp-company">مؤسسة طيف الألماس، جدة</span>
+              <span class="exp-date">2016 – 2020</span>
+            </div>
+            <div class="exp-desc">
+              الإشراف على عمليات الفرع التقنية، صيانة الأنظمة، وإدارة فرق الدعم. خفض فترات التوقف بنسبة 35% عبر الصيانة الوقائية وتطبيق اتفاقيات الخدمة.
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">الكفاءات الاستراتيجية</h2>
+          <div class="skills-grid">
+            <div class="skill-item"><h4>استراتيجية تقنية المعلومات والحوكمة</h4><p>التخطيط الاستراتيجي، إطار عمل ITIL، إدارة المخاطر، الامتثال التنظيمي، التحول الرقمي.</p></div>
+            <div class="skill-item"><h4>هندسة البنية التحتية</h4><p>التوافر العالي (HA)، التعافي من الكوارث (DR)، التكامل السحابي، Proxmox، ربط الفروع المتعددة (SD-WAN, VPN).</p></div>
+            <div class="skill-item"><h4>الأمن السيبراني وإدارة المخاطر</h4><p>معمارية الثقة المعدومة (Zero Trust)، الجدران النارية (Fortinet/Sophos)، IDS/IPS، حماية النقاط النهائية (EDR).</p></div>
+            <div class="skill-item"><h4>القيادة وإدارة الفرق</h4><p>قيادة الفرق متعددة التخصصات، استقطاب المواهب، إدارة الأداء، منهجيات أجايل (Agile)، التوجيه والإرشاد.</p></div>
+            <div class="skill-item"><h4>إدارة الميزانية والموردين</h4><p>تخطيط CAPEX/OPEX، إعداد كراسات الشروط (RFP)، التفاوض على اتفاقيات مستوى الخدمة (SLA)، تحسين التكاليف.</p></div>
+            <div class="skill-item"><h4>حلول ERP والرقمنة</h4><p>تخصيص Odoo، ترحيل البيانات، رقمنة العمليات، أتمتة سير العمل، ذكاء الأعمال (BI).</p></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">أهم الشهادات</h2>
+          <div class="cert-list">
+            <div class="cert-card">
+              <div class="cert-name">إدارة المشاريع التقنية (PMI معتمد)</div>
+              <div class="cert-issuer">LinkedIn Learning</div>
+              <div class="cert-meta">فبراير 2024 | 1 PDU | مزود #4101</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">إدارة الأنظمة والبنية التحتية</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: RJGPXDVUPR48</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">أمن تكنولوجيا المعلومات: الدفاع ضد الفنون المظلمة الرقمية</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: TYL7F327EEFK</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">أساسيات شبكات الحاسوب</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">أكتوبر 2022 | الرقم: KAMQ3N5JHPT8</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">شهادة دعم تكنولوجيا المعلومات من Google</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: MQWTSLD8T6TW</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">بكالوريوس علوم الحاسب</div>
+              <div class="cert-issuer">جامعة طنطا، مصر</div>
+              <div class="cert-meta">تخرج 2008</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">البرمجة للجميع (Python)</div>
+              <div class="cert-issuer">جامعة ميتشيغان عبر Coursera</div>
+              <div class="cert-meta">نوفمبر 2024 | الرقم: E9BACQ0BZ3L8</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">مقدمة في الذكاء الاصطناعي التوليدي</div>
+              <div class="cert-issuer">Google Cloud عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: TFAYCH8JT38Q</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">مقدمة في نماذج اللغة الكبيرة (LLMs)</div>
+              <div class="cert-issuer">Google Cloud عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: BFDL2QQVJMYB</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">الذكاء الاصطناعي وتعلم الآلة على Google Cloud</div>
+              <div class="cert-issuer">Google Cloud عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: B2RQL988XCHD</div>
+            </div>
+          </div>
+        </section>
+      </div> <!-- END #page-itmanager-ar -->
+
+      <div class="job-page hidden-cv" id="page-erppm-ar">
+        <header>
+          <h1 class="name">أحمد الشهاوي</h1>
+          <div class="title-line">مدير مشاريع IT &amp; ERP (Odoo، ERPNext)</div>
+          <div class="contact-block">
+            📞 +20 100 676 5695 &nbsp;|&nbsp;
+            ✉️ <a href="mailto:ah.alshehawy@gmail.com">ah.alshehawy@gmail.com</a> &nbsp;|&nbsp;
+            🔗 <a href="https://linkedin.com/in/ahmed-el-shehawy" target="_blank">linkedin.com/in/ahmed-el-shehawy</a>
+          </div>
+        </header>
+
+        <div class="job-target">
+          <div class="job-target-title">🎯 موجه لوظيفة: مدير مشاريع IT &amp; ERP</div>
+          <p>هذه السيرة تركز على إدارة مشاريع ERP، تطبيقات Odoo/ERPNext، إعادة هندسة العمليات، وضمان التسليم في الوقت المحدد.</p>
+        </div>
+
+        <section class="section">
+          <h2 class="section-title">الملف المهني</h2>
+          <div class="summary">
+            <p>مدير مشاريع متخصص في أنظمة ERP (Odoo &amp; ERPNext) مع خبرة في إدارة أكثر من 20 مشروعاً تقنياً في السعودية ومصر. atrium معرفة تقنية عميقة مع مهارات إدارية قوية لجمع المتطلبات، تصميم الحلول، إدارة الميزانيات، وقيادة الفرق حتى التسليم النهائي. متخصص في تنفيذ ERP متعدد الشركات، تصميم POS المتقدم، تطوير الوحدات المخصصة، وتدريب المستخدمين النهائيين.</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">الخبرة في إدارة المشاريع</h2>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مدير تكنولوجيا المعلومات — تطبيق Odoo</span>
+              <span class="exp-company">إكسيلنت لادارة الامتيازات التجاريه، مصر</span>
+              <span class="exp-date">2024 – الحالي</span>
+            </div>
+            <div class="exp-desc">
+              قيادة تنفيذ Odoo ERP عبر 15+ فرع: جمع المتطلبات، تصميم الحلول، تخصيص الوحدات (المبيعات، المخزون، المحاسبة)، ترحيل البيانات، تدريب المستخدمين، ودعم ما بعد التشغيل. تطبيق أفضل ممارسات BPR لتحسين العمليات.
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مدير مشاريع تقنية — أنظمة ERP والأنظمة المنخفضة التيار</span>
+              <span class="exp-company">شركة طيف الألماس التجارية، السعودية</span>
+              <span class="exp-date">2023 – 2024</span>
+            </div>
+            <div class="exp-desc">
+              قيادة أكثر من 20 مشروعاً تشمل: كاميرات CCTV، أنظمة إنذار الحريق، التحكم بالدخول، ونقاط البيع. إعداد الجداول الزمنية، متابعة التنفيذ، ضبط الجودة، وإدارة علاقات الموردين.
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مدير فرع — العمليات التقنية</span>
+              <span class="exp-company">مؤسسة طيف الألماس، جدة</span>
+              <span class="exp-date">2016 – 2020</span>
+            </div>
+            <div class="exp-desc">
+              تنفيذ مشاريع تقنية شملت تركيب أنظمة نقاط البيع (POS)، ترقية كاميرات المراقبة، وتكامل أنظمة التحكم بالدخول. تدريب المستخدمين النهائيين وكتابة إجراءات التشغيل القياسية (SOPs) لضمان التميز التشغيلي.
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">الكفاءات التقنية والمشاريع</h2>
+          <div class="skills-grid">
+            <div class="skill-item"><h4>تنفيذ Odoo &amp; ERPNext</h4><p>دورة حياة التنفيذ الكاملة، تهيئة الوحدات، التطوير المخصص، إدارة البيانات الرئيسية (MDM)، ترحيل البيانات.</p></div>
+            <div class="skill-item"><h4>إعادة هندسة العمليات (BPR)</h4><p>تحليل الفجوات، إعادة تصميم سير العمل، تحسين العمليات، إدارة التغيير، التميز التشغيلي.</p></div>
+            <div class="skill-item"><h4>أنظمة نقاط البيع والتجزئة</h4><p>معمارية POS للفروع المتعددة، استراتيجيات التسعير، تكامل الأجهزة، مزامنة المخزون اللحظية.</p></div>
+            <div class="skill-item"><h4>تخطيط وتسليم المشاريع</h4><p>منهجية Agile/Scrum، تحديد النطاق، هيكل تجزئة العمل (WBS)، تخصيص الموارد، إدارة المخاطر.</p></div>
+            <div class="skill-item"><h4>تكاملات REST API</h4><p>ربط الأنظمة، تكامل بوابات الدفع، واجهات برمجة تطبيقات الخدمات اللوجستية، موصلات برامج الطرف الثالث.</p></div>
+            <div class="skill-item"><h4>تدريب المستخدمين والدعم</h4><p>اختبار قبول المستخدم (UAT)، إنشاء أدلة التدريب، الدعم القائم على اتفاقيات مستوى الخدمة (SLA)، التواصل مع أصحاب المصلحة.</p></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">الشهادات</h2>
+          <div class="cert-list">
+            <div class="cert-card">
+              <div class="cert-name">إدارة المشاريع التقنية (PMI معتمد)</div>
+              <div class="cert-issuer">LinkedIn Learning</div>
+              <div class="cert-meta">فبراير 2024 | 1 PDU | مزود #4101</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">البرمجة للجميع (Python)</div>
+              <div class="cert-issuer">جامعة ميتشيغان عبر Coursera</div>
+              <div class="cert-meta">نوفمبر 2024 | الرقم: E9BACQ0BZ3L8</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">بكالوريوس علوم الحاسب</div>
+              <div class="cert-issuer">جامعة طنطا، مصر</div>
+              <div class="cert-meta">تخرج 2008</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">شهادة دعم تكنولوجيا المعلومات من Google</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: MQWTSLD8T6TW</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">إدارة الأنظمة والبنية التحتية</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: RJGPXDVUPR48</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">أساسيات شبكات الحاسوب</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">أكتوبر 2022 | الرقم: KAMQ3N5JHPT8</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">أمن تكنولوجيا المعلومات: الدفاع ضد الفنون المظلمة الرقمية</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: TYL7F327EEFK</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">مقدمة في الذكاء الاصطناعي التوليدي</div>
+              <div class="cert-issuer">Google Cloud عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: TFAYCH8JT38Q</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">مقدمة في نماذج اللغة الكبيرة (LLMs)</div>
+              <div class="cert-issuer">Google Cloud عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: BFDL2QQVJMYB</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">الذكاء الاصطناعي وتعلم الآلة على Google Cloud</div>
+              <div class="cert-issuer">Google Cloud عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: B2RQL988XCHD</div>
+            </div>
+          </div>
+        </section>
+      </div> <!-- END #page-erppm-ar -->
+
+      <!-- Arabic INFOSEC page (longer skills list, similar structure) -->
+      <div class="job-page hidden-cv" id="page-infosec-ar">
+        <header>
+          <h1 class="name">أحمد الشهاوي</h1>
+          <div class="title-line">أخصائي البنية التحتية والأمن السيبراني</div>
+          <div class="contact-block">
+            📞 +20 100 676 5695 &nbsp;|&nbsp;
+            ✉️ <a href="mailto:ah.alshehawy@gmail.com">ah.alshehawy@gmail.com</a> &nbsp;|&nbsp;
+            🔗 <a href="https://linkedin.com/in/ahmed-el-shehawy" target="_blank">linkedin.com/in/ahmed-el-shehawy</a>
+          </div>
+        </header>
+
+        <div class="job-target">
+          <div class="job-target-title">🎯 موجه لوظيفة: البنية التحتية والأمن السيبراني</div>
+          <p>هذه السيرة تسلط الضوء على خبرة واسعة في الشبكات، تأمين البنية التحتية، نشر أنظمة الحماية، ومشاريع المدن الذكية.</p>
+        </div>
+
+        <section class="section">
+          <h2 class="section-title">الملف المهني</h2>
+          <div class="summary">
+            <p>مهندس أمن سيبراني وبنية تحتية بخبرة عملية تزيد عن 14 عاماً في تصميم وتنفيذ وتأمين الشبكات المؤسسية في مصر والمملكة العربية السعودية. متخصص في نشر جدران الحماية (Fortigate، Sophos، OPNsense)، أنظمة كشف التسلل، VPN، VLAN، وتطبيق معايير الأمن والامتثال. شاركت في بناء بنية المدن الذكية وأنظمة الحضور/التحكم بالدخول على نطاق واسع.</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">الخبرة العملية</h2>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title">مدير تكنولوجيا المعلومات — أمن المؤسسات</span>
+            <span class="exp-company">إكسيلنت لادارة الامتيازات التجاريه، مصر</span>
+            <span class="exp-date">2024 – الحالي</span>
+          </div>
+          <div class="exp-desc">
+            فرض سياسات الأمن على مستوى المؤسسة، ونشر معمارية شبكة الثقة المعدومة (Zero-trust) وحماية النقاط النهائية عبر 15+ فرعاً. إجراء تقييمات دورية للثغرات وحماية بيانات الشركة.
+          </div>
+        </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مدير مشاريع تقنية — أنظمة أمنية</span>
+              <span class="exp-company">شركة طيف الألماس التجارية، السعودية</span>
+              <span class="exp-date">2023 – 2024</span>
+            </div>
+            <div class="exp-desc">
+              إدارة 20+ مشروع أمني (كاميرات، إنذار حريق، تحكم بالدخول). ضمان الامتثال للمعايير الأمنية ودمج الأنظمة مع البنية التحتية الحالية. تدريب العملاء على الاستخدام وأفضل الممارسات.
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مهندس تكنولوجيا معلومات أول — أمن وبنية ذكية</span>
+              <span class="exp-company">الشركة الوطنية للمقاولات (NAT)، الإسكندرية</span>
+              <span class="exp-date">2021 – 2023</span>
+            </div>
+            <div class="exp-desc">
+              تصميم بنية المدن الذكية: شبكات الألياف البصرية، تقسيم VLAN، نفق VPN، ونشر أنظمة IDS/IPS. تأمين الخوادم وأجهزة النقاط الطرفية. تدقيق الشبكة وتقييم الثغرات بانتظام.
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <span class="exp-title">مدير فرع — عمليات تقنية</span>
+              <span class="exp-company">مؤسسة طيف الألماس، جدة</span>
+              <span class="exp-date">2016 – 2020</span>
+            </div>
+            <div class="exp-desc">
+              صيانة أمن الفرع، تحديث سياسات الجدران النارية، وإدارة响应 للحوادث. الإشراف على أنظمة الأمن المادي: التحكم بالدخول، إنذار الحريق، ونظام كاميرات المراقبة.
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">المهارات التقنية</h2>
+          <div class="skills-grid">
+            <div class="skill-item"><h4>أمن الشبكات</h4><p>جدران الحماية من الجيل التالي (FortiGate, Sophos)، شبكات IPsec/SSL VPN، تقسيم VLAN، توجيه L2/L3، SD-WAN.</p></div>
+            <div class="skill-item"><h4>كشف التسلل ومراقبة التهديدات</h4><p>كشف ومنع التسلل (IDS/IPS)، مفاهيم SIEM، تحليل السجلات، البحث عن التهديدات، فحص الحزم.</p></div>
+            <div class="skill-item"><h4>التصلب والامتثال</h4><p>خطوط الأساس الأمنية (Security Baselines)، إدارة التصحيحات، حماية النقاط النهائية (EDR)، أساسيات اختبار الاختراق، مسارات التدقيق.</p></div>
+            <div class="skill-item"><h4>البنية التحتية للخوادم</h4><p>إدارة خوادم Windows/Linux، الافتراضية باستخدام Proxmox، مجموعات التوافر العالي، النسخ الاحتياطي باستخدام Veeam والتعافي من الكوارث.</p></div>
+            <div class="skill-item"><h4>أنظمة الأمن المادي</h4><p>تصميم شبكات كاميرات المراقبة (CCTV)، لوحات التحكم بالدخول، تكامل إنذار الحريق، أنظمة المصادقة البيومترية.</p></div>
+            <div class="skill-item"><h4>أتمتة الأمن بواسطة Python</h4><p>سكريبتات أتمتة المهام، أدوات المراقبة الأمنية، تحليل السجلات، خطوط أنابيب ETL لبيانات الأمان.</p></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">الشهادات</h2>
+          <div class="cert-list">
+            <div class="cert-card">
+              <div class="cert-name">أمن تكنولوجيا المعلومات: الدفاع ضد الفنون المظلمة الرقمية</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: TYL7F327EEFK</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">أساسيات شبكات الحاسوب</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">أكتوبر 2022 | الرقم: KAMQ3N5JHPT8</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">إدارة الأنظمة والبنية التحتية</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: RJGPXDVUPR48</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">شهادة دعم تكنولوجيا المعلومات من Google</div>
+              <div class="cert-issuer">Google عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: MQWTSLD8T6TW</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">البرمجة للجميع (Python)</div>
+              <div class="cert-issuer">جامعة ميتشيغان عبر Coursera</div>
+              <div class="cert-meta">نوفمبر 2024 | الرقم: E9BACQ0BZ3L8</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">بكالوريوس علوم الحاسب</div>
+              <div class="cert-issuer">جامعة طنطا، مصر</div>
+              <div class="cert-meta">تخرج 2008</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">إدارة المشاريع التقنية (PMI معتمد)</div>
+              <div class="cert-issuer">LinkedIn Learning</div>
+              <div class="cert-meta">فبراير 2024 | 1 PDU | مزود #4101</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">مقدمة في الذكاء الاصطناعي التوليدي</div>
+              <div class="cert-issuer">Google Cloud عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: TFAYCH8JT38Q</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">مقدمة في نماذج اللغة الكبيرة (LLMs)</div>
+              <div class="cert-issuer">Google Cloud عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: BFDL2QQVJMYB</div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-name">الذكاء الاصطناعي وتعلم الآلة على Google Cloud</div>
+              <div class="cert-issuer">Google Cloud عبر Coursera</div>
+              <div class="cert-meta">مارس 2024 | الرقم: B2RQL988XCHD</div>
+            </div>
+          </div>
+        </section>
+      </div> <!-- END #page-infosec-ar -->
+
+    <!-- Actions AR -->
+    <div class="actions no-print">
+      <button class="btn" onclick="window.print()">🖨️ طباعة / حفظ كملف PDF</button>
+      <a href="My certificates.pdf" class="btn btn-secondary" target="_blank" download>🎓 تحميل الشهادات</a>
+      <a href="index.html" class="btn btn-secondary">→ العودة إلى الملف المهني</a>
+    </div>
+
+    <footer class="no-print">
+      <p>أحمد الشهاوي — السيرة الذاتية • تم إنشاؤها إلكترونياً من بيانات الملف المهني • آخر تحديث 2025</p>
+    </footer>
+
+    </div> <!-- END #cv-ar -->
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="no-print" title="Back to top">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m18 15-6-6-6 6" />
+      </svg>
+    </button>
+
+  </div> <!-- .wrapper -->
+
+  <script>
+    // Language switching logic
+    (function () {
+      const btns = document.querySelectorAll('.lang-btn');
+      const cvs = {
+        en: document.getElementById('cv-en'),
+        ar: document.getElementById('cv-ar')
+      };
+
+      function setLang(lang) {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        cvs.en.classList.toggle('hidden-cv', lang !== 'en');
+        cvs.ar.classList.toggle('hidden-cv', lang !== 'ar');
+        // Save preference
+        try { localStorage.setItem('cv-lang', lang); } catch (e) {}
+        // Update active button
+        btns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+
+        // Update theme toggle text
+        const themeText = document.querySelector('#themeToggle .text');
+        if (themeText) {
+          const isDark = document.documentElement.classList.contains('dark-mode');
+          themeText.textContent = lang === 'ar' ? (isDark ? 'فاتح' : 'داكن') : (isDark ? 'Light' : 'Dark');
+        }
+      }
+
+      btns.forEach(btn => {
+        btn.addEventListener('click', () => setLang(btn.dataset.lang));
+      });
+
+      // Initial language selection
+      const stored = localStorage.getItem('cv-lang');
+      const browserLang = (navigator.language || '').startsWith('ar') ? 'ar' : 'en';
+      setLang(stored || browserLang);
+    })();
+
+    // Targeted CV role switching
+    (function () {
+      const roleBtns = document.querySelectorAll('.role-btn');
+      const pages = {
+        generic: {
+          en: document.getElementById('page-generic-en'),
+          ar: document.getElementById('page-generic-ar')
+        },
+        itmanager: {
+          en: document.getElementById('page-itmanager-en'),
+          ar: document.getElementById('page-itmanager-ar')
+        },
+        erppm: {
+          en: document.getElementById('page-erppm-en'),
+          ar: document.getElementById('page-erppm-ar')
+        },
+        infosec: {
+          en: document.getElementById('page-infosec-en'),
+          ar: document.getElementById('page-infosec-ar')
+        }
+      };
+
+      function setRole(role) {
+        // Hide all pages
+        Object.values(pages).forEach(lang => {
+          if (lang.en) lang.en.classList.add('hidden-cv');
+          if (lang.ar) lang.ar.classList.add('hidden-cv');
+        });
+        // Show selected role for both languages (visibility is controlled by parent #cv-en / #cv-ar)
+        if (pages[role].en) pages[role].en.classList.remove('hidden-cv');
+        if (pages[role].ar) pages[role].ar.classList.remove('hidden-cv');
+
+        // Update buttons
+        roleBtns.forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.role === role);
+        });
+      }
+
+      roleBtns.forEach(btn => {
+        btn.addEventListener('click', () => setRole(btn.dataset.role));
+      });
+
+      // Initial role — URL param overrides stored
+      const params = new URLSearchParams(window.location.search);
+      const urlRole = params.get('role');
+      const storedRole = localStorage.getItem('cv-role');
+      const initialRole = (urlRole && ['generic','itmanager','erppm','infosec'].includes(urlRole)) ? urlRole : (storedRole || 'generic');
+      setRole(initialRole);
+
+      // Save role on change
+      roleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          try { localStorage.setItem('cv-role', btn.dataset.role); } catch (e) {}
+        });
+      });
+    })();
+
+    // Theme switching logic
+    (function() {
+      const themeToggle = document.getElementById('themeToggle');
+      const icon = themeToggle.querySelector('.icon');
+      const text = themeToggle.querySelector('.text');
+      
+      function setTheme(isDark) {
+        if (isDark) {
+          document.documentElement.classList.add('dark-mode');
+          icon.textContent = '☀️';
+        } else {
+          document.documentElement.classList.remove('dark-mode');
+          icon.textContent = '🌙';
+        }
+        const lang = document.documentElement.lang || 'en';
+        text.textContent = lang === 'ar' ? (isDark ? 'فاتح' : 'داكن') : (isDark ? 'Light' : 'Dark');
+        try { localStorage.setItem('cv-theme', isDark ? 'dark' : 'light'); } catch(e) {}
+      }
+
+      themeToggle.addEventListener('click', () => {
+        setTheme(!document.documentElement.classList.contains('dark-mode'));
+      });
+
+      const storedTheme = localStorage.getItem('cv-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(storedTheme === 'dark' || (!storedTheme && prefersDark));
+    })();
+
+    // Back to top logic
+    (function() {
+      const btt = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) btt.classList.add('visible');
+        else btt.classList.remove('visible');
+      });
+      btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+  </script>
+
+</body>
+</html>

@@ -117,7 +117,7 @@ Dynamic and results-driven **IT Leader** with over **14 years** of proven experi
 ## 🎓 Education & Certifications
 
 ### **Academic Degree**
-- 🎓 **Bachelor Degree** - Tanta University (2008)
+- 🎓 **Bachelor's Degree (LL.B. in Law)** - Tanta University (2008)
 
 ### **Professional Certifications**
 
